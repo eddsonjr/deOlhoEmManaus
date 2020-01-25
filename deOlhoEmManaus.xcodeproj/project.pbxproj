@@ -10,6 +10,12 @@
 		534CEE5ECF41212D7F173648 /* Pods_deOlhoEmManausUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D029BC842FCFD64D3AA42874 /* Pods_deOlhoEmManausUITests.framework */; };
 		930F863C7C4CE664CEA91102 /* Pods_deOlhoEmManausTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5253A98F26D06F1F24A77B19 /* Pods_deOlhoEmManausTests.framework */; };
 		A28075697C9A740F9DB0318C /* Pods_deOlhoEmManaus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 027070C193EC43F459B4127C /* Pods_deOlhoEmManaus.framework */; };
+		AD0077CC23DBCD470069E28B /* ShowHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077C823DBCD460069E28B /* ShowHouse.swift */; };
+		AD0077CD23DBCD470069E28B /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077C923DBCD460069E28B /* Show.swift */; };
+		AD0077CE23DBCD470069E28B /* Categoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077CA23DBCD470069E28B /* Categoria.swift */; };
+		AD0077CF23DBCD470069E28B /* ModelSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077CB23DBCD470069E28B /* ModelSingleton.swift */; };
+		AD0077D123DBCD6B0069E28B /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077D023DBCD6B0069E28B /* UIImageExtensions.swift */; };
+		AD0077D323DBCD7D0069E28B /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077D223DBCD7D0069E28B /* FirebaseService.swift */; };
 		AD2176EE23DBC92900BE2AD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2176ED23DBC92900BE2AD0 /* AppDelegate.swift */; };
 		AD2176F023DBC92900BE2AD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2176EF23DBC92900BE2AD0 /* ViewController.swift */; };
 		AD2176F323DBC92900BE2AD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD2176F123DBC92900BE2AD0 /* Main.storyboard */; };
@@ -45,6 +51,12 @@
 		5253A98F26D06F1F24A77B19 /* Pods_deOlhoEmManausTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_deOlhoEmManausTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77247EAC490D6425670374DD /* Pods-deOlhoEmManaus.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-deOlhoEmManaus.debug.xcconfig"; path = "Pods/Target Support Files/Pods-deOlhoEmManaus/Pods-deOlhoEmManaus.debug.xcconfig"; sourceTree = "<group>"; };
 		93CF529961CEB65B8E127239 /* Pods-deOlhoEmManaus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-deOlhoEmManaus.release.xcconfig"; path = "Pods/Target Support Files/Pods-deOlhoEmManaus/Pods-deOlhoEmManaus.release.xcconfig"; sourceTree = "<group>"; };
+		AD0077C823DBCD460069E28B /* ShowHouse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHouse.swift; sourceTree = "<group>"; };
+		AD0077C923DBCD460069E28B /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		AD0077CA23DBCD470069E28B /* Categoria.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categoria.swift; sourceTree = "<group>"; };
+		AD0077CB23DBCD470069E28B /* ModelSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelSingleton.swift; sourceTree = "<group>"; };
+		AD0077D023DBCD6B0069E28B /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
+		AD0077D223DBCD7D0069E28B /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		AD2176EA23DBC92900BE2AD0 /* deOlhoEmManaus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deOlhoEmManaus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD2176ED23DBC92900BE2AD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD2176EF23DBC92900BE2AD0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +128,10 @@
 		AD0077BE23DBCC190069E28B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AD0077CA23DBCD470069E28B /* Categoria.swift */,
+				AD0077CB23DBCD470069E28B /* ModelSingleton.swift */,
+				AD0077C923DBCD460069E28B /* Show.swift */,
+				AD0077C823DBCD460069E28B /* ShowHouse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -123,8 +139,25 @@
 		AD0077BF23DBCC300069E28B /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				AD0077D223DBCD7D0069E28B /* FirebaseService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		AD0077C023DBCC620069E28B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				AD2176EF23DBC92900BE2AD0 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		AD0077C123DBCC880069E28B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AD0077D023DBCD6B0069E28B /* UIImageExtensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		AD2176E123DBC92900BE2AD0 = {
@@ -152,11 +185,12 @@
 		AD2176EC23DBC92900BE2AD0 /* deOlhoEmManaus */ = {
 			isa = PBXGroup;
 			children = (
+				AD0077C123DBCC880069E28B /* Extensions */,
+				AD0077C023DBCC620069E28B /* Controller */,
 				AD0077BF23DBCC300069E28B /* Service */,
 				AD0077BE23DBCC190069E28B /* Model */,
 				AD0077BD23DBCC070069E28B /* View */,
 				AD2176ED23DBC92900BE2AD0 /* AppDelegate.swift */,
-				AD2176EF23DBC92900BE2AD0 /* ViewController.swift */,
 				AD2176F723DBC92B00BE2AD0 /* Assets.xcassets */,
 				AD2176FC23DBC92B00BE2AD0 /* Info.plist */,
 				AD2176F423DBC92900BE2AD0 /* deOlhoEmManaus.xcdatamodeld */,
@@ -444,6 +478,12 @@
 				AD2176F023DBC92900BE2AD0 /* ViewController.swift in Sources */,
 				AD2176EE23DBC92900BE2AD0 /* AppDelegate.swift in Sources */,
 				AD2176F623DBC92900BE2AD0 /* deOlhoEmManaus.xcdatamodeld in Sources */,
+				AD0077D123DBCD6B0069E28B /* UIImageExtensions.swift in Sources */,
+				AD0077CD23DBCD470069E28B /* Show.swift in Sources */,
+				AD0077CF23DBCD470069E28B /* ModelSingleton.swift in Sources */,
+				AD0077D323DBCD7D0069E28B /* FirebaseService.swift in Sources */,
+				AD0077CC23DBCD470069E28B /* ShowHouse.swift in Sources */,
+				AD0077CE23DBCD470069E28B /* Categoria.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
