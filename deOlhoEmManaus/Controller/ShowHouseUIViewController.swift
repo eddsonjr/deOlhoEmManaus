@@ -17,9 +17,8 @@ class ShowHouseUIViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(self.TAG + "Singleton de show: \(ShowSingleton.shared.show?.showHouseKey)")
-        print(self.TAG + "Carregando imagem....")
-        self.imageView.loadImageUsingCache(withUrlString: (ShowSingleton.shared.show?.imageUrl)!)
+        print(self.TAG + "Singleton show: \(ModelSingleton.shared.showSelected?.id)")
+        self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
         
     }
 
@@ -30,7 +29,7 @@ class ShowHouseUIViewController: UIViewController {
     
     
     @IBAction func contactAndAddressButton(_ sender: Any) {
-        print("BOTAO PRESSIONADO!")
+        print(self.TAG + "Contact selected...")
     }
     
 }

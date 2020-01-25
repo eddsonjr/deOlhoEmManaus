@@ -12,7 +12,7 @@
 		A28075697C9A740F9DB0318C /* Pods_deOlhoEmManaus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 027070C193EC43F459B4127C /* Pods_deOlhoEmManaus.framework */; };
 		AD0077CC23DBCD470069E28B /* ShowHouse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077C823DBCD460069E28B /* ShowHouse.swift */; };
 		AD0077CD23DBCD470069E28B /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077C923DBCD460069E28B /* Show.swift */; };
-		AD0077CE23DBCD470069E28B /* Categoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077CA23DBCD470069E28B /* Categoria.swift */; };
+		AD0077CE23DBCD470069E28B /* Categorie.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077CA23DBCD470069E28B /* Categorie.swift */; };
 		AD0077CF23DBCD470069E28B /* ModelSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077CB23DBCD470069E28B /* ModelSingleton.swift */; };
 		AD0077D123DBCD6B0069E28B /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077D023DBCD6B0069E28B /* UIImageExtensions.swift */; };
 		AD0077D323DBCD7D0069E28B /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077D223DBCD7D0069E28B /* FirebaseService.swift */; };
@@ -58,7 +58,7 @@
 		93CF529961CEB65B8E127239 /* Pods-deOlhoEmManaus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-deOlhoEmManaus.release.xcconfig"; path = "Pods/Target Support Files/Pods-deOlhoEmManaus/Pods-deOlhoEmManaus.release.xcconfig"; sourceTree = "<group>"; };
 		AD0077C823DBCD460069E28B /* ShowHouse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHouse.swift; sourceTree = "<group>"; };
 		AD0077C923DBCD460069E28B /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
-		AD0077CA23DBCD470069E28B /* Categoria.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categoria.swift; sourceTree = "<group>"; };
+		AD0077CA23DBCD470069E28B /* Categorie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categorie.swift; sourceTree = "<group>"; };
 		AD0077CB23DBCD470069E28B /* ModelSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelSingleton.swift; sourceTree = "<group>"; };
 		AD0077D023DBCD6B0069E28B /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		AD0077D223DBCD7D0069E28B /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		AD0077BE23DBCC190069E28B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				AD0077CA23DBCD470069E28B /* Categoria.swift */,
+				AD0077CA23DBCD470069E28B /* Categorie.swift */,
 				AD0077CB23DBCD470069E28B /* ModelSingleton.swift */,
 				AD0077C923DBCD460069E28B /* Show.swift */,
 				AD0077C823DBCD460069E28B /* ShowHouse.swift */,
@@ -511,7 +511,7 @@
 				AD0077CF23DBCD470069E28B /* ModelSingleton.swift in Sources */,
 				AD0077D323DBCD7D0069E28B /* FirebaseService.swift in Sources */,
 				AD0077CC23DBCD470069E28B /* ShowHouse.swift in Sources */,
-				AD0077CE23DBCD470069E28B /* Categoria.swift in Sources */,
+				AD0077CE23DBCD470069E28B /* Categorie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,7 +18,8 @@ class FirebaseService {
     private let retrieveAllCategoriesDispatchGroup = DispatchGroup()
     private let retrieveAllShowsDispatchGroup = DispatchGroup()
     private let organizingDataDispatchGroup = DispatchGroup()
-    let appDelegateReference = UIApplication.shared.delegate as! AppDelegate
+    private let appDelegateReference = UIApplication.shared.delegate as! AppDelegate
+    private let notificationIdentifier: String = "NotificationIdentifier"
     
     
     //Funcao para baixar todos os dados de categoria
@@ -131,7 +132,7 @@ class FirebaseService {
         }
         self.organizingDataDispatchGroup.leave()
         self.organizingDataDispatchGroup.notify(queue: .main) {
-            
+            NotificationCenter.default.post(name: Notification.Name("NotificationIdentifier"), object: nil)
         }
         
     }

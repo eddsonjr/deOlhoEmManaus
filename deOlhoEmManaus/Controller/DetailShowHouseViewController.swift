@@ -27,16 +27,16 @@ class DetailShowHouseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.phone1Label.text = ShowSingleton.shared.show?.showHouse?.phone1
-        self.ruaLabel.text = ShowSingleton.shared.show?.showHouse?.street
-        self.bairroLabel.text = ShowSingleton.shared.show?.showHouse?.neighborhood
-        self.numeroLabel.text = ShowSingleton.shared.show?.showHouse?.number
-        self.cepLabel.text = ShowSingleton.shared.show?.showHouse?.zip
-        self.nomeLocalLabel.text = ShowSingleton.shared.show?.showHouse?.name
+        //self.phone1Label.text = ShowSingleton.shared.show?.showHouse?.phone1
+        self.ruaLabel.text = ModelSingleton.shared.showSelected?.showHouse?.street
+        self.bairroLabel.text = ModelSingleton.shared.showSelected?.showHouse?.neighborhood
+        self.numeroLabel.text = ModelSingleton.shared.showSelected?.showHouse?.number
+        self.cepLabel.text = ModelSingleton.shared.showSelected?.showHouse?.zip
+        self.nomeLocalLabel.text = ModelSingleton.shared.showSelected?.showHouse?.name
         
         
-        if(ShowSingleton.shared.show?.showHouse?.phone2 != nil ||  ShowSingleton.shared.show?.showHouse?.phone2 != ""){
-            self.phone2Label.text = ShowSingleton.shared.show?.showHouse?.phone2
+        if(ModelSingleton.shared.showSelected?.showHouse?.phone2 != nil ||  ModelSingleton.shared.showSelected?.showHouse?.phone2 != ""){
+            self.phone2Label.text = ModelSingleton.shared.showSelected?.showHouse?.phone2
         }
         
 
@@ -52,17 +52,19 @@ class DetailShowHouseViewController: UIViewController {
     
     @IBAction func verMapaButton(_ sender: Any) {
         
-        let latitude = ShowSingleton.shared.show?.showHouse?.latitude
-        let longitude = ShowSingleton.shared.show?.showHouse?.longitude
+        //TODO - IMPLEMENTAR BASEADO NO ENDERECO E NAO MAIS NA LONGITUDE E NA LATITUDE
         
-        let camera = GMSCameraPosition.camera(withLatitude: latitude!, longitude: longitude!, zoom: 6.0)
-        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-        view = mapView
-        
-        
-        let marker = GMSMarker()
-        marker.position = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
-        marker.map = mapView
+//        let latitude = ModelSingleton.shared.showSelected?.showHouse?.latitude
+//        let longitude = ShowSingleton.shared.show?.showHouse?.longitude
+//
+//        let camera = GMSCameraPosition.camera(withLatitude: latitude!, longitude: longitude!, zoom: 6.0)
+//        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
+//        view = mapView
+//
+//
+//        let marker = GMSMarker()
+//        marker.position = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+//        marker.map = mapView
         
     }
     
