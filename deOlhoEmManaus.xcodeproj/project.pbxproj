@@ -104,6 +104,29 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		AD0077BD23DBCC070069E28B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AD2176F123DBC92900BE2AD0 /* Main.storyboard */,
+				AD2176F923DBC92B00BE2AD0 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AD0077BE23DBCC190069E28B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AD0077BF23DBCC300069E28B /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		AD2176E123DBC92900BE2AD0 = {
 			isa = PBXGroup;
 			children = (
@@ -129,11 +152,12 @@
 		AD2176EC23DBC92900BE2AD0 /* deOlhoEmManaus */ = {
 			isa = PBXGroup;
 			children = (
+				AD0077BF23DBCC300069E28B /* Service */,
+				AD0077BE23DBCC190069E28B /* Model */,
+				AD0077BD23DBCC070069E28B /* View */,
 				AD2176ED23DBC92900BE2AD0 /* AppDelegate.swift */,
 				AD2176EF23DBC92900BE2AD0 /* ViewController.swift */,
-				AD2176F123DBC92900BE2AD0 /* Main.storyboard */,
 				AD2176F723DBC92B00BE2AD0 /* Assets.xcassets */,
-				AD2176F923DBC92B00BE2AD0 /* LaunchScreen.storyboard */,
 				AD2176FC23DBC92B00BE2AD0 /* Info.plist */,
 				AD2176F423DBC92900BE2AD0 /* deOlhoEmManaus.xcdatamodeld */,
 			);
@@ -305,8 +329,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-deOlhoEmManaus/Pods-deOlhoEmManaus-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
@@ -321,8 +343,6 @@
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
@@ -345,15 +365,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-deOlhoEmManausUITests-checkManifestLockResult.txt",
 			);
@@ -367,16 +383,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-deOlhoEmManaus/Pods-deOlhoEmManaus-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
@@ -391,15 +403,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-deOlhoEmManausTests-checkManifestLockResult.txt",
 			);
@@ -413,15 +421,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-deOlhoEmManaus-checkManifestLockResult.txt",
 			);
