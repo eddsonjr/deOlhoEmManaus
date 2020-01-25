@@ -119,7 +119,6 @@ class FirebaseService {
     
     //Esta funcao serve para organizar os dados de acordo com
     func organizeAllCategoriesAndShowData() {
-        
         self.organizingDataDispatchGroup.enter()
         for categorie in ModelSingleton.shared.categories {
             print(self.TAG + "Organizing shows of category \(categorie.name)")
@@ -130,6 +129,7 @@ class FirebaseService {
                 }
             }
         }
+        
         self.organizingDataDispatchGroup.leave()
         self.organizingDataDispatchGroup.notify(queue: .main) {
             NotificationCenter.default.post(name: Notification.Name("NotificationIdentifier"), object: nil)

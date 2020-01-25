@@ -35,6 +35,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         // Register to receive notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationIdentifier"), object: nil)
         
+        
+        self.service.retrieveDataFromWeb()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -90,7 +93,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //MARK: collectionView datasource and delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        return (self.listaDeCategorias![self.atualCategoriaIndex].shows?.count)!
+        var numberOfShowsForThisCategorie = 0
+        if(self.listaDeCategorias![self.atualCategoriaIndex].shows != nil){
+            numberOfShowsForThisCategorie = (self.listaDeCategorias![self.atualCategoriaIndex].shows?.count)!
+        }
+        
+        return numberOfShowsForThisCategorie
+        
+        
     }
     
     
