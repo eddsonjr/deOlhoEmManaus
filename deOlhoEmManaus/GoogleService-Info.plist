@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>645954734046-nlng4jj48hqb31595ii4to2od0tsgi3c.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.645954734046-nlng4jj48hqb31595ii4to2od0tsgi3c</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>645954734046-jpvcnlehgivsvtji7ceqi4ae12n2goeb.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA1TxMzX-zTD_rKOu25cOX7ZcGlxiBueDI</string>
+	<key>GCM_SENDER_ID</key>
+	<string>645954734046</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.EdsonJr.deOlhoEmManaus</string>
+	<key>PROJECT_ID</key>
+	<string>deolhoemmanaustests</string>
+	<key>STORAGE_BUCKET</key>
+	<string>deolhoemmanaustests.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:645954734046:ios:c12751e5373b809a6aff4f</string>
+	<key>DATABASE_URL</key>
+	<string>https://deolhoemmanaustests.firebaseio.com</string>
+</dict>
+</plist>
