@@ -8,15 +8,19 @@
 
 import UIKit
 import CoreData
+import Firebase  //Importando a lib do firebase.
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var databaseRef: DatabaseReference!
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        FirebaseApp.configure()  //Configurando a conexao com o banco assim que a aplicacao iniciar
+        self.databaseRef = Database.database().reference()
         return true
     }
 
