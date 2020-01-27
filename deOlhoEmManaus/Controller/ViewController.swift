@@ -21,6 +21,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var collectionCell: CollectionViewCell!
     
     
+    //somente para testes
+    
+    
     
 
     override func viewDidLoad() {
@@ -103,11 +106,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         self.collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
         
-        print(self.TAG + "CategoriaAtualIndex: \(self.atualCategoriaIndex) -- indexPath: \(indexPath.row)")
+        
+        
         let imgUrl = self.listaDeCategorias![self.atualCategoriaIndex].shows[indexPath.row].imageUrl!
-        print(self.TAG + "imgUrl: \(imgUrl)")
-        
-        
         collectionCell.tableViewSectionNumber = self.atualCategoriaIndex
         collectionCell.imageView.loadImageUsingCache(withUrlString: imgUrl)
         
@@ -125,8 +126,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
         show = self.listaDeCategorias![cell.tableViewSectionNumber].shows[indexPath.row]
         ModelSingleton.shared.showSelected = show
-        print("Pegando o shwo correspondente: \(show.showHouseKey) - \(show.imageUrl)")
-        print("Ainda na collection. Singleton de show: \(ModelSingleton.shared.showSelected?.imageUrl)")
         
     }
     
