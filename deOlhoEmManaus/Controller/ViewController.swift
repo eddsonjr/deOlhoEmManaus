@@ -14,7 +14,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet var tableView: UITableView!
     
     
-    
+    private let TAG = "[ViewController]: "
     var service: FirebaseService = FirebaseService()
     var listaDeCategorias: Array<Categorie>? = []
     var atualCategoriaIndex = 0
@@ -94,10 +94,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //MARK: collectionView datasource and delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         var numberOfShowsForThisCategorie = (self.listaDeCategorias![self.atualCategoriaIndex].shows.count)
-//        if(self.listaDeCategorias![self.atualCategoriaIndex].shows.count != 0){
-//            numberOfShowsForThisCategorie = (self.listaDeCategorias![self.atualCategoriaIndex].shows.count)
-//            print("Entrou aqui! - Numero de secoes: \(numberOfShowsForThisCategorie)")
-//        }
         return numberOfShowsForThisCategorie
     }
     
@@ -107,8 +103,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         self.collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
         
+        print(self.TAG + "CategoriaAtualIndex: \(self.atualCategoriaIndex) -- indexPath: \(indexPath.row)")
         let imgUrl = self.listaDeCategorias![self.atualCategoriaIndex].shows[indexPath.row].imageUrl!
-        print("imgUrl: \(imgUrl)")
+        print(self.TAG + "imgUrl: \(imgUrl)")
+        
         
         collectionCell.tableViewSectionNumber = self.atualCategoriaIndex
         collectionCell.imageView.loadImageUsingCache(withUrlString: imgUrl)
