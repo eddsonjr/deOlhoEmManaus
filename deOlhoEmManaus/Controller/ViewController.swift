@@ -22,6 +22,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     //somente para testes
+    private var i = 0
     
     
     
@@ -105,8 +106,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         self.collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
-        
-        
         
         let imgUrl = self.listaDeCategorias![self.atualCategoriaIndex].shows[indexPath.row].imageUrl!
         collectionCell.tableViewSectionNumber = self.atualCategoriaIndex

@@ -50,6 +50,7 @@ class ModelSingleton {
             }
         }
         self.categories = tempArray
+        print(self.TAG + "Number of categories: \(self.categories.count) - [after remove no shows]")
     }
     
     
