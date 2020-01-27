@@ -20,8 +20,6 @@ class ModelSingleton {
     var shows: [Show] = [] //armazena a lista de shows baixadas da internet (via firebase)
     var categories: [Categorie] = [] //armazena a lista de categorias baixadas da internet (via firebase)
     
-    init() {
-    }
     
     
     
@@ -38,6 +36,20 @@ class ModelSingleton {
                 }
             }
         }
+    }
+    
+    
+    
+    //Esta funcao serve para remover categorias que nao apresentam shows associados.
+    func removeCategoriesWithNoShows() {
+        var tempArray: [Categorie] = []
+        for categorie in self.categories {
+            if(categorie.shows != nil){
+                tempArray.append(categorie)
+                print(self.TAG + "Categorie \(categorie.name) with \(categorie.shows?.count) shows within...")
+            }
+        }
+        self.categories = tempArray
     }
     
     

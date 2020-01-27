@@ -93,14 +93,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //MARK: collectionView datasource and delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        var numberOfShowsForThisCategorie = 0
-        if(self.listaDeCategorias![self.atualCategoriaIndex].shows != nil){
-            numberOfShowsForThisCategorie = (self.listaDeCategorias![self.atualCategoriaIndex].shows?.count)!
-        }
-        
+        var numberOfShowsForThisCategorie = (self.listaDeCategorias![self.atualCategoriaIndex].shows?.count)!
+//        if(self.listaDeCategorias![self.atualCategoriaIndex].shows != nil){
+//            numberOfShowsForThisCategorie = (self.listaDeCategorias![self.atualCategoriaIndex].shows?.count)!
+//            print("Entrou aqui! - Numero de secoes: \(numberOfShowsForThisCategorie)")
+//        }
         return numberOfShowsForThisCategorie
-        
-        
     }
     
     
