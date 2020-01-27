@@ -32,7 +32,7 @@ class ModelSingleton {
             for show in self.shows {
                 if(show.category == categorie.name){
                     print(self.TAG + "Putting show \(show.id) in category \(categorie.name)")
-                    categorie.shows?.append(show)
+                    categorie.shows.append(show)
                 }
             }
         }
@@ -44,9 +44,9 @@ class ModelSingleton {
     func removeCategoriesWithNoShows() {
         var tempArray: [Categorie] = []
         for categorie in self.categories {
-            if(categorie.shows != nil){
+            if(categorie.shows.count != 0){
                 tempArray.append(categorie)
-                print(self.TAG + "Categorie \(categorie.name) with \(categorie.shows?.count) shows within...")
+                print(self.TAG + "Categorie \(categorie.name) with \(categorie.shows.count) shows within...")
             }
         }
         self.categories = tempArray

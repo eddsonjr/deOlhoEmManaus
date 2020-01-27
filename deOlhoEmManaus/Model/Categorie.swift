@@ -12,7 +12,7 @@ import UIKit
 class Categorie{
     
     var name: String?
-    var shows: [Show]?
+    var shows: [Show] = []
     
     
     //default init - sem parametros
@@ -22,7 +22,7 @@ class Categorie{
     //init com parametros
     init(name: String?,shows:[Show]?){
         self.name = name
-        self.shows = shows
+        self.shows = shows!
     }
 
 }

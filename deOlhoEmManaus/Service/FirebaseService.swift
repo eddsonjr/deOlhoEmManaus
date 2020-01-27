@@ -31,9 +31,9 @@ class FirebaseService {
                 print(self.TAG  + "ERROR: Data not found or cannot download")
                 return }
             
-            let jsonFromFirebase = snapshot.value!
-            print(self.TAG)
-            print(jsonFromFirebase)
+//            let jsonFromFirebase = snapshot.value!
+//            print(self.TAG)
+//            print(jsonFromFirebase)
             
             for categoria in snapshot.children.allObjects as! [DataSnapshot] {
                 var categoriaModel: Categorie = Categorie()
@@ -66,9 +66,9 @@ class FirebaseService {
                 print(self.TAG  + "ERROR: Data not found or cannot download")
                 return }
             
-            let jsonFromFirebase = snapshot.value!
-            print(self.TAG)
-            print(jsonFromFirebase)
+//            let jsonFromFirebase = snapshot.value!
+//            print(self.TAG)
+//            print(jsonFromFirebase)
             
             for show in snapshot.children.allObjects as! [DataSnapshot] {
                 let dict = show.value as? [String:Any]
@@ -125,10 +125,12 @@ class FirebaseService {
             for show in ModelSingleton.shared.shows {
                 if(show.subCategory == categorie.name){
                     print(self.TAG + "Putting show \(show.id) in category \(categorie.name)")
-                    categorie.shows?.append(show)
+                    categorie.shows.append(show)
                 }
             }
         }
+        
+        ModelSingleton.shared.removeCategoriesWithNoShows()
         
         self.organizingDataDispatchGroup.leave()
         self.organizingDataDispatchGroup.notify(queue: .main) {

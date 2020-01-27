@@ -93,9 +93,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //MARK: collectionView datasource and delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        var numberOfShowsForThisCategorie = (self.listaDeCategorias![self.atualCategoriaIndex].shows?.count)!
-//        if(self.listaDeCategorias![self.atualCategoriaIndex].shows != nil){
-//            numberOfShowsForThisCategorie = (self.listaDeCategorias![self.atualCategoriaIndex].shows?.count)!
+        var numberOfShowsForThisCategorie = (self.listaDeCategorias![self.atualCategoriaIndex].shows.count)
+//        if(self.listaDeCategorias![self.atualCategoriaIndex].shows.count != 0){
+//            numberOfShowsForThisCategorie = (self.listaDeCategorias![self.atualCategoriaIndex].shows.count)
 //            print("Entrou aqui! - Numero de secoes: \(numberOfShowsForThisCategorie)")
 //        }
         return numberOfShowsForThisCategorie
@@ -107,7 +107,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         self.collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
         
-        let imgUrl = self.listaDeCategorias![self.atualCategoriaIndex].shows![indexPath.row].imageUrl!
+        let imgUrl = self.listaDeCategorias![self.atualCategoriaIndex].shows[indexPath.row].imageUrl!
         print("imgUrl: \(imgUrl)")
         
         collectionCell.tableViewSectionNumber = self.atualCategoriaIndex
@@ -125,7 +125,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         //Passando os dados de show para o singleton
         var show: Show = Show()
         let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
-        show = self.listaDeCategorias![cell.tableViewSectionNumber].shows![indexPath.row]
+        show = self.listaDeCategorias![cell.tableViewSectionNumber].shows[indexPath.row]
         ModelSingleton.shared.showSelected = show
         print("Pegando o shwo correspondente: \(show.showHouseKey) - \(show.imageUrl)")
         print("Ainda na collection. Singleton de show: \(ModelSingleton.shared.showSelected?.imageUrl)")
