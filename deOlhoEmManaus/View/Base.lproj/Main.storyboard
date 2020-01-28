@@ -13,7 +13,7 @@
         <!--View Controller-->
         <scene sceneID="1P8-ci-YA3">
             <objects>
-                <viewController id="5tk-li-OZg" customClass="ViewController" customModule="VitrineProdutos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5tk-li-OZg" customClass="ViewController" customModule="deOlhoEmManaus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Xq-BF-Eel">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableviewCell" rowHeight="350" id="ymd-Fo-9E7" customClass="TableViewCell" customModule="VitrineProdutos" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableviewCell" rowHeight="350" id="ymd-Fo-9E7" customClass="TableViewCell" customModule="deOlhoEmManaus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="350"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ymd-Fo-9E7" id="wie-04-pH5">
@@ -40,14 +40,14 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" reuseIdentifier="collectionViewCell" id="nIk-wT-zaC" customClass="CollectionViewCell" customModule="VitrineProdutos" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" reuseIdentifier="collectionViewCell" id="nIk-wT-zaC" customClass="CollectionViewCell" customModule="deOlhoEmManaus" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="45" width="141" height="210"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="141" height="210"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="noImage2" translatesAutoresizingMaskIntoConstraints="NO" id="kx6-Zq-jqq" customClass="CustomImageView" customModule="VitrineProdutos" customModuleProvider="target">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="noImage2" translatesAutoresizingMaskIntoConstraints="NO" id="kx6-Zq-jqq" customClass="CustomImageView" customModule="deOlhoEmManaus" customModuleProvider="target">
                                                                         <rect key="frame" x="7" y="7" width="127" height="196"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                     </imageView>
@@ -105,6 +105,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="erQ-u4-XC0"/>
                     <connections>
+                        <outlet property="searchBar" destination="cTD-eh-mjO" id="bfR-r2-T2z"/>
                         <outlet property="tableView" destination="spB-h3-bET" id="141-Pu-es4"/>
                     </connections>
                 </viewController>
@@ -115,12 +116,12 @@
         <!--Show HouseUI View Controller-->
         <scene sceneID="pis-QW-oGq">
             <objects>
-                <viewController storyboardIdentifier="showHouseViewController" id="k3Q-Zu-5Xx" customClass="ShowHouseUIViewController" customModule="VitrineProdutos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="showHouseViewController" id="k3Q-Zu-5Xx" customClass="ShowHouseUIViewController" customModule="deOlhoEmManaus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YKH-5N-Ocj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="68t-FQ-ftb" customClass="CustomImageView" customModule="VitrineProdutos" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="68t-FQ-ftb" customClass="CustomImageView" customModule="deOlhoEmManaus" customModuleProvider="target">
                                 <rect key="frame" x="23" y="81" width="328" height="505"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zK-0x-l05">
@@ -155,7 +156,7 @@
         <!--Detail Show House View Controller-->
         <scene sceneID="Li3-fW-htG">
             <objects>
-                <viewController id="Nur-0S-l4e" customClass="DetailShowHouseViewController" customModule="VitrineProdutos" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Nur-0S-l4e" customClass="DetailShowHouseViewController" customModule="deOlhoEmManaus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O55-Hq-2nY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

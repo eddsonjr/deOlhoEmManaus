@@ -9,14 +9,19 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate, UISearchBarDelegate {
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchBar: UISearchBar!
+    
     
     
     private let TAG = "[ViewController]: "
     var service: FirebaseService = FirebaseService()
     var listaDeCategorias: Array<Categorie>? = []
+    var searchActive : Bool = false
+    var listaFiltrada: Array<Categorie>? = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +30,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.searchBar.delegate = self
+        
         
         
         // Register to receive notification
@@ -116,14 +123,62 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        
-        
         //Passando os dados de show para o singleton
         var show: Show = Show()
         show = self.listaDeCategorias![collectionView.tag].shows[indexPath.row]
         ModelSingleton.shared.showSelected = show
         
     }
+    
+    
+    
+    //Mark: Funcoes de searchbar
+    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+        searchActive = true;
+    }
+    
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        //caso a barra de busca nao tenha nenhum dado e esteja vazia, desabilitar a buscar e recarregar toda a tableview
+        if(self.searchBar.text == nil || self.searchBar.text == ""){
+            self.searchActive = false
+            view.endEditing(true)
+            self.tableView.reloadData()
+        }else{ //caso o usuario esteja realizando uma busca
+            self.searchActive = true
+            self.listaFiltrada?.filter{_ in
+                var found: Bool = false
+                guard let textSearch = self.searchBar.text else {return false}
+                print(self.TAG + "Looking for \(textSearch) via searchBar...")
+                
+                for category in self.listaDeCategorias! {
+                    if(textSearch.localizedCaseInsensitiveContains(category.name!)){
+                        found = true
+                    }
+                }
+                return found
+            }
+            
+        }
+       
+        
+    }
+    
+    
+    
+    
     
     
     
