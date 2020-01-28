@@ -21,10 +21,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var collectionCell: CollectionViewCell!
     
     
-    //somente para testes
-    private var i = 0
-    
-    
     
 
     override func viewDidLoad() {
@@ -108,10 +104,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
         
         let imgUrl = self.listaDeCategorias![self.atualCategoriaIndex].shows[indexPath.row].imageUrl!
-        collectionCell.tableViewSectionNumber = self.atualCategoriaIndex
-        collectionCell.imageView.loadImageUsingCache(withUrlString: imgUrl)
-        
-        return collectionCell
+        collectionCell?.tableViewSectionNumber = self.atualCategoriaIndex
+        collectionCell?.imageView.loadImageUsingCache(withUrlString: imgUrl)
+        print("\(self.atualCategoriaIndex) - \(self.listaDeCategorias![self.atualCategoriaIndex].name) - \(indexPath.row)")
+        return collectionCell!
     }
     
     
