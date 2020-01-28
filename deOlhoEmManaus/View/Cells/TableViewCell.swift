@@ -36,7 +36,8 @@ extension TableViewCell {
         
         collectionView.delegate = dataSourceDelegate
         collectionView.dataSource = dataSourceDelegate
-
+        collectionView.tag = row
+        print("CollectionViewTag: \(collectionView.tag)")
         collectionView.reloadData()
     }
     

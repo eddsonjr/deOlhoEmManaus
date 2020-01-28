@@ -17,12 +17,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     private let TAG = "[ViewController]: "
     var service: FirebaseService = FirebaseService()
     var listaDeCategorias: Array<Categorie>? = []
-    var atualCategoriaIndex = 0
-    var collectionCell: CollectionViewCell!
     
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -56,14 +51,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableviewCell", for: indexPath) as! TableViewCell
-        
-        cell.collectionView.delegate = self
-        cell.collectionView.dataSource = self
-        cell.collectionView.reloadData()
-        self.atualCategoriaIndex = indexPath.section
-        
         return cell
     }
+    
+    
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let tableViewCell = cell as? TableViewCell else { return }
+        tableViewCell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.section)
+        
+       
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let tableViewCell = cell as? TableViewCell else { return }
+    }
+    
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -93,21 +97,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //MARK: collectionView datasource and delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        var numberOfShowsForThisCategorie = (self.listaDeCategorias![self.atualCategoriaIndex].shows.count)
+        var numberOfShowsForThisCategorie = self.listaDeCategorias![collectionView.tag].shows.count
         return numberOfShowsForThisCategorie
     }
     
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        self.collectionCell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
-        
-        let imgUrl = self.listaDeCategorias![self.atualCategoriaIndex].shows[indexPath.row].imageUrl!
-        collectionCell?.tableViewSectionNumber = self.atualCategoriaIndex
-        collectionCell?.imageView.loadImageUsingCache(withUrlString: imgUrl)
-        print("\(self.atualCategoriaIndex) - \(self.listaDeCategorias![self.atualCategoriaIndex].name) - \(indexPath.row)")
-        return collectionCell!
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
+        let imgUrl = self.listaDeCategorias![collectionView.tag].shows[indexPath.row].imageUrl
+        cell.imageView.loadImageUsingCache(withUrlString: imgUrl!)
+        return cell
     }
     
     
@@ -116,10 +116,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        
+        
         //Passando os dados de show para o singleton
         var show: Show = Show()
-        let cell = collectionView.cellForItem(at: indexPath) as! CollectionViewCell
-        show = self.listaDeCategorias![cell.tableViewSectionNumber].shows[indexPath.row]
+        show = self.listaDeCategorias![collectionView.tag].shows[indexPath.row]
         ModelSingleton.shared.showSelected = show
         
     }

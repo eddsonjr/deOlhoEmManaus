@@ -11,7 +11,7 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var imageView: CustomImageView!
-    var tableViewSectionNumber = 0
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
