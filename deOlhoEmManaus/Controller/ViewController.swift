@@ -90,7 +90,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        let sectionName = self.listaDeCategorias![section].name
+        
+        var sectionName = ""
+        if(self.searchActive){
+            sectionName = self.listaFiltrada![section].name!
+        }else{
+            sectionName = self.listaDeCategorias![section].name!
+        }
+        
         return sectionName
     }
     
@@ -104,7 +111,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //MARK: collectionView datasource and delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        var numberOfShowsForThisCategorie = self.listaDeCategorias![collectionView.tag].shows.count
+        
+        var numberOfShowsForThisCategorie  = 0
+        if(self.searchActive){
+            numberOfShowsForThisCategorie = self.listaFiltrada![collectionView.tag].shows.count
+        }else{
+            numberOfShowsForThisCategorie = self.listaDeCategorias![collectionView.tag].shows.count
+        }
+        
         return numberOfShowsForThisCategorie
     }
     
@@ -112,8 +126,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
-        let imgUrl = self.listaDeCategorias![collectionView.tag].shows[indexPath.row].imageUrl
-        cell.imageView.loadImageUsingCache(withUrlString: imgUrl!)
+        
+        var imgUrl = ""
+        if(self.searchActive){
+            imgUrl = self.listaFiltrada![collectionView.tag].shows[indexPath.row].imageUrl!
+        }else{
+            imgUrl = self.listaDeCategorias![collectionView.tag].shows[indexPath.row].imageUrl!
+        }
+    
+        cell.imageView.loadImageUsingCache(withUrlString: imgUrl)
         return cell
     }
     
@@ -181,7 +202,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     
-    
+    //Mark: Metodo do observador do FirebaseService - usado para reload da tableview assim que os dados forem baixados da web
     @objc func methodOfReceivedNotification(notification: Notification) {
         print("Recebida a notificacao")
         self.listaDeCategorias = ModelSingleton.shared.categories
