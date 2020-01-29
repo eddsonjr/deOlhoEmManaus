@@ -84,14 +84,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return self.listaDeCategorias!.count
+        if(self.searchActive){
+            return (self.listaFiltrada?.count)!
+        }else{
+            return self.listaDeCategorias!.count
+        }
     }
     
     
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        var sectionName: String?
+        var sectionName: String = ""
         if(self.searchActive){
             sectionName = self.listaFiltrada![section].name!
         }else{
@@ -111,15 +114,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //MARK: collectionView datasource and delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        
-        var numberOfShowsForThisCategorie  = 0
-        if(self.searchActive){
-            numberOfShowsForThisCategorie = self.listaFiltrada![collectionView.tag].shows.count
+        if(!self.searchActive){
+            return self.listaDeCategorias![collectionView.tag].shows.count
         }else{
-            numberOfShowsForThisCategorie = self.listaDeCategorias![collectionView.tag].shows.count
+            print("CCCC  \(self.listaFiltrada?.count) -- \(self.listaFiltrada![collectionView.tag].shows.count)")
+            return self.listaFiltrada![collectionView.tag].shows.count
         }
-        
-        return numberOfShowsForThisCategorie
     }
     
     
@@ -164,7 +164,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("CCC - USUARIO CANCELOU A BUSCA")
         searchActive = false;
+        self.searchBar.endEditing(true)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -183,30 +185,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             print("AQUI BUCETA")
             self.searchActive = true
             
-            
-            self.listaFiltrada = self.listaDeCategorias?.filter{_ in
-                var found: Bool = false
+            self.listaFiltrada = self.listaDeCategorias?.filter{
                 guard let textSearch = self.searchBar.text?.lowercased() else {return false}
-                print(self.TAG + "Looking for \(textSearch) via searchBar...")
-                
-                for category in self.listaDeCategorias! {
-                    if(category.name?.contains(textSearch))!{
-                        found = true
-                        
-                    }
-                    
-                }
-                return found
-                
-                
+                return ($0.name?.lowercased().contains(textSearch))!
+                //($0.name?.lowercased().contains(self.searchBar.text?.lowercased()))!
             }
+            
+        }
             print("AQUI BUCETA 2: \(self.listaFiltrada?.count)")
             self.tableView.reloadData()
             
-        }
-       
-        
     }
+       
+    
     
     
     
