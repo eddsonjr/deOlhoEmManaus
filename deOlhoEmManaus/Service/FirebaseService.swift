@@ -100,6 +100,9 @@ class FirebaseService {
                 showHouseModel.completAddress = addressDict!["completeAddress"] as? String
                 showHouseModel.phones = dict!["phones"] as? [String]
                 
+//                print("AQUIIIII \(dict!["phones"])")
+//                print("AQUIIIII \(showHouseModel.phones) === \(showModel.id)")
+//
                 
                 //Colocando showHouse dentro de Show
                 showModel.showHouse = showHouseModel

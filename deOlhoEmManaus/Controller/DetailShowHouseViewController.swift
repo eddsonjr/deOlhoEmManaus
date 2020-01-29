@@ -24,18 +24,19 @@ class DetailShowHouseViewController: UIViewController {
         super.viewDidLoad()
         
         self.nomeLocalLabel.text = ModelSingleton.shared.showSelected?.showHouse?.name
-        
         self.enderecoTextView.text = ModelSingleton.shared.showSelected?.showHouse?.completAddress
         
-        //self.phone1Label.text = ModelSingleton.shared.showSelected?.showHouse?.phones![0]
-        
-        
-//        if(!(ModelSingleton.shared.showSelected?.showHouse?.phones![1].isEmpty)!) {
-//            self.phone2Label.text = ModelSingleton.shared.showSelected?.showHouse?.phones![1]
-//        }
-        
-
-        
+        //Verificando os telefones
+        if(ModelSingleton.shared.showSelected?.showHouse?.phones == nil){
+            self.phone1Label.text = "Sem telefone para contato!"
+            self.phone2Label.isHidden = true
+        }else{
+            self.phone1Label.text = ModelSingleton.shared.showSelected?.showHouse?.phones![0]
+            self.phone2Label.isHidden = true
+//            if((ModelSingleton.shared.showSelected?.showHouse?.phones?.count)! == 2){
+//                self.phone2Label.text = ModelSingleton.shared.showSelected?.showHouse?.phones![1]
+//            }
+        }
         
     }
     
