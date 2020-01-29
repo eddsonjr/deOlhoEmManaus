@@ -31,6 +31,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.searchBar.delegate = self
+        self.searchBar.showsCancelButton = true
+        
+        //TODO - VERIFICAR MUDANCAS NA VERSAO SWIFT 5
+        self.searchBar.setImage(UIImage(), for: .clear, state: .normal)
         
         
         
@@ -117,7 +121,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         if(!self.searchActive){
             return self.listaDeCategorias![collectionView.tag].shows.count
         }else{
-            print("CCCC  \(self.listaFiltrada?.count) -- \(self.listaFiltrada![collectionView.tag].shows.count)")
             return self.listaFiltrada![collectionView.tag].shows.count
         }
     }
@@ -156,7 +159,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //Mark: Funcoes de searchbar
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true;
-        print(self.TAG + "User using searchbar...")
+        print(self.TAG + "User searching....")
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -164,7 +167,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("CCC - USUARIO CANCELOU A BUSCA")
         searchActive = false;
         self.searchBar.endEditing(true)
     }
@@ -177,14 +179,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //caso a barra de busca nao tenha nenhum dado e esteja vazia, desabilitar a buscar e recarregar toda a tableview
         if(self.searchBar.text?.isEmpty)!{
-            print("AQUI CARALHO")
             self.searchActive = false
             view.endEditing(true)
             self.tableView.reloadData()
         }else{ //caso o usuario esteja realizando uma busca
-            print("AQUI BUCETA")
             self.searchActive = true
-            
             self.listaFiltrada = self.listaDeCategorias?.filter{
                 guard let textSearch = self.searchBar.text?.lowercased() else {return false}
                 return ($0.name?.lowercased().contains(textSearch))!
@@ -192,7 +191,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             }
             
         }
-            print("AQUI BUCETA 2: \(self.listaFiltrada?.count)")
             self.tableView.reloadData()
             
     }
