@@ -16,28 +16,23 @@ class DetailShowHouseViewController: UIViewController {
 
     @IBOutlet var phone2Label: UILabel!
     @IBOutlet var phone1Label: UILabel!
-    
-    @IBOutlet var ruaLabel: UILabel!
-    @IBOutlet var numeroLabel: UILabel!
-    @IBOutlet var bairroLabel: UILabel!
-    @IBOutlet var cepLabel: UILabel!
+    @IBOutlet var enderecoTextView: UITextView!
     @IBOutlet var nomeLocalLabel: UILabel!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //self.phone1Label.text = ShowSingleton.shared.show?.showHouse?.phone1
-        self.ruaLabel.text = ModelSingleton.shared.showSelected?.showHouse?.street
-        self.bairroLabel.text = ModelSingleton.shared.showSelected?.showHouse?.neighborhood
-        self.numeroLabel.text = ModelSingleton.shared.showSelected?.showHouse?.number
-        self.cepLabel.text = ModelSingleton.shared.showSelected?.showHouse?.zip
         self.nomeLocalLabel.text = ModelSingleton.shared.showSelected?.showHouse?.name
         
+        self.enderecoTextView.text = ModelSingleton.shared.showSelected?.showHouse?.completAddress
         
-        if(ModelSingleton.shared.showSelected?.showHouse?.phone2 != nil ||  ModelSingleton.shared.showSelected?.showHouse?.phone2 != ""){
-            self.phone2Label.text = ModelSingleton.shared.showSelected?.showHouse?.phone2
-        }
+        //self.phone1Label.text = ModelSingleton.shared.showSelected?.showHouse?.phones![0]
+        
+        
+//        if(!(ModelSingleton.shared.showSelected?.showHouse?.phones![1].isEmpty)!) {
+//            self.phone2Label.text = ModelSingleton.shared.showSelected?.showHouse?.phones![1]
+//        }
         
 
         
@@ -67,6 +62,7 @@ class DetailShowHouseViewController: UIViewController {
 //        marker.map = mapView
         
     }
+    
     
 }
 

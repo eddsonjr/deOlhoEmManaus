@@ -13,19 +13,32 @@ class ShowHouse {
     
     var id: String?
     var name: String?
-    var phone1: String?
-    var phone2: String?
     var street: String?
     var number: String?
     var city: String?
     var neighborhood: String?
     var zip: String?
-    var completAddress: String? 
+    var completAddress: String?
+    var phones: [String]?
     
     
     
     //default init
     init() {}
     
+    
+    
+    init(id: String?, name: String?,street: String?, number: String?, city: String, neighborhood: String?, zip: String?, completeAdrress: String?, phones: [String]?) {
+        self.id = id
+        self.name = name
+        self.street = street
+        self.number = number
+        self.city = city
+        self.neighborhood = neighborhood
+        self.zip = zip
+        self.completAddress = completeAdrress
+        self.phones = phones
+        
+    }
     
 }
