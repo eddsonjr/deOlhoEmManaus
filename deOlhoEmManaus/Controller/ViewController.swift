@@ -25,16 +25,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        
+    
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.searchBar.delegate = self
         self.searchBar.showsCancelButton = true
+        self.searchBar.isUserInteractionEnabled = false
         
         //TODO - VERIFICAR MUDANCAS NA VERSAO SWIFT 5
         self.searchBar.setImage(UIImage(), for: .clear, state: .normal)
+        
         
         
         
@@ -159,7 +159,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //Mark: Funcoes de searchbar
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true;
-        print(self.TAG + "User searching....")
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -187,7 +186,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.listaFiltrada = self.listaDeCategorias?.filter{
                 guard let textSearch = self.searchBar.text?.lowercased() else {return false}
                 return ($0.name?.lowercased().contains(textSearch))!
-                //($0.name?.lowercased().contains(self.searchBar.text?.lowercased()))!
             }
             
         }
@@ -207,6 +205,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         print("Recebida a notificacao")
         self.listaDeCategorias = ModelSingleton.shared.categories
         self.tableView.reloadData()
+        self.searchBar.isUserInteractionEnabled = true
     }
 
 
