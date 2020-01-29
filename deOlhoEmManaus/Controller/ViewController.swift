@@ -91,7 +91,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         
-        var sectionName = ""
+        var sectionName: String?
         if(self.searchActive){
             sectionName = self.listaFiltrada![section].name!
         }else{
@@ -154,43 +154,54 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     //Mark: Funcoes de searchbar
-    func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true;
+        print(self.TAG + "User using searchbar...")
     }
     
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchActive = false;
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
     }
     
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
     }
     
 
-    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //caso a barra de busca nao tenha nenhum dado e esteja vazia, desabilitar a buscar e recarregar toda a tableview
-        if(self.searchBar.text == nil || self.searchBar.text == ""){
+        if(self.searchBar.text?.isEmpty)!{
+            print("AQUI CARALHO")
             self.searchActive = false
             view.endEditing(true)
             self.tableView.reloadData()
         }else{ //caso o usuario esteja realizando uma busca
+            print("AQUI BUCETA")
             self.searchActive = true
-            self.listaFiltrada?.filter{_ in
+            
+            
+            self.listaFiltrada = self.listaDeCategorias?.filter{_ in
                 var found: Bool = false
-                guard let textSearch = self.searchBar.text else {return false}
+                guard let textSearch = self.searchBar.text?.lowercased() else {return false}
                 print(self.TAG + "Looking for \(textSearch) via searchBar...")
                 
                 for category in self.listaDeCategorias! {
-                    if(textSearch.localizedCaseInsensitiveContains(category.name!)){
+                    if(category.name?.contains(textSearch))!{
                         found = true
+                        
                     }
+                    
                 }
                 return found
+                
+                
             }
+            print("AQUI BUCETA 2: \(self.listaFiltrada?.count)")
+            self.tableView.reloadData()
             
         }
        
