@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 import Firebase  //Importando a lib do firebase.
+import GoogleMaps
+import GooglePlaces
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()  //Configurando a conexao com o banco assim que a aplicacao iniciar
         self.databaseRef = Database.database().reference()
+        GMSServices.provideAPIKey("AIzaSyBmdzNecNxF3GK38-409w9rNfxBa4ywD0w")
+        GMSPlacesClient.provideAPIKey("AIzaSyBmdzNecNxF3GK38-409w9rNfxBa4ywD0w")
         return true
     }
 

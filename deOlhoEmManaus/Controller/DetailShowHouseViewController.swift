@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import GoogleMaps
+import SafariServices
 
 
 class DetailShowHouseViewController: UIViewController {
@@ -47,11 +48,14 @@ class DetailShowHouseViewController: UIViewController {
     
     
     @IBAction func verMapaButton(_ sender: Any) {
-    
-        if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps:")!) {
-            var location = "http://maps.google.com/maps?q=" + (ModelSingleton.shared.showSelected?.showHouse?.completAddress)!
-            UIApplication.shared.openURL(URL(string: location)!)
-        }
+        let  location = "http://maps.google.com/maps?q=" + (ModelSingleton.shared.showSelected?.showHouse?.completAddress)!
+        
+        let safariURL = location.addingPercentEncoding(withAllowedCharacters:  CharacterSet.urlQueryAllowed)
+        
+        print("\(safariURL)")
+        guard let url = URL(string: safariURL!) else { return }
+        let svc = SFSafariViewController(url: url)
+        present(svc, animated: true, completion: nil)
         
     }
     
