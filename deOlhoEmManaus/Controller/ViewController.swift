@@ -174,6 +174,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchActive = false;
         self.searchBar.endEditing(true)
+        
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
