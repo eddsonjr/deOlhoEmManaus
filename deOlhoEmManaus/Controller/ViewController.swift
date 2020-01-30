@@ -149,8 +149,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         //Passando os dados de show para o singleton
         var show: Show = Show()
-        show = self.listaDeCategorias![collectionView.tag].shows[indexPath.row]
-        ModelSingleton.shared.showSelected = show
+        if(self.searchActive){
+            show = self.listaFiltrada![collectionView.tag].shows[indexPath.row]
+            ModelSingleton.shared.showSelected = show
+        }else{
+            show = self.listaDeCategorias![collectionView.tag].shows[indexPath.row]
+            ModelSingleton.shared.showSelected = show
+        }
+        
         
     }
     

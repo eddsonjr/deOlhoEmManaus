@@ -24,6 +24,8 @@ class Categorie{
         self.name = name
         self.shows = shows!
     }
+    
+    
 
 }
 
