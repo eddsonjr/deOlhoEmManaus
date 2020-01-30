@@ -47,20 +47,11 @@ class DetailShowHouseViewController: UIViewController {
     
     
     @IBAction func verMapaButton(_ sender: Any) {
-        
-        //TODO - IMPLEMENTAR BASEADO NO ENDERECO E NAO MAIS NA LONGITUDE E NA LATITUDE
-        
-//        let latitude = ModelSingleton.shared.showSelected?.showHouse?.latitude
-//        let longitude = ShowSingleton.shared.show?.showHouse?.longitude
-//
-//        let camera = GMSCameraPosition.camera(withLatitude: latitude!, longitude: longitude!, zoom: 6.0)
-//        let mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
-//        view = mapView
-//
-//
-//        let marker = GMSMarker()
-//        marker.position = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
-//        marker.map = mapView
+    
+        if UIApplication.shared.canOpenURL(URL(string: "comgooglemaps:")!) {
+            var location = "http://maps.google.com/maps?q=" + (ModelSingleton.shared.showSelected?.showHouse?.completAddress)!
+            UIApplication.shared.openURL(URL(string: location)!)
+        }
         
     }
     
