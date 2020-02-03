@@ -30,6 +30,7 @@
 		AD2176FB23DBC92B00BE2AD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD2176F923DBC92B00BE2AD0 /* LaunchScreen.storyboard */; };
 		AD21770623DBC92B00BE2AD0 /* deOlhoEmManausTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21770523DBC92B00BE2AD0 /* deOlhoEmManausTests.swift */; };
 		AD21771123DBC92B00BE2AD0 /* deOlhoEmManausUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21771023DBC92B00BE2AD0 /* deOlhoEmManausUITests.swift */; };
+		ADC7A38223E8E40500BF38D0 /* InternetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC7A38123E8E40500BF38D0 /* InternetUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		AD21770C23DBC92B00BE2AD0 /* deOlhoEmManausUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = deOlhoEmManausUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD21771023DBC92B00BE2AD0 /* deOlhoEmManausUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deOlhoEmManausUITests.swift; sourceTree = "<group>"; };
 		AD21771223DBC92B00BE2AD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADC7A38123E8E40500BF38D0 /* InternetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetUtils.swift; sourceTree = "<group>"; };
 		D029BC842FCFD64D3AA42874 /* Pods_deOlhoEmManausUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_deOlhoEmManausUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7B4198F98ED4F17D195F438 /* Pods-deOlhoEmManausTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-deOlhoEmManausTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-deOlhoEmManausTests/Pods-deOlhoEmManausTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -210,6 +212,7 @@
 		AD2176EC23DBC92900BE2AD0 /* deOlhoEmManaus */ = {
 			isa = PBXGroup;
 			children = (
+				ADC7A37E23E8E29B00BF38D0 /* Utils */,
 				AD0077C123DBCC880069E28B /* Extensions */,
 				AD0077C023DBCC620069E28B /* Controller */,
 				AD0077BF23DBCC300069E28B /* Service */,
@@ -240,6 +243,14 @@
 				AD21771223DBC92B00BE2AD0 /* Info.plist */,
 			);
 			path = deOlhoEmManausUITests;
+			sourceTree = "<group>";
+		};
+		ADC7A37E23E8E29B00BF38D0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				ADC7A38123E8E40500BF38D0 /* InternetUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		F096F0175E843ABF4684E900 /* Frameworks */ = {
@@ -392,7 +403,15 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-deOlhoEmManaus/Pods-deOlhoEmManaus-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -405,7 +424,15 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -516,6 +543,7 @@
 				AD0077D323DBCD7D0069E28B /* FirebaseService.swift in Sources */,
 				AD0077CC23DBCD470069E28B /* ShowHouse.swift in Sources */,
 				AD0077CE23DBCD470069E28B /* Categorie.swift in Sources */,
+				ADC7A38223E8E40500BF38D0 /* InternetUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
