@@ -49,9 +49,7 @@ class DetailShowHouseViewController: UIViewController {
     
     @IBAction func verMapaButton(_ sender: Any) {
         let  location = "http://maps.google.com/maps?q=" + (ModelSingleton.shared.showSelected?.showHouse?.completAddress)!
-        
         let safariURL = location.addingPercentEncoding(withAllowedCharacters:  CharacterSet.urlQueryAllowed)
-        
         print("\(safariURL)")
         guard let url = URL(string: safariURL!) else { return }
         let svc = SFSafariViewController(url: url)

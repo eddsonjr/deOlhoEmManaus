@@ -234,8 +234,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             AlertUtils.shared.webNotAvailableAlert(view: self)
             self.noWebView.isHidden = false
         }
-     
-        
     }
 
 
