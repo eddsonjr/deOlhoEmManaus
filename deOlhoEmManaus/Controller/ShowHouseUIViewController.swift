@@ -20,6 +20,7 @@ class ShowHouseUIViewController: UIViewController {
         print(self.TAG + "Singleton show: \(ModelSingleton.shared.showSelected?.id)")
         
         verifyWebAndDownload()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "share", style: .done, target: self, action: #selector(self.shareButton(_:)))
         
     }
 
@@ -48,5 +49,14 @@ class ShowHouseUIViewController: UIViewController {
     }
     
     
+    @IBAction func shareButton(_ sender: Any) {
+        print(self.TAG + "Sharing....")
+        let image = self.imageView.image
+        let imageShare = [ image! ]
+        let activityViewController = UIActivityViewController(activityItems: imageShare , applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view
+        self.present(activityViewController, animated: true, completion: nil)
+        
+    }
     
 }

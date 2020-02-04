@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Eventos-->
         <scene sceneID="1P8-ci-YA3">
             <objects>
                 <viewController id="5tk-li-OZg" customClass="ViewController" customModule="deOlhoEmManaus" customModuleProvider="target" sceneMemberID="viewController">
@@ -126,7 +126,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OqN-pU-EzC"/>
                     </view>
-                    <navigationItem key="navigationItem" id="erQ-u4-XC0"/>
+                    <navigationItem key="navigationItem" title="Eventos" id="ygA-iw-F5Y"/>
                     <connections>
                         <outlet property="noWebView" destination="dJI-Vs-u9p" id="Jyz-Jo-plQ"/>
                         <outlet property="searchBar" destination="cTD-eh-mjO" id="bfR-r2-T2z"/>
@@ -137,7 +137,7 @@
             </objects>
             <point key="canvasLocation" x="1076" y="132.68365817091455"/>
         </scene>
-        <!--Show HouseUI View Controller-->
+        <!--Evento-->
         <scene sceneID="pis-QW-oGq">
             <objects>
                 <viewController storyboardIdentifier="showHouseViewController" id="k3Q-Zu-5Xx" customClass="ShowHouseUIViewController" customModule="deOlhoEmManaus" customModuleProvider="target" sceneMemberID="viewController">
@@ -171,6 +171,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xMi-x8-l0g"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Evento" id="eIh-NU-c70">
+                        <barButtonItem key="rightBarButtonItem" title="share" style="plain" id="GIl-E4-pbN">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kts-MR-hjF">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="share"/>
+                            </button>
+                            <connections>
+                                <action selector="shareButton:" destination="k3Q-Zu-5Xx" id="YxK-FD-AmS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="detailsShowButton" destination="3zK-0x-l05" id="sVu-Ch-noz"/>
                         <outlet property="imageView" destination="68t-FQ-ftb" id="4nJ-2R-npt"/>
@@ -180,7 +192,7 @@
             </objects>
             <point key="canvasLocation" x="2032.8" y="132.68365817091455"/>
         </scene>
-        <!--Detail Show House View Controller-->
+        <!--Detalhes do Evento-->
         <scene sceneID="Li3-fW-htG">
             <objects>
                 <viewController id="Nur-0S-l4e" customClass="DetailShowHouseViewController" customModule="deOlhoEmManaus" customModuleProvider="target" sceneMemberID="viewController">
@@ -259,6 +271,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gTv-cM-QUc"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Detalhes do Evento" id="yzO-b1-zDp"/>
                     <connections>
                         <outlet property="enderecoTextView" destination="RgP-YF-MaA" id="TZI-Ph-mzm"/>
                         <outlet property="nomeLocalLabel" destination="IDX-NZ-sD5" id="8HI-wd-wx2"/>
