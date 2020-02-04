@@ -11,7 +11,7 @@ import Alamofire
 
 
 
-class Connectivity {
+class InternetUtils {
     
     
     //Este metodo somente verifica pontualmente se ha alguma conexao com a web ou nao

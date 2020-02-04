@@ -42,7 +42,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationIdentifier"), object: nil)
         
         
-        self.service.retrieveDataFromWeb()
+//        self.service.retrieveDataFromWeb()
+        verifyWebAndDownload()
         
     }
 
@@ -213,6 +214,25 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.listaDeCategorias = ModelSingleton.shared.categories
         self.tableView.reloadData()
         self.searchBar.isUserInteractionEnabled = true
+    }
+    
+    
+    
+    
+    //Mark: Metodos de datasource
+    //Este metodo verifica se ha conexao com a web e, caso tenha, solicita o download do firebaseService
+    //Caso negativo, impede o download e tambem coloca uma view informando o usuario sobre a conexao
+    func verifyWebAndDownload() {
+        
+        if(InternetUtils.isConnectedToInternet()){
+            print(TAG + "web available. Downloading...")
+            self.service.retrieveDataFromWeb()
+        }else{
+            print(TAG + "web not available. Prevent download....")
+            AlertUtils.shared.webNotAvailableAlert(view: self)
+        }
+     
+        
     }
 
 
