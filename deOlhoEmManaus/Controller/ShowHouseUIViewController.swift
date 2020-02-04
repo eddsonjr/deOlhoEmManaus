@@ -13,12 +13,13 @@ class ShowHouseUIViewController: UIViewController {
     
     @IBOutlet var imageView: CustomImageView!
     let TAG = "[ShowHouseViewController]: "
+    @IBOutlet var detailsShowButton: UIButton!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         print(self.TAG + "Singleton show: \(ModelSingleton.shared.showSelected?.id)")
-        self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
+        
+        verifyWebAndDownload()
         
     }
 
@@ -31,5 +32,21 @@ class ShowHouseUIViewController: UIViewController {
     @IBAction func contactAndAddressButton(_ sender: Any) {
         print(self.TAG + "Contact selected...")
     }
+    
+    
+    
+    
+    func verifyWebAndDownload() {
+        if(InternetUtils.isConnectedToInternet()) {
+            print(TAG + "web available. Downloading...")
+            self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
+        }else{
+            print(self.TAG + "web not available. Prevent download....")
+            AlertUtils.shared.webNotAvailableAlert(view: self)
+            self.detailsShowButton.isEnabled = false
+        }
+    }
+    
+    
     
 }

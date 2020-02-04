@@ -125,7 +125,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="68t-FQ-ftb" customClass="CustomImageView" customModule="deOlhoEmManaus" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="68t-FQ-ftb" customClass="CustomImageView" customModule="deOlhoEmManaus" customModuleProvider="target">
                                 <rect key="frame" x="23" y="81" width="328" height="505"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zK-0x-l05">
@@ -152,6 +152,7 @@
                         <viewLayoutGuide key="safeArea" id="xMi-x8-l0g"/>
                     </view>
                     <connections>
+                        <outlet property="detailsShowButton" destination="3zK-0x-l05" id="sVu-Ch-noz"/>
                         <outlet property="imageView" destination="68t-FQ-ftb" id="4nJ-2R-npt"/>
                     </connections>
                 </viewController>
@@ -269,6 +270,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="noImage" width="1024" height="768"/>
         <image name="noImage2" width="1920" height="1920"/>
     </resources>
 </document>
