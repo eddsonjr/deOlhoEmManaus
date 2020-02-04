@@ -15,6 +15,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet var searchBar: UISearchBar!
     
     
+    @IBOutlet var noWebView: UIView!
     
     private let TAG = "[ViewController]: "
     var service: FirebaseService = FirebaseService()
@@ -226,10 +227,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         if(InternetUtils.isConnectedToInternet()){
             print(TAG + "web available. Downloading...")
+            self.noWebView.isHidden = true
             self.service.retrieveDataFromWeb()
         }else{
             print(TAG + "web not available. Prevent download....")
             AlertUtils.shared.webNotAvailableAlert(view: self)
+            self.noWebView.isHidden = false
         }
      
         
