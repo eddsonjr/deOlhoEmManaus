@@ -13,9 +13,6 @@ target 'deOlhoEmManaus' do
   pod 'Firebase/Auth'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
-  pod 'FacebookCore'
-  pod 'FacebookLogin'
-  pod 'FacebookShare'
   pod 'Alamofire'
 
 
