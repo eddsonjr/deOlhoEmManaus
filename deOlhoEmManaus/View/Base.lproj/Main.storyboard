@@ -169,15 +169,12 @@
                         <viewLayoutGuide key="safeArea" id="xMi-x8-l0g"/>
                     </view>
                     <navigationItem key="navigationItem" id="eIh-NU-c70">
-                        <barButtonItem key="rightBarButtonItem" title="share" style="plain" id="GIl-E4-pbN">
+                        <barButtonItem key="rightBarButtonItem" title="teste" style="plain" id="GIl-E4-pbN">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kts-MR-hjF">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="share"/>
                             </button>
-                            <connections>
-                                <action selector="shareButton:" destination="k3Q-Zu-5Xx" id="YxK-FD-AmS"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
