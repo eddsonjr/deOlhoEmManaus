@@ -22,6 +22,8 @@ class ShowHouseUIViewController: UIViewController {
         verifyWebAndDownload()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "share", style: .done, target: self, action: #selector(self.shareButton(_:)))
         
+      
+        
     }
 
     override func didReceiveMemoryWarning() {
