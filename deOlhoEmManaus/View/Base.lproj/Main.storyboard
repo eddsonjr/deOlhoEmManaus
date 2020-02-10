@@ -145,24 +145,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="68t-FQ-ftb" customClass="CustomImageView" customModule="deOlhoEmManaus" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="61" width="375" height="525"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3zK-0x-l05">
-                                <rect key="frame" x="98" y="617" width="179" height="30"/>
-                                <state key="normal" title="Ver Localização e Contato">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="contactAndAddressButton:" destination="k3Q-Zu-5Xx" eventType="touchUpInside" id="7wr-Sa-j2I"/>
-                                    <segue destination="Nur-0S-l4e" kind="show" id="Yzx-6N-Nug"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xMi-x8-l0g" firstAttribute="bottom" secondItem="3zK-0x-l05" secondAttribute="bottom" constant="20" id="B7N-r2-cME"/>
                             <constraint firstItem="xMi-x8-l0g" firstAttribute="bottom" secondItem="68t-FQ-ftb" secondAttribute="bottom" constant="81" id="Fcx-CH-WPk"/>
-                            <constraint firstItem="3zK-0x-l05" firstAttribute="centerX" secondItem="YKH-5N-Ocj" secondAttribute="centerX" id="NgN-WT-dAG"/>
                             <constraint firstItem="68t-FQ-ftb" firstAttribute="top" secondItem="xMi-x8-l0g" secondAttribute="top" constant="17" id="Onc-JH-JVC"/>
-                            <constraint firstItem="3zK-0x-l05" firstAttribute="top" secondItem="68t-FQ-ftb" secondAttribute="bottom" constant="31" id="Wn5-5I-NIK"/>
                             <constraint firstItem="68t-FQ-ftb" firstAttribute="leading" secondItem="xMi-x8-l0g" secondAttribute="leading" id="aCT-dc-e8R"/>
                             <constraint firstItem="xMi-x8-l0g" firstAttribute="trailing" secondItem="68t-FQ-ftb" secondAttribute="trailing" id="f4Z-dU-837"/>
                         </constraints>
@@ -178,7 +165,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="detailsShowButton" destination="3zK-0x-l05" id="sVu-Ch-noz"/>
                         <outlet property="imageView" destination="68t-FQ-ftb" id="4nJ-2R-npt"/>
                     </connections>
                 </viewController>

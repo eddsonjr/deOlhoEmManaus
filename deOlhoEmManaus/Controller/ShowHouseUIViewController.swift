@@ -7,36 +7,28 @@
 //
 
 import UIKit
+import SafariServices
+
 
 class ShowHouseUIViewController: UIViewController {
 
     
     @IBOutlet var imageView: CustomImageView!
     let TAG = "[ShowHouseViewController]: "
-    @IBOutlet var detailsShowButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(self.TAG + "Singleton show: \(ModelSingleton.shared.showSelected?.id)")
         
         verifyWebAndDownload()
-        //self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title:"", style: .plain, target: self, action: #selector(self.shareButton(_:)))
-//        let shareImage: UIImage = UIImage(named: "share")!
-//        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(image: shareImage, style: .plain, target: self, action: #selector(self.shareButton(_:)))
-//
-        
-        createShareButton()
+        createNavigationRightButtons()
         
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    
-    @IBAction func contactAndAddressButton(_ sender: Any) {
-        print(self.TAG + "Contact selected...")
     }
     
     
@@ -49,7 +41,6 @@ class ShowHouseUIViewController: UIViewController {
         }else{
             print(self.TAG + "web not available. Prevent download....")
             AlertUtils.shared.webNotAvailableAlert(view: self)
-            self.detailsShowButton.isEnabled = false
         }
     }
     
@@ -65,13 +56,74 @@ class ShowHouseUIViewController: UIViewController {
     }
     
     
+    @objc func locationButton(_ sender: Any) {
+        print(self.TAG + "Location....")
+        
+        let  location = "http://maps.google.com/maps?q=" + (ModelSingleton.shared.showSelected?.showHouse?.completAddress)!
+        let safariURL = location.addingPercentEncoding(withAllowedCharacters:  CharacterSet.urlQueryAllowed)
+              print("\(safariURL)")
+        guard let url = URL(string: safariURL!) else { return }
+        let svc = SFSafariViewController(url: url)
+        present(svc, animated: true, completion: nil)
+        
+    }
+    
+    
+    
+    
+    
+    @objc func phoneButton(_ sender: Any) {
+        
+    }
+    
+    
     func createShareButton() {
         let button = UIButton(type: UIButton.ButtonType.custom)
         button.setImage(UIImage(named: "share"), for: .normal)
         button.addTarget(self, action:#selector(shareButton(_:)), for: .touchUpInside)
-        button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        button.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItem = barButton
     }
+    
+    
+    
+    
+    
+    func createNavigationRightButtons(){
+        
+        //Criando o botao de share
+        let shareButton = UIButton(type: UIButton.ButtonType.custom)
+        shareButton.setImage(UIImage(named: "share2"), for: .normal)
+        shareButton.addTarget(self, action:#selector(shareButton(_:)), for: .touchUpInside)
+        shareButton.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        let barButtonShare = UIBarButtonItem(customView: shareButton)
+        
+        //criando o botao de location
+        let locationButton = UIButton(type: UIButton.ButtonType.custom)
+        locationButton.setImage(UIImage(named: "location2"), for: .normal)
+        locationButton.addTarget(self, action:#selector(locationButton(_:)), for: .touchUpInside)
+        locationButton.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        let barButtonLocation = UIBarButtonItem(customView: locationButton)
+        
+        
+        //Criando o botao de contatos
+        let phoneButton = UIButton(type: UIButton.ButtonType.custom)
+        phoneButton.setImage(UIImage(named: "phone2"), for: .normal)
+        phoneButton.addTarget(self, action:#selector(phoneButton(_:)), for: .touchUpInside)
+        phoneButton.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        let barButtonPhone = UIBarButtonItem(customView: phoneButton)
+        
+        
+        //Adicionando a barra de navigation
+        self.navigationItem.rightBarButtonItems = [barButtonShare,barButtonLocation,barButtonPhone]
+        
+    }
+    
+    
+    
+    
+    
+
     
 }
