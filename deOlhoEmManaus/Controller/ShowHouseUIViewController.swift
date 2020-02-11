@@ -15,6 +15,7 @@ class ShowHouseUIViewController: UIViewController {
     
     @IBOutlet var imageView: CustomImageView!
     let TAG = "[ShowHouseViewController]: "
+    @IBOutlet var popOverTextArea: UITextView!
     
     
     override func viewDidLoad() {
@@ -122,7 +123,12 @@ class ShowHouseUIViewController: UIViewController {
     
     
     
+    //Mark: Funcoes do PopOver
     
+    @IBAction func exitPopOverButton(_ sender: Any) {
+        
+        
+    }
     
 
     
