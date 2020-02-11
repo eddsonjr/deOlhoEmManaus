@@ -13,8 +13,8 @@ import SafariServices
 class ShowHouseUIViewController: UIViewController {
 
     
-    @IBOutlet var imageView: CustomImageView!
     let TAG = "[ShowHouseViewController]: "
+    @IBOutlet var imageView: CustomImageView!
     @IBOutlet var popOverTextArea: UITextView!
     @IBOutlet var popOverView: UIView!
     
@@ -129,10 +129,15 @@ class ShowHouseUIViewController: UIViewController {
         let barButtonPhone = UIBarButtonItem(customView: phoneButton)
         
         
-        //Adicionando a barra de navigation
-        self.navigationItem.rightBarButtonItems = [barButtonShare,barButtonLocation,barButtonPhone]
         
-        
+        //Verificando se ha telefones para contato para esta casa do show
+        //Caso tenha, colocar o item de phone na navigation
+        //caso contrario, remover
+        if((((ModelSingleton.shared.showSelected?.showHouse?.phones!) != nil))){
+            self.navigationItem.rightBarButtonItems = [barButtonShare,barButtonLocation,barButtonPhone]
+        }else{
+            self.navigationItem.rightBarButtonItems = [barButtonShare,barButtonLocation]
+        }
         
     }
     
@@ -151,9 +156,15 @@ class ShowHouseUIViewController: UIViewController {
         self.view.addSubview(self.popOverView)
         popOverView.center = self.view.center
         
-        //Colocando agora o numero de telefone
+        //Colocando o numero de telefones
+        var phoneStr = ""
+        for phone in (ModelSingleton.shared.showSelected?.showHouse!.phones)! {
+            phoneStr += phone + "\n"
+        }
         
+        self.popOverTextArea.text = phoneStr
         
+    
     }
     
 

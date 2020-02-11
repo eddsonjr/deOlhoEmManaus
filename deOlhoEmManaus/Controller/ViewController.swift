@@ -37,8 +37,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.searchBar.setImage(UIImage(), for: .clear, state: .normal)
         
         
-        
-        
         // Register to receive notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationIdentifier"), object: nil)
         
