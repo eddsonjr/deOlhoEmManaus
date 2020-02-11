@@ -1,6 +1,6 @@
 //
 //  ShowHouseUIViewController.swift
-//  VitrineProdutos
+//  deOlhoEmManaus
 //
 //  Created by Edson  Jr on 09/01/2020.
 //  Copyright © 2020 Edson  Jr. All rights reserved.
@@ -16,14 +16,19 @@ class ShowHouseUIViewController: UIViewController {
     @IBOutlet var imageView: CustomImageView!
     let TAG = "[ShowHouseViewController]: "
     @IBOutlet var popOverTextArea: UITextView!
+    @IBOutlet var popOverView: UIView!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(self.TAG + "Singleton show: \(ModelSingleton.shared.showSelected?.id)")
         
-        verifyWebAndDownload()
-        createNavigationRightButtons()
+        verifyWebAndDownload() //verificando as condicoes da web e baixando dados
+        createNavigationRightButtons() //Renderizando os botoes direitos da navigation
+        
+        //Ajustando o popover - contornos
+        self.popOverView.layer.cornerRadius = 10
         
     }
 
@@ -46,6 +51,8 @@ class ShowHouseUIViewController: UIViewController {
     }
     
     
+    
+    
     @objc func shareButton(_ sender: Any) {
         print(self.TAG + "Sharing....")
         let image = self.imageView.image
@@ -55,6 +62,9 @@ class ShowHouseUIViewController: UIViewController {
         self.present(activityViewController, animated: true, completion: nil)
         
     }
+    
+    
+    
     
     
     @objc func locationButton(_ sender: Any) {
@@ -74,8 +84,11 @@ class ShowHouseUIViewController: UIViewController {
     
     
     @objc func phoneButton(_ sender: Any) {
-        
+        //Sera chamado o popOver contendo as informacoes de contato
+        createPopOver()
     }
+    
+    
     
     
     func createShareButton() {
@@ -119,13 +132,26 @@ class ShowHouseUIViewController: UIViewController {
         //Adicionando a barra de navigation
         self.navigationItem.rightBarButtonItems = [barButtonShare,barButtonLocation,barButtonPhone]
         
+        
+        
     }
     
     
     
     //Mark: Funcoes do PopOver
-    
     @IBAction func exitPopOverButton(_ sender: Any) {
+        //Retira o popOver da tela
+        self.popOverView.removeFromSuperview()
+    }
+    
+    
+    
+    func createPopOver() {
+        //adicionando o popover a tela
+        self.view.addSubview(self.popOverView)
+        popOverView.center = self.view.center
+        
+        //Colocando agora o numero de telefone
         
         
     }

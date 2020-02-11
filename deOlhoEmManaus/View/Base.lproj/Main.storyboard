@@ -167,6 +167,7 @@
                     <connections>
                         <outlet property="imageView" destination="68t-FQ-ftb" id="4nJ-2R-npt"/>
                         <outlet property="popOverTextArea" destination="bal-bf-V0q" id="qhH-Wl-lEy"/>
+                        <outlet property="popOverView" destination="K2d-L5-8pC" id="w3G-SU-HJD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tde-6P-QIx" userLabel="First Responder" sceneMemberID="firstResponder"/>
