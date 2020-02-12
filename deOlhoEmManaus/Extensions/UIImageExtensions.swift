@@ -20,6 +20,7 @@ class CustomImageView: UIImageView {
     let activityIndicatorView: UIActivityIndicatorView = {
         let activity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
         activity.translatesAutoresizingMaskIntoConstraints = false
+        
         return activity
     }()
     
