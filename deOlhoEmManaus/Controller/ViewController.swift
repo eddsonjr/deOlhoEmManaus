@@ -100,9 +100,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         var sectionName: String = ""
         if(self.searchActive){
-            sectionName = self.listaFiltrada![section].name!
+            sectionName = self.listaFiltrada![section].name!.capitalized
         }else{
-            sectionName = self.listaDeCategorias![section].name!
+            sectionName = self.listaDeCategorias![section].name!.capitalized
         }
         
         return sectionName
