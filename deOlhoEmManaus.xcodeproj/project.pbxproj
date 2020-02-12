@@ -69,7 +69,7 @@
 		AD0077DB23DBDD7A0069E28B /* DetailShowHouseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailShowHouseViewController.swift; sourceTree = "<group>"; };
 		AD0077DC23DBDD7A0069E28B /* ShowHouseUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowHouseUIViewController.swift; sourceTree = "<group>"; };
 		AD1970B323DFA30300BEF5DE /* InteratorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteratorExtension.swift; sourceTree = "<group>"; };
-		AD2176EA23DBC92900BE2AD0 /* deOlhoEmManaus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = deOlhoEmManaus.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD2176EA23DBC92900BE2AD0 /* OlhoManaus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OlhoManaus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD2176ED23DBC92900BE2AD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AD2176EF23DBC92900BE2AD0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AD2176F223DBC92900BE2AD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 		AD2176EB23DBC92900BE2AD0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AD2176EA23DBC92900BE2AD0 /* deOlhoEmManaus.app */,
+				AD2176EA23DBC92900BE2AD0 /* OlhoManaus.app */,
 				AD21770123DBC92B00BE2AD0 /* deOlhoEmManausTests.xctest */,
 				AD21770C23DBC92B00BE2AD0 /* deOlhoEmManausUITests.xctest */,
 			);
@@ -286,7 +286,7 @@
 			);
 			name = deOlhoEmManaus;
 			productName = deOlhoEmManaus;
-			productReference = AD2176EA23DBC92900BE2AD0 /* deOlhoEmManaus.app */;
+			productReference = AD2176EA23DBC92900BE2AD0 /* OlhoManaus.app */;
 			productType = "com.apple.product-type.application";
 		};
 		AD21770023DBC92B00BE2AD0 /* deOlhoEmManausTests */ = {
@@ -736,7 +736,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.EdsonJr.deOlhoEmManaus;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = OlhoManaus;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -756,7 +756,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.EdsonJr.deOlhoEmManaus;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = OlhoManaus;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
