@@ -23,10 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
         FirebaseApp.configure()  //Configurando a conexao com o banco assim que a aplicacao iniciar
+        Database.database().isPersistenceEnabled = true
         self.databaseRef = Database.database().reference()
         GMSServices.provideAPIKey("AIzaSyBmdzNecNxF3GK38-409w9rNfxBa4ywD0w")
         GMSPlacesClient.provideAPIKey("AIzaSyBmdzNecNxF3GK38-409w9rNfxBa4ywD0w")
+        
         return true
     }
 
