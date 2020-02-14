@@ -138,12 +138,11 @@ class ShowHouseUIViewController: UIViewController {
         //Verificando se ha telefones para contato para esta casa do show
         //Caso tenha, colocar o item de phone na navigation
         //caso contrario, remover
-        if((((ModelSingleton.shared.showSelected?.showHouse?.phones!) != nil))){
+        if ModelSingleton.shared.showSelected?.showHouse?.phones != nil {
             self.navigationItem.rightBarButtonItems = [barButtonShare,barButtonLocation,barButtonPhone]
         }else{
             self.navigationItem.rightBarButtonItems = [barButtonShare,barButtonLocation]
         }
-        
     }
     
     
