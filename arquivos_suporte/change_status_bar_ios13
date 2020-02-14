@@ -1,0 +1,9 @@
+
+        if #available(iOS 13.0, *) {
+            let statusBar = UIView(frame: UIApplication.shared.keyWindow?.windowScene?.statusBarManager?.statusBarFrame ?? CGRect.zero)
+             statusBar.backgroundColor = UIColor.init(red: 243/250, green: 243/250, blue: 243/250, alpha: 1)
+            statusBar.tintColor = UIColor.init(red: 243/250, green: 243/250, blue: 243/250, alpha: 1)
+
+             UIApplication.shared.keyWindow?.addSubview(statusBar)
+        }
+        

@@ -30,6 +30,9 @@ class ShowHouseUIViewController: UIViewController {
         //Ajustando o popover - contornos
         self.popOverView.layer.cornerRadius = 10
         
+        self.navigationController?.navigationBar.barStyle = .black
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
