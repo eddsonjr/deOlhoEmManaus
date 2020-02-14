@@ -25,10 +25,11 @@ class ShowHouseUIViewController: UIViewController {
         print(self.TAG + "Singleton show: \(ModelSingleton.shared.showSelected?.id)")
         
         verifyWebAndDownload() //verificando as condicoes da web e baixando dados
-        createNavigationRightButtons() //Renderizando os botoes direitos da navigation
+        
         
         //Ajustando o popover - contornos
         self.popOverView.layer.cornerRadius = 10
+
         
         self.navigationController?.navigationBar.barStyle = .black
         
@@ -47,6 +48,7 @@ class ShowHouseUIViewController: UIViewController {
         if(InternetUtils.isConnectedToInternet()) {
             print(TAG + "web available. Downloading...")
             self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
+            createNavigationRightButtons() //Renderizando os botoes direitos da navigation
         }else{
             print(self.TAG + "web not available. Prevent download....")
             AlertUtils.shared.webNotAvailableAlert(view: self)

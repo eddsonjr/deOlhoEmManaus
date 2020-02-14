@@ -156,15 +156,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xMi-x8-l0g"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eIh-NU-c70">
-                        <barButtonItem key="rightBarButtonItem" title="teste" style="plain" id="GIl-E4-pbN">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kts-MR-hjF">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="share"/>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="eIh-NU-c70"/>
                     <connections>
                         <outlet property="imageView" destination="68t-FQ-ftb" id="4nJ-2R-npt"/>
                         <outlet property="popOverTextArea" destination="bal-bf-V0q" id="qhH-Wl-lEy"/>
