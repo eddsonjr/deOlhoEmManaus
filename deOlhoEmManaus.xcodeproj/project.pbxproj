@@ -735,6 +735,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.EdsonJr.deOlhoEmManaus;
 				PRODUCT_NAME = "De Olho em Manaus";
 				SWIFT_VERSION = 4.0;
@@ -755,6 +756,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.EdsonJr.deOlhoEmManaus;
 				PRODUCT_NAME = "De Olho em Manaus";
 				SWIFT_VERSION = 4.0;
