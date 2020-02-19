@@ -85,6 +85,7 @@
 		AD21771223DBC92B00BE2AD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ADC7A38123E8E40500BF38D0 /* InternetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetUtils.swift; sourceTree = "<group>"; };
 		ADC7A38323E8E80800BF38D0 /* AlertUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
+		ADDC1A5023FCC8F1003814C7 /* De Olho em Manaus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "De Olho em Manaus.entitlements"; sourceTree = "<group>"; };
 		B20C5B1F88C44A455FAC097D /* Pods-deOlhoEmManaus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-deOlhoEmManaus.release.xcconfig"; path = "Pods/Target Support Files/Pods-deOlhoEmManaus/Pods-deOlhoEmManaus.release.xcconfig"; sourceTree = "<group>"; };
 		B666CAAB968A4541C9102D93 /* Pods_deOlhoEmManausTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_deOlhoEmManausTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD8F34BEA4FE57E495E43FAE /* Pods-deOlhoEmManausTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-deOlhoEmManausTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-deOlhoEmManausTests/Pods-deOlhoEmManausTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -224,6 +225,7 @@
 		AD2176EC23DBC92900BE2AD0 /* deOlhoEmManaus */ = {
 			isa = PBXGroup;
 			children = (
+				ADDC1A5023FCC8F1003814C7 /* De Olho em Manaus.entitlements */,
 				ADC7A37E23E8E29B00BF38D0 /* Utils */,
 				AD0077C123DBCC880069E28B /* Extensions */,
 				AD0077C023DBCC620069E28B /* Controller */,
@@ -727,6 +729,7 @@
 			baseConfigurationReference = 69A05F8561A12BDBB4542256 /* Pods-deOlhoEmManaus.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "deOlhoEmManaus/De Olho em Manaus.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7WV8M257CC;
 				INFOPLIST_FILE = deOlhoEmManaus/Info.plist;
@@ -748,6 +751,7 @@
 			baseConfigurationReference = B20C5B1F88C44A455FAC097D /* Pods-deOlhoEmManaus.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "deOlhoEmManaus/De Olho em Manaus.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7WV8M257CC;
 				INFOPLIST_FILE = deOlhoEmManaus/Info.plist;
