@@ -175,6 +175,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //Mark: Funcoes de searchbar
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true;
+        //scrollToFirstRow()
+        self.listaFiltrada = self.listaDeCategorias
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -242,6 +244,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             AlertUtils.shared.webNotAvailableAlert(view: self)
             self.noWebView.isHidden = false
         }
+    }
+    
+    
+    
+    //Mark: Funcoes de scroll da tableview
+    func scrollToFirstRow() {
+        print("ESCROLLLANDO")
+        let indexPath = IndexPath(row: 0, section: 0)
+        self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
     }
 
 
