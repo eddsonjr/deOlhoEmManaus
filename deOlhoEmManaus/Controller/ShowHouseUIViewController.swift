@@ -107,24 +107,24 @@ class ShowHouseUIViewController: UIViewController {
         
         //Criando o botao de share
         let shareButton = UIButton(type: UIButton.ButtonType.custom)
-        shareButton.setImage(UIImage(named: "share2"), for: .normal)
+        shareButton.setImage(UIImage(named: "share"), for: .normal)
         shareButton.addTarget(self, action:#selector(shareButton(_:)), for: .touchUpInside)
-        shareButton.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        shareButton.frame = CGRect(x: 0, y: 0, width: 40, height: 10)
         let barButtonShare = UIBarButtonItem(customView: shareButton)
         
         //criando o botao de location
         let locationButton = UIButton(type: UIButton.ButtonType.custom)
-        locationButton.setImage(UIImage(named: "location2"), for: .normal)
+        locationButton.setImage(UIImage(named: "location"), for: .normal)
         locationButton.addTarget(self, action:#selector(locationButton(_:)), for: .touchUpInside)
-        locationButton.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        locationButton.frame = CGRect(x: 0, y: 0, width: 40, height: 10)
         let barButtonLocation = UIBarButtonItem(customView: locationButton)
         
         
         //Criando o botao de contatos
         let phoneButton = UIButton(type: UIButton.ButtonType.custom)
-        phoneButton.setImage(UIImage(named: "phone2"), for: .normal)
+        phoneButton.setImage(UIImage(named: "phone"), for: .normal)
         phoneButton.addTarget(self, action:#selector(phoneButton(_:)), for: .touchUpInside)
-        phoneButton.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        phoneButton.frame = CGRect(x: 0, y: 0, width: 40, height: 10)
         let barButtonPhone = UIBarButtonItem(customView: phoneButton)
         
         
