@@ -3,36 +3,36 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>645954734046-nlng4jj48hqb31595ii4to2od0tsgi3c.apps.googleusercontent.com</string>
+	<string>305553502414-g0rcv0e0t2m7p68shnu1m44lk50uv12p.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.645954734046-nlng4jj48hqb31595ii4to2od0tsgi3c</string>
+	<string>com.googleusercontent.apps.305553502414-g0rcv0e0t2m7p68shnu1m44lk50uv12p</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>645954734046-jpvcnlehgivsvtji7ceqi4ae12n2goeb.apps.googleusercontent.com</string>
+	<string>305553502414-b0ctrbd03h3qr9q4fcts0n5o86gdetoa.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyA1TxMzX-zTD_rKOu25cOX7ZcGlxiBueDI</string>
+	<string>AIzaSyDeFwFEIwqADK4Z8k_rYSa8NOzTZb5s8KE</string>
 	<key>GCM_SENDER_ID</key>
-	<string>645954734046</string>
+	<string>305553502414</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.EdsonJr.deOlhoEmManaus</string>
 	<key>PROJECT_ID</key>
-	<string>deolhoemmanaustests</string>
+	<string>deolhoemmanaus-75020</string>
 	<key>STORAGE_BUCKET</key>
-	<string>deolhoemmanaustests.appspot.com</string>
+	<string>deolhoemmanaus-75020.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false/>
+	<false></false>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_GCM_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true/>
+	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:645954734046:ios:c12751e5373b809a6aff4f</string>
+	<string>1:305553502414:ios:39eb6697d1188ff645a09f</string>
 	<key>DATABASE_URL</key>
-	<string>https://deolhoemmanaustests.firebaseio.com</string>
+	<string>https://deolhoemmanaus-75020.firebaseio.com</string>
 </dict>
 </plist>

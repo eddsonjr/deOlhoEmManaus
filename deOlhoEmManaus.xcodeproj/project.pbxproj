@@ -16,7 +16,6 @@
 		AD0077CF23DBCD470069E28B /* ModelSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077CB23DBCD470069E28B /* ModelSingleton.swift */; };
 		AD0077D123DBCD6B0069E28B /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077D023DBCD6B0069E28B /* UIImageExtensions.swift */; };
 		AD0077D323DBCD7D0069E28B /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077D223DBCD7D0069E28B /* FirebaseService.swift */; };
-		AD0077D523DBCE740069E28B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AD0077D423DBCE740069E28B /* GoogleService-Info.plist */; };
 		AD0077D923DBD10F0069E28B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077D723DBD10F0069E28B /* CollectionViewCell.swift */; };
 		AD0077DA23DBD10F0069E28B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077D823DBD10F0069E28B /* TableViewCell.swift */; };
 		AD0077DD23DBDD7A0069E28B /* DetailShowHouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0077DB23DBDD7A0069E28B /* DetailShowHouseViewController.swift */; };
@@ -32,6 +31,7 @@
 		AD21771123DBC92B00BE2AD0 /* deOlhoEmManausUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21771023DBC92B00BE2AD0 /* deOlhoEmManausUITests.swift */; };
 		ADC7A38223E8E40500BF38D0 /* InternetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC7A38123E8E40500BF38D0 /* InternetUtils.swift */; };
 		ADC7A38423E8E80800BF38D0 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC7A38323E8E80800BF38D0 /* AlertUtils.swift */; };
+		ADFBE5322402E23E00998122 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADFBE5312402E23D00998122 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,6 @@
 		AD0077CB23DBCD470069E28B /* ModelSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelSingleton.swift; sourceTree = "<group>"; };
 		AD0077D023DBCD6B0069E28B /* UIImageExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
 		AD0077D223DBCD7D0069E28B /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
-		AD0077D423DBCE740069E28B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AD0077D723DBD10F0069E28B /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		AD0077D823DBD10F0069E28B /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		AD0077DB23DBDD7A0069E28B /* DetailShowHouseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailShowHouseViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +85,7 @@
 		ADC7A38123E8E40500BF38D0 /* InternetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetUtils.swift; sourceTree = "<group>"; };
 		ADC7A38323E8E80800BF38D0 /* AlertUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
 		ADDC1A5023FCC8F1003814C7 /* De Olho em Manaus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "De Olho em Manaus.entitlements"; sourceTree = "<group>"; };
+		ADFBE5312402E23D00998122 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B20C5B1F88C44A455FAC097D /* Pods-deOlhoEmManaus.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-deOlhoEmManaus.release.xcconfig"; path = "Pods/Target Support Files/Pods-deOlhoEmManaus/Pods-deOlhoEmManaus.release.xcconfig"; sourceTree = "<group>"; };
 		B666CAAB968A4541C9102D93 /* Pods_deOlhoEmManausTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_deOlhoEmManausTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD8F34BEA4FE57E495E43FAE /* Pods-deOlhoEmManausTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-deOlhoEmManausTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-deOlhoEmManausTests/Pods-deOlhoEmManausTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -234,8 +234,8 @@
 				AD0077BD23DBCC070069E28B /* View */,
 				AD2176ED23DBC92900BE2AD0 /* AppDelegate.swift */,
 				AD2176F723DBC92B00BE2AD0 /* Assets.xcassets */,
+				ADFBE5312402E23D00998122 /* GoogleService-Info.plist */,
 				AD2176FC23DBC92B00BE2AD0 /* Info.plist */,
-				AD0077D423DBCE740069E28B /* GoogleService-Info.plist */,
 				AD2176F423DBC92900BE2AD0 /* deOlhoEmManaus.xcdatamodeld */,
 			);
 			path = deOlhoEmManaus;
@@ -377,10 +377,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AD0077D523DBCE740069E28B /* GoogleService-Info.plist in Resources */,
 				AD2176FB23DBC92B00BE2AD0 /* LaunchScreen.storyboard in Resources */,
 				AD2176F823DBC92B00BE2AD0 /* Assets.xcassets in Resources */,
 				AD2176F323DBC92900BE2AD0 /* Main.storyboard in Resources */,
+				ADFBE5322402E23E00998122 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
