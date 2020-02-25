@@ -19,7 +19,7 @@ class CustomImageView: UIImageView {
     
     var activityIndicatorView: UIActivityIndicatorView = {
         var activity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
-        activity.color = .white
+        activity.color = .black
         activity.translatesAutoresizingMaskIntoConstraints = false
         
         return activity
@@ -53,7 +53,7 @@ class CustomImageView: UIImageView {
         self.activityIndicatorView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: 0).isActive = true
         self.activityIndicatorView.widthAnchor.constraint(equalToConstant: 40).isActive = true
         self.activityIndicatorView.heightAnchor.constraint(equalToConstant: 40).isActive = true
-        self.activityIndicatorView.color = UIColor.white
+        self.activityIndicatorView.color = UIColor.black
     }
     
     func loadImageUsingCache(withUrlString: String, _ completion: ((_ image: UIImage?) -> Void)? = nil) {

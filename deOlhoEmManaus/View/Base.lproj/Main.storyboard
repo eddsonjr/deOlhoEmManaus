@@ -149,15 +149,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage2" translatesAutoresizingMaskIntoConstraints="NO" id="irU-jP-4IA" customClass="CustomImageView" customModule="OlhoEmManaus" customModuleProvider="target">
-                                <rect key="frame" x="16" y="60" width="343" height="591"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xMi-x8-l0g" firstAttribute="trailing" secondItem="irU-jP-4IA" secondAttribute="trailing" constant="16" id="4j4-Wh-VPp"/>
-                            <constraint firstItem="irU-jP-4IA" firstAttribute="leading" secondItem="xMi-x8-l0g" secondAttribute="leading" constant="16" id="Dgr-MN-0Fk"/>
-                            <constraint firstItem="xMi-x8-l0g" firstAttribute="bottom" secondItem="irU-jP-4IA" secondAttribute="bottom" constant="16" id="Ekz-Oi-RdM"/>
-                            <constraint firstItem="irU-jP-4IA" firstAttribute="top" secondItem="xMi-x8-l0g" secondAttribute="top" constant="16" id="I9O-J2-Isc"/>
+                            <constraint firstItem="irU-jP-4IA" firstAttribute="trailing" secondItem="xMi-x8-l0g" secondAttribute="trailing" id="SSO-Xx-Hsz"/>
+                            <constraint firstItem="irU-jP-4IA" firstAttribute="top" secondItem="xMi-x8-l0g" secondAttribute="top" id="Ydl-Jb-DBg"/>
+                            <constraint firstItem="irU-jP-4IA" firstAttribute="leading" secondItem="xMi-x8-l0g" secondAttribute="leading" id="Ysj-Nj-4dq"/>
+                            <constraint firstItem="irU-jP-4IA" firstAttribute="bottom" secondItem="xMi-x8-l0g" secondAttribute="bottom" id="zuO-mK-rIL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xMi-x8-l0g"/>
                     </view>
