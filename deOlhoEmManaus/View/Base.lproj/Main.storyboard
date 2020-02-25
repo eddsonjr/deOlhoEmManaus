@@ -18,10 +18,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="spB-h3-bET">
                                 <rect key="frame" x="0.0" y="100" width="375" height="567"/>
-                                <color key="backgroundColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="sectionIndexColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableviewCell" rowHeight="350" id="ymd-Fo-9E7" customClass="TableViewCell" customModule="OlhoEmManaus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="350"/>
@@ -32,7 +30,7 @@
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="300" verticalHuggingPriority="300" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oDn-46-vsi">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oDL-fw-svg">
                                                         <size key="itemSize" width="141" height="210"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -53,7 +51,6 @@
                                                                     </imageView>
                                                                 </subviews>
                                                             </view>
-                                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <size key="customSize" width="141" height="210"/>
                                                             <connections>
                                                                 <outlet property="imageView" destination="kx6-Zq-jqq" id="mJ8-JB-3cy"/>
@@ -67,12 +64,10 @@
                                                     </connections>
                                                 </collectionView>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="oDn-46-vsi" firstAttribute="top" secondItem="wie-04-pH5" secondAttribute="top" id="XHM-BM-Fcl"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="oDn-46-vsi" secondAttribute="trailing" id="c8W-7r-scb"/>
                                             <constraint firstItem="oDn-46-vsi" firstAttribute="leading" secondItem="ymd-Fo-9E7" secondAttribute="leading" id="sg3-7P-q3u"/>
@@ -106,9 +101,13 @@
                                     <constraint firstItem="fiR-WV-s3R" firstAttribute="leading" secondItem="dJI-Vs-u9p" secondAttribute="leading" constant="12" id="gCD-oj-QKI"/>
                                     <constraint firstAttribute="trailing" secondItem="fiR-WV-s3R" secondAttribute="trailing" constant="13" id="lx7-MF-xP9"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="fiR-WV-s3R"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="spB-h3-bET" firstAttribute="top" secondItem="cTD-eh-mjO" secondAttribute="bottom" id="8N7-a0-zoC"/>
                             <constraint firstItem="OqN-pU-EzC" firstAttribute="trailing" secondItem="cTD-eh-mjO" secondAttribute="trailing" id="CPj-FF-ELw"/>
@@ -124,6 +123,11 @@
                             <constraint firstItem="cTD-eh-mjO" firstAttribute="leading" secondItem="OqN-pU-EzC" secondAttribute="leading" id="xI7-dB-CFS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OqN-pU-EzC"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="dJI-Vs-u9p"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Eventos" id="ygA-iw-F5Y"/>
                     <connections>
@@ -148,7 +152,6 @@
                                 <rect key="frame" x="0.0" y="61" width="375" height="586"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xMi-x8-l0g" firstAttribute="bottom" secondItem="68t-FQ-ftb" secondAttribute="bottom" constant="20" id="Fcx-CH-WPk"/>
                             <constraint firstItem="68t-FQ-ftb" firstAttribute="top" secondItem="xMi-x8-l0g" secondAttribute="top" constant="17" id="Onc-JH-JVC"/>
@@ -156,6 +159,11 @@
                             <constraint firstItem="xMi-x8-l0g" firstAttribute="trailing" secondItem="68t-FQ-ftb" secondAttribute="trailing" id="f4Z-dU-837"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xMi-x8-l0g"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="68t-FQ-ftb"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="eIh-NU-c70"/>
                     <connections>
@@ -221,10 +229,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
