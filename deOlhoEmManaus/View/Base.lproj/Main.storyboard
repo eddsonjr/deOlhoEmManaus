@@ -39,21 +39,38 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" reuseIdentifier="collectionViewCell" id="nIk-wT-zaC" customClass="CollectionViewCell" customModule="OlhoEmManaus" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="45" width="141" height="210"/>
+                                                            <rect key="frame" x="0.0" y="22" width="160" height="256"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="141" height="210"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="160" height="256"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="noImage2" translatesAutoresizingMaskIntoConstraints="NO" id="kx6-Zq-jqq" customClass="CustomImageView" customModule="OlhoEmManaus" customModuleProvider="target">
-                                                                        <rect key="frame" x="7" y="7" width="127" height="196"/>
-                                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage2" translatesAutoresizingMaskIntoConstraints="NO" id="kx6-Zq-jqq" customClass="CustomImageView" customModule="OlhoEmManaus" customModuleProvider="target">
+                                                                        <rect key="frame" x="17" y="7" width="127" height="192"/>
                                                                     </imageView>
+                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Bar e choperia da casa do caralho lá na baixa da égua" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ob-oZ-7US">
+                                                                        <rect key="frame" x="12" y="205" width="137" height="51"/>
+                                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="11"/>
+                                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                                    </textView>
                                                                 </subviews>
                                                             </view>
-                                                            <size key="customSize" width="141" height="210"/>
+                                                            <constraints>
+                                                                <constraint firstItem="kx6-Zq-jqq" firstAttribute="leading" secondItem="nIk-wT-zaC" secondAttribute="leading" constant="17" id="4or-cf-zT9"/>
+                                                                <constraint firstAttribute="bottom" secondItem="kx6-Zq-jqq" secondAttribute="bottom" constant="57" id="6Fu-YL-LUm"/>
+                                                                <constraint firstAttribute="trailing" secondItem="kx6-Zq-jqq" secondAttribute="trailing" constant="16" id="7dV-EK-ozO"/>
+                                                                <constraint firstAttribute="bottom" secondItem="9ob-oZ-7US" secondAttribute="bottom" id="Gyz-ES-LoT"/>
+                                                                <constraint firstItem="9ob-oZ-7US" firstAttribute="leading" secondItem="nIk-wT-zaC" secondAttribute="leading" constant="12" id="csa-cd-xyJ"/>
+                                                                <constraint firstItem="kx6-Zq-jqq" firstAttribute="top" secondItem="nIk-wT-zaC" secondAttribute="top" constant="7" id="epy-oZ-PTB"/>
+                                                                <constraint firstItem="9ob-oZ-7US" firstAttribute="top" secondItem="kx6-Zq-jqq" secondAttribute="bottom" constant="6" id="qBQ-th-vnQ"/>
+                                                                <constraint firstAttribute="trailing" secondItem="9ob-oZ-7US" secondAttribute="trailing" constant="11" id="tfj-3i-nXu"/>
+                                                            </constraints>
+                                                            <size key="customSize" width="160" height="256"/>
                                                             <connections>
                                                                 <outlet property="imageView" destination="kx6-Zq-jqq" id="mJ8-JB-3cy"/>
+                                                                <outlet property="textView" destination="9ob-oZ-7US" id="dKr-ii-m9h"/>
                                                                 <segue destination="k3Q-Zu-5Xx" kind="show" id="x0E-gg-eLJ"/>
                                                             </connections>
                                                         </collectionViewCell>

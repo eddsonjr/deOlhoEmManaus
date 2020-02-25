@@ -11,11 +11,12 @@ import UIKit
 class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var imageView: CustomImageView!
-
+    @IBOutlet var textView: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
     
 

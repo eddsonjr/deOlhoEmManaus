@@ -13,8 +13,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
-    
-    
     @IBOutlet var noWebView: UIView!
     
     private let TAG = "[ViewController]: "
@@ -113,11 +111,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-    }
-    
-    
     //Muda as cores da header da tableview
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
         view.tintColor = .white
@@ -142,17 +135,20 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionViewCell", for: indexPath) as! CollectionViewCell
         
         var imgUrl = ""
+        var address = ""
         if(self.searchActive){
             imgUrl = self.listaFiltrada![collectionView.tag].shows[indexPath.row].imageUrl!
+            address = self.listaFiltrada![collectionView.tag].shows[indexPath.row].showHouse!.name!
         }else{
             imgUrl = self.listaDeCategorias![collectionView.tag].shows[indexPath.row].imageUrl!
+            address = self.listaDeCategorias![collectionView.tag].shows[indexPath.row].showHouse!.name!
+            
         }
     
+        cell.textView.text = address
         cell.imageView.loadImageUsingCache(withUrlString: imgUrl)
         return cell
     }
-    
-    
     
     
     
@@ -214,11 +210,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
        
     
-    
-    
-    
-    
-    
+
     
     //Mark: Metodo do observador do FirebaseService - usado para reload da tableview assim que os dados forem baixados da web
     @objc func methodOfReceivedNotification(notification: Notification) {
@@ -247,14 +239,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     }
     
-    
-    
-    //Mark: Funcoes de scroll da tableview
-//    func scrollToFirstRow() {
-//        print("ESCROLLLANDO")
-//        let indexPath = IndexPath(row: 0, section: 0)
-//        self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-//    }
 
 
 }
