@@ -41,7 +41,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationIdentifier"), object: nil)
         
         verifyWebAndDownload()
-        self.navigationController?.navigationBar.barStyle = .black
+        //self.navigationController?.navigationBar.barStyle = .black
         
     }
     
@@ -249,11 +249,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     //Mark: Funcoes de scroll da tableview
-    func scrollToFirstRow() {
-        print("ESCROLLLANDO")
-        let indexPath = IndexPath(row: 0, section: 0)
-        self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
-    }
+//    func scrollToFirstRow() {
+//        print("ESCROLLLANDO")
+//        let indexPath = IndexPath(row: 0, section: 0)
+//        self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+//    }
 
 
 }
