@@ -14,6 +14,7 @@ class ShowHouseUIViewController: UIViewController {
 
     
     let TAG = "[ShowHouseViewController]: "
+   
     @IBOutlet var imageView: CustomImageView!
     @IBOutlet var popOverTextArea: UITextView!
     @IBOutlet var popOverView: UIView!
@@ -31,7 +32,7 @@ class ShowHouseUIViewController: UIViewController {
         self.popOverView.layer.cornerRadius = 10
 
         
-        self.navigationController?.navigationBar.barStyle = .black
+        //self.navigationController?.navigationBar.barStyle = .black
         
         
     }
@@ -96,14 +97,7 @@ class ShowHouseUIViewController: UIViewController {
     
     
     
-    func createShareButton() {
-        let button = UIButton(type: UIButton.ButtonType.custom)
-        button.setImage(UIImage(named: "share"), for: .normal)
-        button.addTarget(self, action:#selector(shareButton(_:)), for: .touchUpInside)
-        button.frame = CGRect(x: 0, y: 0, width: 45, height: 45)
-        let barButton = UIBarButtonItem(customView: button)
-        self.navigationItem.rightBarButtonItem = barButton
-    }
+   
     
     
     

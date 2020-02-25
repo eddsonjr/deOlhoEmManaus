@@ -54,7 +54,7 @@
                                                             <size key="customSize" width="141" height="210"/>
                                                             <connections>
                                                                 <outlet property="imageView" destination="kx6-Zq-jqq" id="mJ8-JB-3cy"/>
-                                                                <segue destination="k3Q-Zu-5Xx" kind="show" id="05X-Vy-Wx0"/>
+                                                                <segue destination="k3Q-Zu-5Xx" kind="show" id="x0E-gg-eLJ"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -148,26 +148,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SemWeb_720_1080" translatesAutoresizingMaskIntoConstraints="NO" id="68t-FQ-ftb" customClass="CustomImageView" customModule="OlhoEmManaus" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="61" width="375" height="586"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage2" translatesAutoresizingMaskIntoConstraints="NO" id="irU-jP-4IA" customClass="CustomImageView" customModule="OlhoEmManaus" customModuleProvider="target">
+                                <rect key="frame" x="16" y="60" width="343" height="591"/>
                             </imageView>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xMi-x8-l0g" firstAttribute="bottom" secondItem="68t-FQ-ftb" secondAttribute="bottom" constant="20" id="Fcx-CH-WPk"/>
-                            <constraint firstItem="68t-FQ-ftb" firstAttribute="top" secondItem="xMi-x8-l0g" secondAttribute="top" constant="17" id="Onc-JH-JVC"/>
-                            <constraint firstItem="68t-FQ-ftb" firstAttribute="leading" secondItem="xMi-x8-l0g" secondAttribute="leading" id="aCT-dc-e8R"/>
-                            <constraint firstItem="xMi-x8-l0g" firstAttribute="trailing" secondItem="68t-FQ-ftb" secondAttribute="trailing" id="f4Z-dU-837"/>
+                            <constraint firstItem="xMi-x8-l0g" firstAttribute="trailing" secondItem="irU-jP-4IA" secondAttribute="trailing" constant="16" id="4j4-Wh-VPp"/>
+                            <constraint firstItem="irU-jP-4IA" firstAttribute="leading" secondItem="xMi-x8-l0g" secondAttribute="leading" constant="16" id="Dgr-MN-0Fk"/>
+                            <constraint firstItem="xMi-x8-l0g" firstAttribute="bottom" secondItem="irU-jP-4IA" secondAttribute="bottom" constant="16" id="Ekz-Oi-RdM"/>
+                            <constraint firstItem="irU-jP-4IA" firstAttribute="top" secondItem="xMi-x8-l0g" secondAttribute="top" constant="16" id="I9O-J2-Isc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xMi-x8-l0g"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="68t-FQ-ftb"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="eIh-NU-c70"/>
                     <connections>
-                        <outlet property="imageView" destination="68t-FQ-ftb" id="4nJ-2R-npt"/>
+                        <outlet property="imageView" destination="irU-jP-4IA" id="CJb-BQ-qGv"/>
                         <outlet property="popOverTextArea" destination="bal-bf-V0q" id="qhH-Wl-lEy"/>
                         <outlet property="popOverView" destination="K2d-L5-8pC" id="w3G-SU-HJD"/>
                     </connections>
@@ -180,13 +176,12 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contato: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vPj-J7-ycs">
                             <rect key="frame" x="16" y="20" width="91" height="26"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="(99) 9999-9999" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bal-bf-V0q">
                             <rect key="frame" x="41" y="61" width="183" height="74"/>
-                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="19"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             <dataDetectorType key="dataDetectorTypes" phoneNumber="YES"/>
@@ -194,15 +189,13 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BhI-fK-STr">
                             <rect key="frame" x="108" y="149" width="30" height="32"/>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                            <state key="normal" title="Sair">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </state>
+                            <state key="normal" title="Sair"/>
                             <connections>
                                 <action selector="exitPopOverButton:" destination="k3Q-Zu-5Xx" eventType="touchUpInside" id="DPB-9t-glf"/>
                             </connections>
                         </button>
                     </subviews>
-                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     <constraints>
                         <constraint firstItem="vPj-J7-ycs" firstAttribute="leading" secondItem="yyl-08-B9w" secondAttribute="leading" constant="16" id="33j-13-di1"/>
                         <constraint firstItem="bal-bf-V0q" firstAttribute="top" secondItem="vPj-J7-ycs" secondAttribute="bottom" constant="15" id="BhA-9U-Zzb"/>
@@ -228,7 +221,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5dx-XW-5H7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
