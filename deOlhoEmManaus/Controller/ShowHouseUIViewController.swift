@@ -53,6 +53,8 @@ class ShowHouseUIViewController: UIViewController {
         }else{
             print(self.TAG + "web not available. Prevent download....")
             AlertUtils.shared.webNotAvailableAlert(view: self)
+            self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
+            
         }
     }
     

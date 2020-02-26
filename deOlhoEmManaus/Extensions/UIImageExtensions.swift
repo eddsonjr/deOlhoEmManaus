@@ -15,8 +15,6 @@ let imageCache = NSCache<NSString, UIImage>() //variavel global de cache
 //Esta classe serve para baixar a imagem da internet e salvar em cache
 class CustomImageView: UIImageView {
     
- 
-    
     var activityIndicatorView: UIActivityIndicatorView = {
         var activity = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
         activity.color = .black
@@ -102,6 +100,8 @@ class CustomImageView: UIImageView {
     }
     
 }
+
+
 
 extension UIImage {
     

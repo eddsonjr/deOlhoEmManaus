@@ -107,22 +107,17 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJI-Vs-u9p">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SemWeb_720_1080" translatesAutoresizingMaskIntoConstraints="NO" id="fiR-WV-s3R">
-                                        <rect key="frame" x="12" y="46" width="350" height="531"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noWebConnection_banner" translatesAutoresizingMaskIntoConstraints="NO" id="iwf-YN-s1a">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="fiR-WV-s3R" secondAttribute="bottom" constant="46" id="4dX-5g-f63"/>
-                                    <constraint firstItem="fiR-WV-s3R" firstAttribute="top" secondItem="dJI-Vs-u9p" secondAttribute="top" constant="46" id="Y2I-BR-gHq"/>
-                                    <constraint firstItem="fiR-WV-s3R" firstAttribute="leading" secondItem="dJI-Vs-u9p" secondAttribute="leading" constant="12" id="gCD-oj-QKI"/>
-                                    <constraint firstAttribute="trailing" secondItem="fiR-WV-s3R" secondAttribute="trailing" constant="13" id="lx7-MF-xP9"/>
+                                    <constraint firstItem="iwf-YN-s1a" firstAttribute="leading" secondItem="dJI-Vs-u9p" secondAttribute="leading" id="Sub-13-uV4"/>
+                                    <constraint firstAttribute="trailing" secondItem="iwf-YN-s1a" secondAttribute="trailing" id="g3h-Do-yqn"/>
+                                    <constraint firstAttribute="bottom" secondItem="iwf-YN-s1a" secondAttribute="bottom" id="isl-qx-0E3"/>
+                                    <constraint firstItem="iwf-YN-s1a" firstAttribute="top" secondItem="dJI-Vs-u9p" secondAttribute="top" id="q5J-7R-Uy6"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="fiR-WV-s3R"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <constraints>
@@ -140,11 +135,6 @@
                             <constraint firstItem="cTD-eh-mjO" firstAttribute="leading" secondItem="OqN-pU-EzC" secondAttribute="leading" id="xI7-dB-CFS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OqN-pU-EzC"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="dJI-Vs-u9p"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Eventos" id="ygA-iw-F5Y"/>
                     <connections>
@@ -250,8 +240,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="SemWeb_720_1080" width="720" height="1080"/>
         <image name="noImage" width="1872" height="1872"/>
         <image name="noImage_pequena" width="294" height="410"/>
+        <image name="noWebConnection_banner" width="934" height="1321"/>
     </resources>
 </document>

@@ -22,6 +22,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var listaFiltrada: Array<Categorie>? = []
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -38,8 +39,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         // Register to receive notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationIdentifier"), object: nil)
         
-        verifyWebAndDownload()
+       
         //self.navigationController?.navigationBar.barStyle = .black
+        verifyWebAndDownload()
         
     }
     
@@ -236,6 +238,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             print(TAG + "web not available. Prevent download....")
             AlertUtils.shared.webNotAvailableAlert(view: self)
             self.noWebView.isHidden = false
+            
         }
     }
     
