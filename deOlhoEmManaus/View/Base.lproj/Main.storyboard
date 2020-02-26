@@ -158,12 +158,31 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="irU-jP-4IA" customClass="CustomImageView" customModule="OlhoEmManaus" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E87-rL-bNR" userLabel="noWebView">
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noWebConnection_banner" translatesAutoresizingMaskIntoConstraints="NO" id="YhN-9L-CZr">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="YhN-9L-CZr" firstAttribute="top" secondItem="E87-rL-bNR" secondAttribute="top" id="5hM-h9-3bn"/>
+                                    <constraint firstAttribute="bottom" secondItem="YhN-9L-CZr" secondAttribute="bottom" id="jDf-RW-WU9"/>
+                                    <constraint firstAttribute="trailing" secondItem="YhN-9L-CZr" secondAttribute="trailing" id="oAO-gx-UIq"/>
+                                    <constraint firstItem="YhN-9L-CZr" firstAttribute="leading" secondItem="E87-rL-bNR" secondAttribute="leading" id="oJX-0N-j8R"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="xMi-x8-l0g" firstAttribute="trailing" secondItem="E87-rL-bNR" secondAttribute="trailing" id="HP2-ku-4vP"/>
                             <constraint firstItem="irU-jP-4IA" firstAttribute="trailing" secondItem="xMi-x8-l0g" secondAttribute="trailing" id="SSO-Xx-Hsz"/>
+                            <constraint firstItem="E87-rL-bNR" firstAttribute="top" secondItem="xMi-x8-l0g" secondAttribute="top" id="U4w-WA-hp0"/>
+                            <constraint firstItem="xMi-x8-l0g" firstAttribute="bottom" secondItem="E87-rL-bNR" secondAttribute="bottom" id="WVY-Om-c4M"/>
                             <constraint firstItem="irU-jP-4IA" firstAttribute="top" secondItem="xMi-x8-l0g" secondAttribute="top" id="Ydl-Jb-DBg"/>
                             <constraint firstItem="irU-jP-4IA" firstAttribute="leading" secondItem="xMi-x8-l0g" secondAttribute="leading" id="Ysj-Nj-4dq"/>
+                            <constraint firstItem="E87-rL-bNR" firstAttribute="leading" secondItem="xMi-x8-l0g" secondAttribute="leading" id="n1p-nG-Y7e"/>
                             <constraint firstItem="irU-jP-4IA" firstAttribute="bottom" secondItem="xMi-x8-l0g" secondAttribute="bottom" id="zuO-mK-rIL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xMi-x8-l0g"/>
@@ -171,6 +190,7 @@
                     <navigationItem key="navigationItem" id="eIh-NU-c70"/>
                     <connections>
                         <outlet property="imageView" destination="irU-jP-4IA" id="CJb-BQ-qGv"/>
+                        <outlet property="noWebView" destination="E87-rL-bNR" id="q9P-Hl-BDz"/>
                         <outlet property="popOverTextArea" destination="bal-bf-V0q" id="qhH-Wl-lEy"/>
                         <outlet property="popOverView" destination="K2d-L5-8pC" id="w3G-SU-HJD"/>
                     </connections>

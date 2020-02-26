@@ -18,7 +18,7 @@ class ShowHouseUIViewController: UIViewController {
     @IBOutlet var imageView: CustomImageView!
     @IBOutlet var popOverTextArea: UITextView!
     @IBOutlet var popOverView: UIView!
-    
+    @IBOutlet var noWebView: UIView!
     
     
     override func viewDidLoad() {
@@ -50,10 +50,12 @@ class ShowHouseUIViewController: UIViewController {
             print(TAG + "web available. Downloading...")
             self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
             createNavigationRightButtons() //Renderizando os botoes direitos da navigation
+            self.noWebView.isHidden = true
         }else{
             print(self.TAG + "web not available. Prevent download....")
             AlertUtils.shared.webNotAvailableAlert(view: self)
             self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
+            self.noWebView.isHidden = false
             
         }
     }
@@ -95,13 +97,6 @@ class ShowHouseUIViewController: UIViewController {
         //Sera chamado o popOver contendo as informacoes de contato
         createPopOver()
     }
-    
-    
-    
-    
-   
-    
-    
     
     
     
