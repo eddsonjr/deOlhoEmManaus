@@ -11,6 +11,7 @@ import Alamofire
 
 
 
+
 class InternetUtils {
     
     
@@ -38,6 +39,4 @@ class InternetUtils {
         
         return isConnected
     }
-    
-    
 }

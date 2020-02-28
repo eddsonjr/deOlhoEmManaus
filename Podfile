@@ -14,6 +14,7 @@ target 'deOlhoEmManaus' do
   pod 'GoogleMaps'
   pod 'GooglePlaces'
   pod 'Alamofire'
+  pod 'ReachabilitySwift'
 
 
 
