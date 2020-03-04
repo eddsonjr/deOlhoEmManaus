@@ -10,7 +10,24 @@ import UIKit
 import SafariServices
 
 
-class ShowHouseUIViewController: UIViewController {
+class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate {
+    
+    func reachabilityChanged(_ isReachable: Bool) {
+        
+    }
+    
+    
+    deinit {
+      removeReachabilityObserver()
+    }
+    
+    //MARK: Reachability
+      
+    func reachabilityChanged(_ isReachable: Bool) {
+      if !isReachable {
+          print("No internet connection")
+      }
+    
 
     
     let TAG = "[ShowHouseViewController]: "
