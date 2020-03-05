@@ -9,7 +9,9 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate, UISearchBarDelegate {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate, UISearchBarDelegate, ReachabilityObserverDelegate {
+    
+    
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var searchBar: UISearchBar!
@@ -21,6 +23,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var searchActive : Bool = false
     var listaFiltrada: Array<Categorie>? = []
     
+    var downloaded: Bool = false
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        try? addReachabilityObserver() //habilitando sistema para verificar se ha ou nao conexao com web
+    }
     
     
     override func viewDidLoad() {
@@ -38,10 +46,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         // Register to receive notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationIdentifier"), object: nil)
-        
-       
-        //self.navigationController?.navigationBar.barStyle = .black
-        verifyWebAndDownload()
         
     }
     
@@ -210,9 +214,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.tableView.reloadData()
             
     }
-       
     
-
     
     //Mark: Metodo do observador do FirebaseService - usado para reload da tableview assim que os dados forem baixados da web
     @objc func methodOfReceivedNotification(notification: Notification) {
@@ -224,25 +226,30 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     
-    
-    //Mark: Metodos de datasource
-    //Este metodo verifica se ha conexao com a web e, caso tenha, solicita o download do firebaseService
-    //Caso negativo, impede o download e tambem coloca uma view informando o usuario sobre a conexao
-    func verifyWebAndDownload() {
-        
-        if(InternetUtils.isConnectedToInternet()){
+    //Mark: Reachability protocol
+    func reachabilityChanged(_ isReachable: Bool) {
+        if isReachable {
+            //conectado
             print(TAG + "web available. Downloading...")
             self.noWebView.isHidden = true
             self.service.retrieveDataFromWeb()
-        }else{
-            print(TAG + "web not available. Prevent download....")
-            AlertUtils.shared.webNotAvailableAlert(view: self)
-            self.noWebView.isHidden = false
+            self.downloaded = true
             
+        }else{
+            //desconectado
+            print(TAG + "web not available. Prevent download....")
+            if !self.downloaded {
+                self.noWebView.isHidden = false
+                AlertUtils.shared.webNotAvailableAlert(view: self)
+            }
         }
     }
     
-
+    
+    deinit {
+       removeReachabilityObserver()
+       
+    }
 
 }
 

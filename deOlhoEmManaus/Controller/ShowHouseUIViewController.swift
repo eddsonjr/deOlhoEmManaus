@@ -10,25 +10,7 @@ import UIKit
 import SafariServices
 
 
-class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate {
-    
-    func reachabilityChanged(_ isReachable: Bool) {
-        
-    }
-    
-    
-    deinit {
-      removeReachabilityObserver()
-    }
-    
-    //MARK: Reachability
-      
-    func reachabilityChanged(_ isReachable: Bool) {
-      if !isReachable {
-          print("No internet connection")
-      }
-    
-
+class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
     
     let TAG = "[ShowHouseViewController]: "
    
@@ -37,21 +19,18 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate 
     @IBOutlet var popOverView: UIView!
     @IBOutlet var noWebView: UIView!
     
+    var downloaded: Bool = false
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        try? addReachabilityObserver() //habilitando sistema para verificar se ha ou nao conexao com web
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(self.TAG + "Singleton show: \(ModelSingleton.shared.showSelected?.id)")
-        
-        verifyWebAndDownload() //verificando as condicoes da web e baixando dados
-        
-        
-        //Ajustando o popover - contornos
-        self.popOverView.layer.cornerRadius = 10
-
-        
-        //self.navigationController?.navigationBar.barStyle = .black
-        
-        
+        self.popOverView.layer.cornerRadius = 10 //Ajustando o popover - contornos
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,25 +40,7 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate 
     
     
     
-    
-    func verifyWebAndDownload() {
-        if(InternetUtils.isConnectedToInternet()) {
-            print(TAG + "web available. Downloading...")
-            self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
-            createNavigationRightButtons() //Renderizando os botoes direitos da navigation
-            self.noWebView.isHidden = true
-        }else{
-            print(self.TAG + "web not available. Prevent download....")
-            AlertUtils.shared.webNotAvailableAlert(view: self)
-            self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
-            self.noWebView.isHidden = false
-            
-        }
-    }
-    
-    
-    
-    
+
     @objc func shareButton(_ sender: Any) {
         print(self.TAG + "Sharing....")
         let image = self.imageView.image
@@ -178,6 +139,34 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate 
         
     
     }
+    
+    
+    
+    
+    //Mark: Reachability protocol
+    func reachabilityChanged(_ isReachable: Bool) {
+         if isReachable {
+            print(TAG + "web available. Downloading...")
+            self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
+            createNavigationRightButtons() //Renderizando os botoes direitos da navigation
+            self.downloaded = true
+         }else{
+            print(self.TAG + "web not available. Prevent download....")
+            self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
+            if !self.downloaded {
+                self.noWebView.isHidden = false
+                AlertUtils.shared.webNotAvailableAlert(view: self)
+            }
+             
+         }
+     }
+     
+     
+     deinit {
+        removeReachabilityObserver()
+        print("Exiting class")
+     }
+     
     
 
     
