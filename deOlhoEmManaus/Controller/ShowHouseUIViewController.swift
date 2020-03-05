@@ -18,6 +18,7 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
     @IBOutlet var popOverTextArea: UITextView!
     @IBOutlet var popOverView: UIView!
     @IBOutlet var noWebView: UIView!
+
     
     var downloaded: Bool = false
     
@@ -53,7 +54,7 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
     
     
     
-    
+     
     
     @objc func locationButton(_ sender: Any) {
         print(self.TAG + "Location....")
@@ -147,12 +148,14 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
     func reachabilityChanged(_ isReachable: Bool) {
          if isReachable {
             print(TAG + "web available. Downloading...")
+            self.noWebView.isHidden = true
             self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
             createNavigationRightButtons() //Renderizando os botoes direitos da navigation
             self.downloaded = true
          }else{
             print(self.TAG + "web not available. Prevent download....")
             self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
+            
             if !self.downloaded {
                 self.noWebView.isHidden = false
                 AlertUtils.shared.webNotAvailableAlert(view: self)
