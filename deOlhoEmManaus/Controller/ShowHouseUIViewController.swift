@@ -83,7 +83,7 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
         
         //Criando o botao de share
         let shareButton = UIButton(type: UIButton.ButtonType.custom)
-        shareButton.setImage(UIImage(named: "share3"), for: .normal)
+        shareButton.setImage(UIImage(named: "share"), for: .normal)
         shareButton.addTarget(self, action:#selector(shareButton(_:)), for: .touchUpInside)
         shareButton.frame = CGRect(x: 0, y: 0, width: 40, height: 10)
         let barButtonShare = UIBarButtonItem(customView: shareButton)
