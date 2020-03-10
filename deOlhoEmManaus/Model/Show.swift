@@ -19,6 +19,7 @@ class Show {
     var showHouseKey: String?
     var category: String?
     var subCategory: String?
+    var startDate: String?
     
     
     //default init
@@ -26,7 +27,7 @@ class Show {
     
     
     //init with parameters
-    init(imageUrl: String?, hasDate: Bool?, endDate: String?, showHouse: ShowHouse?,category: String?, id: String, subCategory: String?){
+    init(imageUrl: String?, hasDate: Bool?, endDate: String?, showHouse: ShowHouse?,category: String?, id: String, subCategory: String?,startDate: String?){
         self.imageUrl = imageUrl
         self.endDate = endDate
         self.showHouse = showHouse
@@ -34,6 +35,7 @@ class Show {
         self.id = id
         self.hasDate = hasDate
         self.subCategory = subCategory
+        self.startDate = startDate
     }
     
     

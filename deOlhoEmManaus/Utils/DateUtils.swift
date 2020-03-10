@@ -30,15 +30,19 @@ class DateUtils {
     
     
     
-    class func checkDateToRemoveBanner(dateFromServer: String) -> Bool  {
+    class func checkDateToRemoveBanner(dateFromServer: String?) -> Bool  {
         
         var currentDateIsSuperior = false
-        let dateServer = getStringDateAndConvertToDate(dateString: dateFromServer)
+        if(dateFromServer == nil){
+            return currentDateIsSuperior
+        }
+        
+        let dateServer = getStringDateAndConvertToDate(dateString: dateFromServer!)
         let currentSysDate = getStringDateAndConvertToDate(dateString: getCurrentSysDate())
         var dateServerMore5 = Calendar.current.date(byAdding: .hour, value: 5, to: dateServer)
         
 
-        if !(currentSysDate < dateServerMore5!) {
+        if (currentSysDate >= dateServerMore5!) {
             currentDateIsSuperior = true
         }
         

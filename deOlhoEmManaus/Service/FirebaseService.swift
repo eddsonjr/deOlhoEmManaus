@@ -62,9 +62,9 @@ class FirebaseService {
         self.retrieveAllShowsDispatchGroup.enter()
         ref?.child("show").observeSingleEvent(of: .value, with: { snapshot in
             
-            if !snapshot.exists() {
-                print(self.TAG  + "ERROR: Data not found or cannot download")
-                return }
+//            if !snapshot.exists() {
+//                print(self.TAG  + "ERROR: Data not found or cannot download")
+//                return }
             
             let jsonFromFirebase = snapshot.value!
             print(self.TAG)
@@ -87,6 +87,7 @@ class FirebaseService {
                 showModel.imageUrl = dict!["imageUrl"] as? String
                 showModel.hasDate = dict!["hasDate"] as? Bool
                 showModel.endDate = dict!["endDate"] as? String
+                showModel.startDate = dict!["startDate"] as? String
                 
                 
                 //baixando as informacoes de showHouse e address e fazendo parser
@@ -99,10 +100,7 @@ class FirebaseService {
                 showHouseModel.number = addressDict!["number"] as? String
                 showHouseModel.completAddress = addressDict!["completeAddress"] as? String
                 showHouseModel.phones = dict!["phones"] as? [String]
-                
-//                print("AQUIIIII \(dict!["phones"])")
-//                print("AQUIIIII \(showHouseModel.phones) === \(showModel.id)")
-//
+
                 
                 //Colocando showHouse dentro de Show
                 showModel.showHouse = showHouseModel
@@ -129,8 +127,12 @@ class FirebaseService {
             print(self.TAG + "Organizing shows of category \(categorie.name)")
             for show in ModelSingleton.shared.shows {
                 if(show.subCategory == categorie.name){
-                    print(self.TAG + "Putting show \(show.id) in category \(categorie.name)")
-                    categorie.shows.append(show)
+                    
+                    //verificando tambem agora a data
+                    if(!DateUtils.checkDateToRemoveBanner(dateFromServer: show.endDate)){
+                        print(self.TAG + "Putting show \(show.id) in category \(categorie.name)")
+                        categorie.shows.append(show)
+                    }
                 }
             }
         }

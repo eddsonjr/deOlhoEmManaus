@@ -30,17 +30,18 @@ print(getStringDateAndConvertToDate(dateString: getCurrentSysDate()))
 
 func checkDate(dateFromServer: String) -> Bool  {
     
-    var currentDateIsSuperior = false
+    var removeBannerByHour = false
     let dateServer = getStringDateAndConvertToDate(dateString: dateFromServer)
     let currentSysDate = getStringDateAndConvertToDate(dateString: getCurrentSysDate())
     var dateServerMore5 = Calendar.current.date(byAdding: .hour, value: 5, to: dateServer)
     
 
-    if !(currentSysDate < dateServerMore5!) {
-        currentDateIsSuperior = true
+    if (currentSysDate >= dateServerMore5!) {
+        removeBannerByHour = true
     }
     
-    return currentDateIsSuperior
+    return removeBannerByHour
+    
 }
 
 
