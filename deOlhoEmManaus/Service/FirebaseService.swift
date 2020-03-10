@@ -66,9 +66,9 @@ class FirebaseService {
                 print(self.TAG  + "ERROR: Data not found or cannot download")
                 return }
             
-//            let jsonFromFirebase = snapshot.value!
-//            print(self.TAG)
-//            print(jsonFromFirebase)
+            let jsonFromFirebase = snapshot.value!
+            print(self.TAG)
+            print(jsonFromFirebase)
             
             for show in snapshot.children.allObjects as! [DataSnapshot] {
                 let dict = show.value as? [String:Any]
