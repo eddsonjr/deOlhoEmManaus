@@ -23,12 +23,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var searchActive : Bool = false
     var listaFiltrada: Array<Categorie>? = []
     
-    var downloaded: Bool = false
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        try? addReachabilityObserver() //habilitando sistema para verificar se ha ou nao conexao com web
-    }
     
     
     override func viewDidLoad() {
@@ -46,6 +40,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         // Register to receive notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationIdentifier"), object: nil)
+        
+        
+        
+        try? addReachabilityObserver() //habilitando sistema para verificar se ha ou nao conexao com web
         
     }
     
@@ -228,17 +226,16 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //Mark: Reachability protocol
     func reachabilityChanged(_ isReachable: Bool) {
-        if isReachable {
+        if isReachable && self.listaDeCategorias!.isEmpty {
             //conectado
-            print(TAG + "web available. Downloading...")
+            print(TAG + "web available and datasource empty. Downloading...")
             self.noWebView.isHidden = true
             self.service.retrieveDataFromWeb()
-            self.downloaded = true
             
         }else{
             //desconectado
             print(TAG + "web not available. Prevent download....")
-            if !self.downloaded {
+            if self.listaDeCategorias!.isEmpty {
                 self.noWebView.isHidden = false
                 AlertUtils.shared.webNotAvailableAlert(view: self)
             }
