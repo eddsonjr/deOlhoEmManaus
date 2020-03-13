@@ -232,6 +232,18 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             self.noWebView.isHidden = true
             self.service.retrieveDataFromWeb()
             
+        }else if isReachable &&  !self.listaDeCategorias!.isEmpty{
+            //a web caiu e voltou, atualizando a tela inteira
+            print(TAG + "web availabel and datasource NOT empty. Redraw screen and download again..")
+            ModelSingleton.shared.categories.removeAll()
+            ModelSingleton.shared.shows.removeAll()
+            self.listaDeCategorias?.removeAll()
+            self.tableView.reloadData()
+            self.view.setNeedsDisplay()
+            self.service.retrieveDataFromWeb()
+            
+            
+            
         }else{
             //desconectado
             print(TAG + "web not available. Prevent download....")
