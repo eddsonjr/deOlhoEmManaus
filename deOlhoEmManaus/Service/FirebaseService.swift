@@ -24,6 +24,7 @@ class FirebaseService {
     
     //Funcao para baixar todos os dados de categoria
     func retrieveDataFromWeb() {
+        ModelSingleton.shared.categories.removeAll()
         let ref = appDelegateReference.databaseRef
         self.retrieveAllCategoriesDispatchGroup.enter()
         ref?.child("category/-LrarCqAGUtS3LqUFg1S/listCategory").observeSingleEvent(of: .value, with: { snapshot in
@@ -58,6 +59,7 @@ class FirebaseService {
     
     //funcao para baixar todos os dados de shows
     func retrieveListOfShowsData() {
+        ModelSingleton.shared.shows.removeAll()
         let ref = appDelegateReference.databaseRef
         self.retrieveAllShowsDispatchGroup.enter()
         ref?.child("show").observeSingleEvent(of: .value, with: { snapshot in

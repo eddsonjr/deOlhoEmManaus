@@ -226,27 +226,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //Mark: Reachability protocol
     func reachabilityChanged(_ isReachable: Bool) {
-        if isReachable && self.listaDeCategorias!.isEmpty {
+        if isReachable {
             //conectado
-            print(TAG + "web available and datasource empty. Downloading...")
-            self.noWebView.isHidden = true
-            self.service.retrieveDataFromWeb()
-            
-            
-            
-            
-            
-        }else if isReachable &&  !self.listaDeCategorias!.isEmpty{
-            //a web caiu e voltou, atualizando a tela inteira
-            print(TAG + "web availabel and datasource NOT empty. Redraw screen and download again..")
-            ModelSingleton.shared.categories.removeAll()
-            ModelSingleton.shared.shows.removeAll()
-            self.listaDeCategorias?.removeAll()
-            self.tableView.reloadData()
-            self.view.setNeedsDisplay()
-            self.service.retrieveDataFromWeb()
-            
-            
+            if self.listaDeCategorias!.isEmpty{
+                print(TAG + "web available and datasource empty. Downloading...")
+                self.noWebView.isHidden = true
+                self.service.retrieveDataFromWeb()
+            }else{
+                print(TAG + "web availabel and datasource NOT empty. Redraw screen and download again..")
+                self.tableView.reloadData()
+                self.service.retrieveDataFromWeb()
+            }
             
         }else{
             //desconectado
