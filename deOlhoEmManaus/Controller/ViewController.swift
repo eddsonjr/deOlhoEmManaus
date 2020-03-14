@@ -236,6 +236,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 print(TAG + "web availabel and datasource NOT empty. Redraw screen and download again..")
                 self.tableView.reloadData()
                 self.service.retrieveDataFromWeb()
+                self.view.setNeedsDisplay()
+                
             }
             
         }else{
