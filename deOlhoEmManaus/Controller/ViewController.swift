@@ -232,13 +232,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 print(TAG + "web available and datasource empty. Downloading...")
                 self.noWebView.isHidden = true
                 self.service.retrieveDataFromWeb()
-            }else{
-                print(TAG + "web availabel and datasource NOT empty. Redraw screen and download again..")
-                self.tableView.reloadData()
-                self.service.retrieveDataFromWeb()
-                self.view.setNeedsDisplay()
-                
             }
+            
+//            else{
+//                print(TAG + "web availabel and datasource NOT empty. Redraw screen and download again..")
+//                self.tableView.reloadData()
+//                self.service.retrieveDataFromWeb()
+//                self.view.setNeedsDisplay()
+//                
+//            }
             
         }else{
             //desconectado

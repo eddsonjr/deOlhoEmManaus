@@ -154,9 +154,9 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
             self.downloaded = true
          }else{
             print(self.TAG + "web not available. Prevent download....")
-            self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
-            
             if !self.downloaded {
+                self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
+                         
                 self.noWebView.isHidden = false
                 AlertUtils.shared.webNotAvailableAlert(view: self)
             }
