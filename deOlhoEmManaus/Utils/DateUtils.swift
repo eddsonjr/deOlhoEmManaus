@@ -13,7 +13,7 @@ class DateUtils {
     
     class func getStringDateAndConvertToDate(dateString: String) -> Date {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
+        dateFormatter.dateFormat = "dd/MM/yyyy"
         let date = dateFormatter.date(from: dateString)
         return date!
     }
@@ -22,7 +22,7 @@ class DateUtils {
     class func getCurrentSysDate() -> String {
         let current = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
+        formatter.dateFormat = "dd/MM/yyyy"
         let result = formatter.string(from: current)
         return result
     }
@@ -31,6 +31,8 @@ class DateUtils {
     
     
     class func checkDateToRemoveBanner(dateFromServer: String?) -> Bool  {
+        
+        let TAG = "[DateUtils]: "
         
         var currentDateIsSuperior = false
         if(dateFromServer == nil){
@@ -41,10 +43,11 @@ class DateUtils {
         let currentSysDate = getStringDateAndConvertToDate(dateString: getCurrentSysDate())
         var dateServerMore5 = Calendar.current.date(byAdding: .hour, value: 5, to: dateServer)
         
-
-        if (currentSysDate >= dateServerMore5!) {
+        if (currentSysDate >= dateServer) {
             currentDateIsSuperior = true
         }
+        
+        print(TAG + "D Server: \(dateServer) | sysD: \(currentSysDate) | dS+5: \(dateServerMore5) | rem: \(currentDateIsSuperior)")
         
         return currentDateIsSuperior
     }
