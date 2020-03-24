@@ -24,10 +24,14 @@ extension UIImageView {
             return
         }
 
-        let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(activityIndicatorStyle: .gray)
-        addSubview(activityIndicator)
+        let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
+        activityIndicator.color = .black
         activityIndicator.startAnimating()
-        activityIndicator.center = self.center
+        activityIndicator.center.x = self.frame.width/2
+        activityIndicator.center.y = self.frame.height/2
+        addSubview(activityIndicator)
+       
+        
 
         // if not, download image from url
         URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
