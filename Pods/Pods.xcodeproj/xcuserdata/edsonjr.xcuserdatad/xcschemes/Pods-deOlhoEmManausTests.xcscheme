@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0930"
+   LastUpgradeVersion = "1100"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7953F74E326EAC71181141F51322AFBD"
+               BlueprintIdentifier = "AA54F1D4FD49139A8B9F067C3EBD43F4"
                BuildableName = "Pods_deOlhoEmManausTests.framework"
                BlueprintName = "Pods-deOlhoEmManausTests"
                ReferencedContainer = "container:Pods.xcodeproj">

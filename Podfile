@@ -10,6 +10,7 @@ target 'deOlhoEmManaus' do
   pod 'Firebase/Database'
   pod 'Firebase/Core' 
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   pod 'Firebase/Auth'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
