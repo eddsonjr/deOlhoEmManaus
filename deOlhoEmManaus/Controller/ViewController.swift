@@ -150,7 +150,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
     
         cell.textView.text = address
-        cell.imageView.loadImageUsingCache(withUrlString: imgUrl)
+        cell.imageView.loadImageUsingCache(withUrl: imgUrl)
         return cell
     }
     
@@ -239,7 +239,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
 //                self.tableView.reloadData()
 //                self.service.retrieveDataFromWeb()
 //                self.view.setNeedsDisplay()
-//                
+//
 //            }
             
         }else{

@@ -45,7 +45,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="256"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage_pequena" translatesAutoresizingMaskIntoConstraints="NO" id="kx6-Zq-jqq" customClass="CustomImageView" customModule="OlhoEmManaus" customModuleProvider="target">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage_pequena" translatesAutoresizingMaskIntoConstraints="NO" id="kx6-Zq-jqq">
                                                                         <rect key="frame" x="17" y="7" width="127" height="192"/>
                                                                     </imageView>
                                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Bar e choperia da casa do caralho lá na baixa da égua" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ob-oZ-7US">
@@ -155,7 +155,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="irU-jP-4IA" customClass="CustomImageView" customModule="OlhoEmManaus" customModuleProvider="target">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="noImage" translatesAutoresizingMaskIntoConstraints="NO" id="irU-jP-4IA">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E87-rL-bNR" userLabel="noWebView">

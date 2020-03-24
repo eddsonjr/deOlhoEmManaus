@@ -14,7 +14,7 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
     
     let TAG = "[ShowHouseViewController]: "
    
-    @IBOutlet var imageView: CustomImageView!
+    @IBOutlet var imageView: UIImageView!
     @IBOutlet var popOverTextArea: UITextView!
     @IBOutlet var popOverView: UIView!
     @IBOutlet var noWebView: UIView!
@@ -149,13 +149,13 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
          if isReachable {
             print(TAG + "web available. Downloading...")
             self.noWebView.isHidden = true
-            self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
+            self.imageView.loadImageUsingCache(withUrl: (ModelSingleton.shared.showSelected?.imageUrl)!)
             createNavigationRightButtons() //Renderizando os botoes direitos da navigation
             self.downloaded = true
          }else{
             print(self.TAG + "web not available. Prevent download....")
             if !self.downloaded {
-                self.imageView.loadImageUsingCache(withUrlString: (ModelSingleton.shared.showSelected?.imageUrl)!)
+                self.imageView.loadImageUsingCache(withUrl: (ModelSingleton.shared.showSelected?.imageUrl)!)
                          
                 self.noWebView.isHidden = false
                 AlertUtils.shared.webNotAvailableAlert(view: self)
