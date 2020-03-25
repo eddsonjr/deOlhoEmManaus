@@ -29,12 +29,18 @@ extension UIImageView {
         let storage = Storage.storage()
         var reference: StorageReference!
         reference = storage.reference(forURL: urlString)
-        reference.downloadURL { (url, error) in
-            let data = NSData(contentsOf: url!)
-            let image = UIImage(data: data! as Data)
-            self.image = image
+        
+        DispatchQueue.main.async {
+            reference.downloadURL { (url, error) in
+                let data = NSData(contentsOf: url!)
+                let image = UIImage(data: data! as Data)
+                activityIndicator.removeFromSuperview()
+                self.image = image
 
+            }
         }
+        
+        
         
         
         
