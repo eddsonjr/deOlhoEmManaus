@@ -66,8 +66,7 @@ extension UIImageView {
         let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
         activityIndicator.color = .black
         activityIndicator.startAnimating()
-        activityIndicator.center.x = self.frame.width/2
-        activityIndicator.center.y = self.frame.height/2
+        activityIndicator.center = CGPoint(x: self.bounds.size.width/2, y: self.bounds.size.height/2)
         addSubview(activityIndicator)
        
         
