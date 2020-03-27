@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -703,7 +703,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "deOlhoEmManaus/De Olho em Manaus.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7WV8M257CC;
 				INFOPLIST_FILE = deOlhoEmManaus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -711,7 +711,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5;
+				MARKETING_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.EdsonJr.deOlhoEmManaus;
 				PRODUCT_NAME = OlhoEmManaus;
 				SWIFT_VERSION = 4.0;
@@ -726,7 +726,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "deOlhoEmManaus/De Olho em Manaus.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7WV8M257CC;
 				INFOPLIST_FILE = deOlhoEmManaus/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
@@ -734,7 +734,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.5;
+				MARKETING_VERSION = 1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.EdsonJr.deOlhoEmManaus;
 				PRODUCT_NAME = OlhoEmManaus;
 				SWIFT_VERSION = 4.0;
