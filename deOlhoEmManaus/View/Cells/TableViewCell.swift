@@ -28,7 +28,13 @@ class TableViewCell: UITableViewCell {
     
     
     func setupForDarkMode(){
+        //ajustando para o dark mode
+        
         self.collectionView.backgroundColor = DynamicColor(light: .clear, dark: UIColor.darkModeBackgroundColor).resolve()
+        
+        self.collectionView.superview?.backgroundColor = DynamicColor(light: .clear, dark: UIColor.darkModeBackgroundColor).resolve()
+        
+    
     }
 
 }

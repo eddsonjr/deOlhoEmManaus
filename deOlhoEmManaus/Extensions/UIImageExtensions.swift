@@ -21,7 +21,15 @@ extension UIImageView {
         
         //Inicializando a animacao do activity indicator
         let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
-        activityIndicator.color = .black
+        
+        
+        //Verificando se esta ou nao em dark mode
+        if traitCollection.userInterfaceStyle == .light {
+             activityIndicator.color = .black
+        } else {
+             activityIndicator.color = .white
+        }
+        
         activityIndicator.startAnimating()
         addSubview(activityIndicator)
         
@@ -64,7 +72,14 @@ extension UIImageView {
         }
 
         let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
-        activityIndicator.color = .black
+       
+        //Verificando se esta ou nao em dark mode
+        if traitCollection.userInterfaceStyle == .light {
+            activityIndicator.color = .black
+        } else {
+            activityIndicator.color = .white
+        }
+        
         activityIndicator.startAnimating()
         activityIndicator.center = CGPoint(x: self.bounds.size.width/2, y: self.bounds.size.height/2)
         addSubview(activityIndicator)

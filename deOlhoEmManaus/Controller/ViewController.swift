@@ -42,7 +42,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationIdentifier"), object: nil)
         
         
-        
         try? addReachabilityObserver() //habilitando sistema para verificar se ha ou nao conexao com web
     }
     
@@ -116,9 +115,19 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //Muda as cores da header da tableview
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
-        view.tintColor = .white
-        let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = .black
+        
+        //Verificando se esta ou nao em dark mode
+        if traitCollection.userInterfaceStyle == .light {
+            view.tintColor = .white
+            let header = view as! UITableViewHeaderFooterView
+            header.textLabel?.textColor = .black
+        } else {
+            view.tintColor = UIColor.darkModeBackgroundColor
+            let header = view as! UITableViewHeaderFooterView
+            header.textLabel?.textColor = .white
+        }
+        
+        
     }
     
     

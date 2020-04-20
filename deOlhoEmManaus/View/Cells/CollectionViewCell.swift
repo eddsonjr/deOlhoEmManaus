@@ -26,6 +26,8 @@ class CollectionViewCell: UICollectionViewCell {
         self.imageView.backgroundColor = DynamicColor(light: .clear, dark: UIColor.darkModeBackgroundColor).resolve()
 
         self.textView.backgroundColor = DynamicColor(light: .clear, dark: UIColor.darkModeBackgroundColor).resolve()
+        
+        self.superview?.backgroundColor = DynamicColor(light: .clear, dark: UIColor.darkModeBackgroundColor).resolve()
     }
 }
 
