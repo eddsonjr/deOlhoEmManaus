@@ -30,8 +30,12 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(self.TAG + "Singleton show: \(ModelSingleton.shared.showSelected?.id)")
+        
         self.popOverView.layer.cornerRadius = 10 //Ajustando o popover - contornos
+        
+        
+        //Realiza ajustes para o dark mode
+        self.imageView.backgroundColor = DynamicColor(light: .white, dark: UIColor.darkModeBackgroundColor).resolve()
     }
 
     override func didReceiveMemoryWarning() {

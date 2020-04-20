@@ -14,7 +14,6 @@ import Alamofire
 
 class InternetUtils {
     
-    
     //Este metodo somente verifica pontualmente se ha alguma conexao com a web ou nao
     class func isConnectedToInternet() -> Bool {
         return NetworkReachabilityManager()?.isReachable ?? false

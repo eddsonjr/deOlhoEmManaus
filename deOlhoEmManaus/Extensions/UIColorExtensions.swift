@@ -27,5 +27,20 @@ extension UIColor{
         return color.light
     }
     }
-
 }
+
+
+
+
+
+
+//Definindo o sistema de cores para os componentes
+extension UIColor {
+    
+    static var darkModeBackgroundColor: UIColor {return UIColor(red: 0.310, green: 0.310, blue: 0.310, alpha: 1)}
+    
+}
+
+
+
+

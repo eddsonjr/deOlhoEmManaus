@@ -15,9 +15,18 @@ class CollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
         
+        setupForDarkMode()
     }
     
+    func setupForDarkMode(){
+        //Ajustando para o dark mode
+        self.backgroundColor = DynamicColor(light: .clear, dark: UIColor.darkModeBackgroundColor).resolve()
+               
+        self.imageView.backgroundColor = DynamicColor(light: .clear, dark: UIColor.darkModeBackgroundColor).resolve()
 
+        self.textView.backgroundColor = DynamicColor(light: .clear, dark: UIColor.darkModeBackgroundColor).resolve()
+    }
 }
+
+

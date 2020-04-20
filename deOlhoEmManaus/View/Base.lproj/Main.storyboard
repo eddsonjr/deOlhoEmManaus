@@ -190,6 +190,11 @@
                             <constraint firstItem="irU-jP-4IA" firstAttribute="bottom" secondItem="xMi-x8-l0g" secondAttribute="bottom" id="zuO-mK-rIL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xMi-x8-l0g"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="E87-rL-bNR"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="eIh-NU-c70"/>
                     <connections>

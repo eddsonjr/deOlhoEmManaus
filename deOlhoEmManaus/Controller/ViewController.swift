@@ -44,14 +44,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         
         try? addReachabilityObserver() //habilitando sistema para verificar se ha ou nao conexao com web
-        
-//        if self.traitCollection.userInterfaceStyle == .dark{
-//            print("Dark theme")
-//         }else{
-//            print("Light theme")
-//        }
-        
-        
     }
     
     
