@@ -28,6 +28,9 @@
 		AD2176FB23DBC92B00BE2AD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD2176F923DBC92B00BE2AD0 /* LaunchScreen.storyboard */; };
 		AD21770623DBC92B00BE2AD0 /* deOlhoEmManausTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21770523DBC92B00BE2AD0 /* deOlhoEmManausTests.swift */; };
 		AD21771123DBC92B00BE2AD0 /* deOlhoEmManausUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21771023DBC92B00BE2AD0 /* deOlhoEmManausUITests.swift */; };
+		AD5A90F8244E2E5D009B24A2 /* ThemeUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5A90F7244E2E5D009B24A2 /* ThemeUtils.swift */; };
+		AD5A90FA244E2EA0009B24A2 /* ThemeExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5A90F9244E2EA0009B24A2 /* ThemeExtensions.swift */; };
+		AD5A90FC244E2EFC009B24A2 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5A90FB244E2EFC009B24A2 /* UIColorExtensions.swift */; };
 		ADC59C86241070C5007D4772 /* ReachabilityNetworkObserverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC59C85241070C5007D4772 /* ReachabilityNetworkObserverDelegate.swift */; };
 		ADC7A38223E8E40500BF38D0 /* InternetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC7A38123E8E40500BF38D0 /* InternetUtils.swift */; };
 		ADC7A38423E8E80800BF38D0 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC7A38323E8E80800BF38D0 /* AlertUtils.swift */; };
@@ -82,6 +85,9 @@
 		AD21770C23DBC92B00BE2AD0 /* deOlhoEmManausUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = deOlhoEmManausUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD21771023DBC92B00BE2AD0 /* deOlhoEmManausUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deOlhoEmManausUITests.swift; sourceTree = "<group>"; };
 		AD21771223DBC92B00BE2AD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AD5A90F7244E2E5D009B24A2 /* ThemeUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeUtils.swift; sourceTree = "<group>"; };
+		AD5A90F9244E2EA0009B24A2 /* ThemeExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeExtensions.swift; sourceTree = "<group>"; };
+		AD5A90FB244E2EFC009B24A2 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		ADC59C85241070C5007D4772 /* ReachabilityNetworkObserverDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityNetworkObserverDelegate.swift; sourceTree = "<group>"; };
 		ADC7A38123E8E40500BF38D0 /* InternetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetUtils.swift; sourceTree = "<group>"; };
 		ADC7A38323E8E80800BF38D0 /* AlertUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
@@ -188,6 +194,8 @@
 			children = (
 				AD0077D023DBCD6B0069E28B /* UIImageExtensions.swift */,
 				AD1970B323DFA30300BEF5DE /* InteratorExtension.swift */,
+				AD5A90F9244E2EA0009B24A2 /* ThemeExtensions.swift */,
+				AD5A90FB244E2EFC009B24A2 /* UIColorExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -267,6 +275,7 @@
 				ADC7A38323E8E80800BF38D0 /* AlertUtils.swift */,
 				ADC59C85241070C5007D4772 /* ReachabilityNetworkObserverDelegate.swift */,
 				ADF2B2FA2417132D00650395 /* DateUtils.swift */,
+				AD5A90F7244E2E5D009B24A2 /* ThemeUtils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -516,6 +525,7 @@
 				AD2176EE23DBC92900BE2AD0 /* AppDelegate.swift in Sources */,
 				ADC59C86241070C5007D4772 /* ReachabilityNetworkObserverDelegate.swift in Sources */,
 				ADC7A38423E8E80800BF38D0 /* AlertUtils.swift in Sources */,
+				AD5A90FA244E2EA0009B24A2 /* ThemeExtensions.swift in Sources */,
 				AD2176F623DBC92900BE2AD0 /* deOlhoEmManaus.xcdatamodeld in Sources */,
 				AD0077DE23DBDD7A0069E28B /* ShowHouseUIViewController.swift in Sources */,
 				AD0077D123DBCD6B0069E28B /* UIImageExtensions.swift in Sources */,
@@ -526,8 +536,10 @@
 				AD0077D323DBCD7D0069E28B /* FirebaseService.swift in Sources */,
 				ADF2B2FB2417132D00650395 /* DateUtils.swift in Sources */,
 				AD0077CC23DBCD470069E28B /* ShowHouse.swift in Sources */,
+				AD5A90F8244E2E5D009B24A2 /* ThemeUtils.swift in Sources */,
 				AD0077CE23DBCD470069E28B /* Categorie.swift in Sources */,
 				ADC7A38223E8E40500BF38D0 /* InternetUtils.swift in Sources */,
+				AD5A90FC244E2EFC009B24A2 /* UIColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,7 +718,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7WV8M257CC;
 				INFOPLIST_FILE = deOlhoEmManaus/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -729,7 +741,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7WV8M257CC;
 				INFOPLIST_FILE = deOlhoEmManaus/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
