@@ -232,7 +232,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //Funcao para trocar o esquema de cor da searchbar
     func changeSearchBarColorScheme() {
-        
         //Verificando se esta ou nao em dark mode
         if traitCollection.userInterfaceStyle == .dark {
             self.searchBar.searchTextField.backgroundColor = DynamicColor(light: .clear, dark: UIColor.darkModeBackgroundColor).resolve()
@@ -241,7 +240,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             
             UIBarButtonItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
         }else{
-            
+//            self.searchBar.searchTextField.backgroundColor = .white
+//            self.searchBar.barTintColor = .clear
+//            UIBarButtonItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.black], for: .normal)
         }
         
         
