@@ -136,6 +136,11 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
             phoneStr += phone + "\n"
         }
         
+        if traitCollection.userInterfaceStyle == .dark {
+            self.popOverTextArea.textColor = .white
+        }
+        
+    
         self.popOverTextArea.text = phoneStr
         
     
