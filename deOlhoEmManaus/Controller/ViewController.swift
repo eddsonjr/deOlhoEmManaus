@@ -117,9 +117,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     //Muda as cores da header da tableview
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
-        view.tintColor = .white
-        let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = .black
+        
+        //Verificando se esta ou nao em dark mode
+        if traitCollection.userInterfaceStyle == .light {
+            view.tintColor = .white
+            let header = view as! UITableViewHeaderFooterView
+            header.textLabel?.textColor = .black
+        } else {
+            view.tintColor = .black
+            let header = view as! UITableViewHeaderFooterView
+            header.textLabel?.textColor = .white
+        }
     }
     
     
