@@ -39,6 +39,9 @@ extension UIColor {
     
     static var darkModeBackgroundColor: UIColor {return UIColor(red: 0.310, green: 0.310, blue: 0.310, alpha: 1)}
     
+    static var darkModeSearchBarTintColor: UIColor {return UIColor(red: 0.380, green: 0.380, blue: 0.380, alpha: 1)}
+    
+    
 }
 
 

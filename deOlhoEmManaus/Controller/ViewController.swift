@@ -24,6 +24,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var listaFiltrada: Array<Categorie>? = []
     
     
+    override func viewWillAppear(_ animated: Bool) {
+         changeSearchBarColorScheme() //verifica o esquema de cor do dispositivo e altera para dark ou light mode
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +47,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         
         try? addReachabilityObserver() //habilitando sistema para verificar se ha ou nao conexao com web
+        
+       
     }
     
     
@@ -220,6 +226,26 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         }
             self.tableView.reloadData()
             
+    }
+    
+    
+    
+    //Funcao para trocar o esquema de cor da searchbar
+    func changeSearchBarColorScheme() {
+        
+        //Verificando se esta ou nao em dark mode
+        if traitCollection.userInterfaceStyle == .dark {
+            self.searchBar.searchTextField.backgroundColor = DynamicColor(light: .clear, dark: UIColor.darkModeBackgroundColor).resolve()
+            
+            self.searchBar.barTintColor = DynamicColor(light: .clear, dark: .darkModeSearchBarTintColor).resolve()
+            
+            UIBarButtonItem.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
+        }else{
+            
+        }
+        
+        
+       
     }
     
     
