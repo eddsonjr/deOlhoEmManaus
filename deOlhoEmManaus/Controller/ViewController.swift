@@ -44,9 +44,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         try? addReachabilityObserver() //habilitando sistema para verificar se ha ou nao conexao com web
         
         //Configurando a xib que sera usada como header
-        let headerNib = UINib.init(nibName: "CustomTableViewHeaderEventListScreen", bundle: Bundle.main)
+        let headerNib = UINib.init(nibName: "CustomTableViewHeaderEventListScreen", bundle: nil)
         
-        self.tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "CustomTableViewHeaderEventListScreen")
+        self.tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "tableViewHeader")
+        
+
         
         
     }
@@ -106,19 +108,23 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CustomTableViewHeaderEventListScreen") as! CustomTableViewHeaderListScreen
-        
-
-        
-//        if(self.searchActive){
-//            headerView.EventTypeNameLabel.text = self.listaFiltrada![section].name!.capitalized
-//        }else{
-//            headerView.EventTypeNameLabel.text = self.listaDeCategorias![section].name!.capitalized
-//        }
-        
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "tableViewHeader") as! CustomTableViewHeader
+    
+        if(self.searchActive){
+            headerView.label.text = self.listaFiltrada![section].name!.capitalized
+        }else{
+            headerView.label.text = self.listaDeCategorias![section].name!.capitalized
+        }
         
         return headerView
     }
+    
+    
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 300
+    }
+    
     
     
 //    

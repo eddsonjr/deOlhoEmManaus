@@ -10,12 +10,41 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="Custom">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomTableViewHeader" customModule="OlhoEmManaus" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t0h-U4-GUj">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0k-d7-kia">
+                            <rect key="frame" x="8" y="50" width="398" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="O0k-d7-kia" secondAttribute="trailing" constant="8" id="E6N-bC-YbB"/>
+                        <constraint firstItem="O0k-d7-kia" firstAttribute="leading" secondItem="t0h-U4-GUj" secondAttribute="leading" constant="8" id="PXg-de-TtP"/>
+                        <constraint firstAttribute="bottom" secondItem="O0k-d7-kia" secondAttribute="bottom" constant="49" id="SRi-bo-oJA"/>
+                        <constraint firstItem="O0k-d7-kia" firstAttribute="top" secondItem="t0h-U4-GUj" secondAttribute="top" constant="50" id="i8n-BA-DNK"/>
+                    </constraints>
+                </view>
+            </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="t0h-U4-GUj" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="A62-6G-EKu"/>
+                <constraint firstItem="t0h-U4-GUj" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="St2-7o-Apj"/>
+                <constraint firstItem="t0h-U4-GUj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="d0U-Kc-eFj"/>
+                <constraint firstItem="t0h-U4-GUj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fjf-9m-ilC"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="label" destination="O0k-d7-kia" id="yKW-yz-bOG"/>
+            </connections>
             <point key="canvasLocation" x="-20.289855072463769" y="-226.33928571428569"/>
         </view>
     </objects>
