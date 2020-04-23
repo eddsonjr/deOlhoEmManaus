@@ -25,6 +25,7 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         try? addReachabilityObserver() //habilitando sistema para verificar se ha ou nao conexao com web
+        
     }
     
     
