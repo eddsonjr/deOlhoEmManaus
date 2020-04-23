@@ -175,7 +175,4 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
         print("Exiting class")
      }
      
-    
-
-    
 }

@@ -48,6 +48,12 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        
+        
+    }
+    
+    
     
 
     override func didReceiveMemoryWarning() {
@@ -118,14 +124,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     //Muda as cores da header da tableview
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
         
+        view.tintColor = .clear
+        let header = view as! UITableViewHeaderFooterView
+    
         //Verificando se esta ou nao em dark mode
         if traitCollection.userInterfaceStyle == .light {
-            view.tintColor = .white
-            let header = view as! UITableViewHeaderFooterView
             header.textLabel?.textColor = .black
         } else {
-            view.tintColor = .black
-            let header = view as! UITableViewHeaderFooterView
             header.textLabel?.textColor = .white
         }
     }
@@ -159,7 +164,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
         cell.textView.text = address
         cell.imageView.loadImageUsingCache(withUrl: imgUrl)
-        //cell.imageView.loadImageFirebaseStorage(withUrl: imgUrl)
         return cell
     }
     
