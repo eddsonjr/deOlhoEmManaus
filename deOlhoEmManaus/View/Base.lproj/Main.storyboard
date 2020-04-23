@@ -21,15 +21,15 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableviewCell" rowHeight="350" id="ymd-Fo-9E7" customClass="TableViewCell" customModule="OlhoEmManaus" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="350"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tableviewCell" rowHeight="358" id="ymd-Fo-9E7" customClass="TableViewCell" customModule="OlhoEmManaus" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="358"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ymd-Fo-9E7" id="wie-04-pH5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="358"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="300" verticalHuggingPriority="300" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oDn-46-vsi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                                    <rect key="frame" x="0.0" y="11" width="375" height="336"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oDL-fw-svg">
                                                         <size key="itemSize" width="141" height="210"/>
@@ -39,7 +39,7 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" reuseIdentifier="collectionViewCell" id="nIk-wT-zaC" customClass="CollectionViewCell" customModule="OlhoEmManaus" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="22" width="160" height="256"/>
+                                                            <rect key="frame" x="0.0" y="40" width="160" height="256"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="256"/>
@@ -82,13 +82,13 @@
                                                 </collectionView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="oDn-46-vsi" firstAttribute="top" secondItem="wie-04-pH5" secondAttribute="top" id="XHM-BM-Fcl"/>
+                                                <constraint firstItem="oDn-46-vsi" firstAttribute="top" secondItem="wie-04-pH5" secondAttribute="top" constant="11" id="IHh-fx-zAB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="oDn-46-vsi" secondAttribute="trailing" id="c8W-7r-scb"/>
                                             <constraint firstItem="oDn-46-vsi" firstAttribute="leading" secondItem="ymd-Fo-9E7" secondAttribute="leading" id="sg3-7P-q3u"/>
-                                            <constraint firstAttribute="bottom" secondItem="oDn-46-vsi" secondAttribute="bottom" constant="50" id="wR8-u8-kBT"/>
+                                            <constraint firstAttribute="bottom" secondItem="oDn-46-vsi" secondAttribute="bottom" constant="11" id="wR8-u8-kBT"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="collectionView" destination="oDn-46-vsi" id="7C9-Ed-xrf"/>
@@ -135,6 +135,11 @@
                             <constraint firstItem="cTD-eh-mjO" firstAttribute="leading" secondItem="OqN-pU-EzC" secondAttribute="leading" id="xI7-dB-CFS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OqN-pU-EzC"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="dJI-Vs-u9p"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Eventos" id="ygA-iw-F5Y"/>
                     <connections>

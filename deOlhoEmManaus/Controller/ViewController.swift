@@ -41,18 +41,15 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         // Register to receive notification
         NotificationCenter.default.addObserver(self, selector: #selector(self.methodOfReceivedNotification(notification:)), name: Notification.Name("NotificationIdentifier"), object: nil)
         
-        
-        
         try? addReachabilityObserver() //habilitando sistema para verificar se ha ou nao conexao com web
         
-    }
-    
-    
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        //Configurando a xib que sera usada como header
+        let headerNib = UINib.init(nibName: "CustomTableViewHeaderEventListScreen", bundle: Bundle.main)
+        
+        self.tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "CustomTableViewHeaderEventListScreen")
         
         
     }
-    
     
     
 
@@ -107,34 +104,52 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        var sectionName: String = ""
-        if(self.searchActive){
-            sectionName = self.listaFiltrada![section].name!.capitalized
-        }else{
-            sectionName = self.listaDeCategorias![section].name!.capitalized
-        }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        return sectionName
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CustomTableViewHeaderEventListScreen") as! CustomTableViewHeaderListScreen
+        
+
+        
+//        if(self.searchActive){
+//            headerView.EventTypeNameLabel.text = self.listaFiltrada![section].name!.capitalized
+//        }else{
+//            headerView.EventTypeNameLabel.text = self.listaDeCategorias![section].name!.capitalized
+//        }
+        
+        
+        return headerView
     }
+    
+    
+//    
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        
+//        var sectionName: String = ""
+//        if(self.searchActive){
+//            sectionName = self.listaFiltrada![section].name!.capitalized
+//        }else{
+//            sectionName = self.listaDeCategorias![section].name!.capitalized
+//        }
+//        
+//        return sectionName
+//    }
     
     
     
     //Muda as cores da header da tableview
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
-        
-        view.tintColor = .clear
-        let header = view as! UITableViewHeaderFooterView
-    
-        //Verificando se esta ou nao em dark mode
-        if traitCollection.userInterfaceStyle == .light {
-            header.textLabel?.textColor = .black
-        } else {
-            header.textLabel?.textColor = .white
-        }
-    }
-    
+//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+//
+//        view.tintColor = .clear
+//        let header = view as! UITableViewHeaderFooterView
+//
+//        //Verificando se esta ou nao em dark mode
+//        if traitCollection.userInterfaceStyle == .light {
+//            header.textLabel?.textColor = .black
+//        } else {
+//            header.textLabel?.textColor = .white
+//        }
+//    }
+//
     
     
     //MARK: collectionView datasource and delegate

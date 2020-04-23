@@ -11,7 +11,6 @@ import UIKit
 class CustomTableViewHeaderListScreen: UITableViewHeaderFooterView {
     
     
-    @IBOutlet weak var EventTypeNameLabel: UILabel!
     
 
     /*
