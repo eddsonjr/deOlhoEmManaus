@@ -29,7 +29,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="300" verticalHuggingPriority="300" horizontalCompressionResistancePriority="800" verticalCompressionResistancePriority="800" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="oDn-46-vsi">
-                                                    <rect key="frame" x="0.0" y="11" width="375" height="336"/>
+                                                    <rect key="frame" x="0.0" y="11" width="375" height="304"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oDL-fw-svg">
                                                         <size key="itemSize" width="141" height="210"/>
@@ -39,7 +39,7 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" reuseIdentifier="collectionViewCell" id="nIk-wT-zaC" customClass="CollectionViewCell" customModule="OlhoEmManaus" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="40" width="160" height="256"/>
+                                                            <rect key="frame" x="0.0" y="24" width="160" height="256"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="256"/>
@@ -88,7 +88,7 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="oDn-46-vsi" secondAttribute="trailing" id="c8W-7r-scb"/>
                                             <constraint firstItem="oDn-46-vsi" firstAttribute="leading" secondItem="ymd-Fo-9E7" secondAttribute="leading" id="sg3-7P-q3u"/>
-                                            <constraint firstAttribute="bottom" secondItem="oDn-46-vsi" secondAttribute="bottom" constant="11" id="wR8-u8-kBT"/>
+                                            <constraint firstAttribute="bottom" secondItem="oDn-46-vsi" secondAttribute="bottom" constant="43" id="wR8-u8-kBT"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="collectionView" destination="oDn-46-vsi" id="7C9-Ed-xrf"/>
