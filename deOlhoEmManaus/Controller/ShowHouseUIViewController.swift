@@ -74,8 +74,7 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
     
     
     @objc func phoneButton(_ sender: Any) {
-        //Sera chamado o popOver contendo as informacoes de contato
-        createPopOver()
+       createAlertWithNumbers()
     }
     
     
