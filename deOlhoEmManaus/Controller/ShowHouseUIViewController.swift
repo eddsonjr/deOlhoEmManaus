@@ -150,6 +150,55 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
     
     
     
+    //Mark: Funcoes para chamar e tratar os numeros de telefone de contato
+    
+    //Chama um determinado numero
+    func callNumber(number: String){
+        if let phoneCallURL = URL(string: "tel://\(number)") {
+            print("Calling number....")
+            
+            let application:UIApplication = UIApplication.shared
+            if (application.canOpenURL(phoneCallURL)) {
+              application.open(phoneCallURL, options: [:], completionHandler: nil)
+            }
+        }
+    }
+    
+    
+    
+    
+    //Cria um alerta com os numeros de telefone
+    func createAlertWithNumbers() {
+           
+           let callNumbersAllert = UIAlertController(title: "Selecione um Número", message: "Escolha um número para ligar e entrar em contato", preferredStyle: .actionSheet)
+
+        callNumbersAllert.addAction(UIAlertAction(title: ModelSingleton.shared.showSelected?.showHouse?.phones?.first, style: .default, handler: { (alertAction: UIAlertAction) in
+               print("Calling number: \(ModelSingleton.shared.showSelected?.showHouse?.phones?.first)")
+            self.callNumber(number: (ModelSingleton.shared.showSelected?.showHouse?.phones?.first)!)
+           }))
+
+        
+        
+        if (ModelSingleton.shared.showSelected?.showHouse?.phones!.count)! > 1 {
+               callNumbersAllert.addAction(UIAlertAction(title: ModelSingleton.shared.showSelected?.showHouse?.phones?[1], style: .default, handler: { (alertAction: UIAlertAction) in
+                   print("Calling number: \(ModelSingleton.shared.showSelected?.showHouse?.phones?[1])")
+                self.callNumber(number: (ModelSingleton.shared.showSelected?.showHouse?.phones?[1])!)
+               }))
+
+           }
+           
+           callNumbersAllert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (alertAction: UIAlertAction) in
+               print("cancel")
+           }))
+           
+           present(callNumbersAllert, animated: true, completion: nil)
+           
+       }
+       
+    
+    
+    
+    
     //Mark: Reachability protocol
     func reachabilityChanged(_ isReachable: Bool) {
          if isReachable {
