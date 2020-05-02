@@ -135,11 +135,6 @@
                             <constraint firstItem="cTD-eh-mjO" firstAttribute="leading" secondItem="OqN-pU-EzC" secondAttribute="leading" id="xI7-dB-CFS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OqN-pU-EzC"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="dJI-Vs-u9p"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Eventos" id="ygA-iw-F5Y"/>
                     <connections>
