@@ -16,41 +16,6 @@ let imageCache = NSCache<NSString, UIImage>()
 extension UIImageView {
     
     
-    
-//    func loadImageFirebaseStorage(withUrl urlString : String) {
-//        
-//        //Inicializando a animacao do activity indicator
-//        let activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView.init(activityIndicatorStyle: .whiteLarge)
-//        activityIndicator.color = .black
-//        activityIndicator.startAnimating()
-//        addSubview(activityIndicator)
-//        
-//        
-//        let storage = Storage.storage()
-//        var reference: StorageReference!
-//        reference = storage.reference(forURL: urlString)
-//        
-//        DispatchQueue.main.async {
-//            reference.downloadURL { (url, error) in
-//                let data = NSData(contentsOf: url!)
-//                let image = UIImage(data: data! as Data)
-//                activityIndicator.removeFromSuperview()
-//                self.image = image
-//
-//            }
-//        }
-//        
-//        
-//        
-//        
-//        
-//        
-//        
-//    }
-    
-    
-    
-    
     //Este metodo faz do download de imagens com base na URL informada.
     func loadImageUsingCache(withUrl urlString : String) {
         let url = URL(string: urlString)
