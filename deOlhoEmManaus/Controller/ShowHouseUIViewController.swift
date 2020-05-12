@@ -71,6 +71,15 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
     
     
     
+    //SOMENTE PARA TESTES DA NOVA WKWebVivew
+    func wkWebView() {
+        
+          let  location = "http://maps.google.com/maps?q=" + (ModelSingleton.shared.showSelected?.showHouse?.completAddress)!
+        
+    }
+    
+    
+    
     
     
     @objc func phoneButton(_ sender: Any) {
