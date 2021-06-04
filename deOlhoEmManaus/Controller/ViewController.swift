@@ -268,13 +268,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                 self.service.retrieveDataFromWeb()
             }
             
-//            else{
-//                print(TAG + "web availabel and datasource NOT empty. Redraw screen and download again..")
-//                self.tableView.reloadData()
-//                self.service.retrieveDataFromWeb()
-//                self.view.setNeedsDisplay()
-//
-//            }
             
         }else{
             //desconectado
@@ -290,6 +283,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     deinit {
        removeReachabilityObserver()
        
+    }
+    
+    
+    
+    func filterDataByUserSearch(){
+        let textSearch = self.searchBar.text?.lowercased()
+        
+        
     }
 
 }
