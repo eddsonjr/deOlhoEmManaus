@@ -33,6 +33,7 @@
 		ADC59C86241070C5007D4772 /* ReachabilityNetworkObserverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC59C85241070C5007D4772 /* ReachabilityNetworkObserverDelegate.swift */; };
 		ADC7A38223E8E40500BF38D0 /* InternetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC7A38123E8E40500BF38D0 /* InternetUtils.swift */; };
 		ADC7A38423E8E80800BF38D0 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC7A38323E8E80800BF38D0 /* AlertUtils.swift */; };
+		ADD221C0266AE4D50082C4B6 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD221BF266AE4D40082C4B6 /* SplashScreenViewController.swift */; };
 		ADF2B2FB2417132D00650395 /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADF2B2FA2417132D00650395 /* DateUtils.swift */; };
 		ADFBE5322402E23E00998122 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ADFBE5312402E23D00998122 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -89,6 +90,7 @@
 		ADC59C85241070C5007D4772 /* ReachabilityNetworkObserverDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityNetworkObserverDelegate.swift; sourceTree = "<group>"; };
 		ADC7A38123E8E40500BF38D0 /* InternetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetUtils.swift; sourceTree = "<group>"; };
 		ADC7A38323E8E80800BF38D0 /* AlertUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
+		ADD221BF266AE4D40082C4B6 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		ADDC1A5023FCC8F1003814C7 /* De Olho em Manaus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "De Olho em Manaus.entitlements"; sourceTree = "<group>"; };
 		ADF2B2FA2417132D00650395 /* DateUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		ADFBE5312402E23D00998122 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 			children = (
 				AD0077DC23DBDD7A0069E28B /* ShowHouseUIViewController.swift */,
 				AD2176EF23DBC92900BE2AD0 /* ViewController.swift */,
+				ADD221BF266AE4D40082C4B6 /* SplashScreenViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				AD0077CD23DBCD470069E28B /* Show.swift in Sources */,
 				AD0077DA23DBD10F0069E28B /* TableViewCell.swift in Sources */,
 				AD0077CF23DBCD470069E28B /* ModelSingleton.swift in Sources */,
+				ADD221C0266AE4D50082C4B6 /* SplashScreenViewController.swift in Sources */,
 				AD1970B423DFA30300BEF5DE /* InteratorExtension.swift in Sources */,
 				AD0077D323DBCD7D0069E28B /* FirebaseService.swift in Sources */,
 				ADF2B2FB2417132D00650395 /* DateUtils.swift in Sources */,
