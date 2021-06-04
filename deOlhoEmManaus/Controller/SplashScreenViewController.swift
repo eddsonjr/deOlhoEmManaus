@@ -23,15 +23,24 @@ class SplashScreenViewController: UIViewController {
     
     private func animate(){
         UIView.transition(with: self.splashScreenImage,
-                          duration: 0.7,
+                          duration: 1.75,
                           options: .transitionCrossDissolve,
                           animations: {  self.splashScreenImage.image = self.splashImage},
-                          completion: nil)
+                          completion: {_ in
+                            self.callMainScreen()
+                          })
     }
     
     
     private func callMainScreen() {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let mainView = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+
+        //Below's navigationController is useful if u want NavigationController in the destination View
+        let navigationController = UINavigationController(rootViewController: mainView)
+        appDelegate.window!.rootViewController = navigationController
+
     }
     
 

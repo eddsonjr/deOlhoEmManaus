@@ -286,12 +286,5 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
     
     
-    
-    func filterDataByUserSearch(){
-        let textSearch = self.searchBar.text?.lowercased()
-        
-        
-    }
-
 }
 
