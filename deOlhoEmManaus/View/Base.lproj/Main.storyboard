@@ -242,10 +242,10 @@
             </objects>
             <point key="canvasLocation" x="2032.8" y="132.68365817091455"/>
         </scene>
-        <!--View Controller-->
+        <!--Splash Screen View Controller-->
         <scene sceneID="eqn-7q-pUj">
             <objects>
-                <viewController id="fam-zI-g2U" sceneMemberID="viewController">
+                <viewController id="fam-zI-g2U" customClass="SplashScreenViewController" customModule="OlhoEmManaus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U4F-oQ-EZP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -263,6 +263,9 @@
                             <constraint firstItem="fLZ-y2-33k" firstAttribute="bottom" secondItem="3Xf-nr-rFr" secondAttribute="bottom" id="z6Q-cq-BKn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="splashScreenImage" destination="3Xf-nr-rFr" id="xYd-IN-H4Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKB-B9-lAS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

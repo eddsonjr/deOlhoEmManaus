@@ -10,21 +10,29 @@ import UIKit
 
 class SplashScreenViewController: UIViewController {
 
+    @IBOutlet weak var splashScreenImage: UIImageView!
+    let splashImage = UIImage(named: "new_logo.png")
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        animate()
+ 
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    private func animate(){
+        UIView.transition(with: self.splashScreenImage,
+                          duration: 0.7,
+                          options: .transitionCrossDissolve,
+                          animations: {  self.splashScreenImage.image = self.splashImage},
+                          completion: nil)
     }
-    */
+    
+    
+    private func callMainScreen() {
+        
+    }
+    
 
 }
