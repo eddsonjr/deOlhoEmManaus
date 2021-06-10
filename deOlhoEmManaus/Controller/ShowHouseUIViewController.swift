@@ -247,6 +247,8 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
             let appleURL = "http://maps.apple.com/?daddr=\(latitude),\(longitude)"
             let googleURL = "comgooglemaps://?daddr=\(latitude),\(longitude)&directionsmode=driving"
             let wazeURL = "waze://?ll=\(latitude),\(longitude)&navigate=false"
+        
+        
 
             let googleItem = ("Google Map", URL(string:googleURL)!)
             let wazeItem = ("Waze", URL(string:wazeURL)!)
@@ -282,9 +284,10 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
         let locationAddress = (ModelSingleton.shared.showSelected?.showHouse?.completAddress)!
         print(TAG + "Endereco selecionado: \(locationAddress)")
         
-        let safariGoogleMapsURL = URL(string: "http://maps.google.com/maps?q=" + locationAddress)!
-        let appleMapsURL = URL(string: "http://maps.apple.com/?q=" + locationAddress)!
-        let googleMapsURL = URL(string: "comgooglemaps://?q=" + locationAddress)!
+        let safariGoogleMapsURL: URL = URL(string: ("http://maps.google.com/maps?q=" + locationAddress).addingPercentEncoding(withAllowedCharacters: .urlUserAllowed)!)!
+        
+        let appleMapsURL: URL = URL(string: ("http://maps.apple.com/?q=" + locationAddress).addingPercentEncoding(withAllowedCharacters: .urlUserAllowed)!)!
+        let googleMapsURL: URL = URL(string: ("comgooglemaps://?q=" + locationAddress).addingPercentEncoding(withAllowedCharacters: .urlUserAllowed)!)!
         
         //Lista de possiveis apps de mapa suportados
         let supportedAppMaps = [("Safari",safariGoogleMapsURL),("Apple Maps",appleMapsURL)]
