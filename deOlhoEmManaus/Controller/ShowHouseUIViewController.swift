@@ -8,6 +8,7 @@
 
 import UIKit
 import SafariServices
+import MapKit
 
 
 class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
@@ -59,13 +60,15 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
     
     @objc func locationButton(_ sender: Any) {
         print(self.TAG + "Location....")
+        openMapsApplication()
         
-        let  location = "http://maps.google.com/maps?q=" + (ModelSingleton.shared.showSelected?.showHouse?.completAddress)!
-        let safariURL = location.addingPercentEncoding(withAllowedCharacters:  CharacterSet.urlQueryAllowed)
-              print("\(safariURL)")
-        guard let url = URL(string: safariURL!) else { return }
-        let svc = SFSafariViewController(url: url)
-        present(svc, animated: true, completion: nil)
+
+//        let  location = "http://maps.google.com/maps?q=" + (ModelSingleton.shared.showSelected?.showHouse?.completAddress)!
+//        let safariURL = location.addingPercentEncoding(withAllowedCharacters:  CharacterSet.urlQueryAllowed)
+//              print("\(safariURL)")
+//        guard let url = URL(string: safariURL!) else { return }
+//        let svc = SFSafariViewController(url: url)
+//        present(svc, animated: true, completion: nil)
         
     }
     
@@ -232,5 +235,79 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
         removeReachabilityObserver()
         print("Exiting class")
      }
+    
+    
+    
+    //Metodo para o usuario escolher o aplicativo de navegacao quando consultar pela localizacao
+    
+    func openMapButtonAction() {
+            let latitude = 45.5088
+            let longitude = -73.554
+
+            let appleURL = "http://maps.apple.com/?daddr=\(latitude),\(longitude)"
+            let googleURL = "comgooglemaps://?daddr=\(latitude),\(longitude)&directionsmode=driving"
+            let wazeURL = "waze://?ll=\(latitude),\(longitude)&navigate=false"
+
+            let googleItem = ("Google Map", URL(string:googleURL)!)
+            let wazeItem = ("Waze", URL(string:wazeURL)!)
+            var installedNavigationApps = [("Apple Maps", URL(string:appleURL)!)]
+
+            if UIApplication.shared.canOpenURL(googleItem.1) {
+                installedNavigationApps.append(googleItem)
+            }
+
+            if UIApplication.shared.canOpenURL(wazeItem.1) {
+                installedNavigationApps.append(wazeItem)
+            }
+
+            let alert = UIAlertController(title: "Selection", message: "Select Navigation App", preferredStyle: .actionSheet)
+            for app in installedNavigationApps {
+                let button = UIAlertAction(title: app.0, style: .default, handler: { _ in
+                    UIApplication.shared.open(app.1, options: [:], completionHandler: nil)
+                })
+                alert.addAction(button)
+            }
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            present(alert, animated: true)
+        }
+    
+    
+    
+    
+    
+    private func openMapsApplication(){
+        
+        //Lista de urls para serem utilizadas na chamada de aplicativos (caso estejam instalados)
+        let locationAddress = (ModelSingleton.shared.showSelected?.showHouse?.completAddress)!
+        print(TAG + "Endereco selecionado: \(locationAddress)")
+        
+        let safariGoogleMapsURL = URL(string: "http://maps.google.com/maps?q=" + locationAddress)!
+        let appleMapsURL = URL(string: "http://maps.apple.com/?q=" + locationAddress)!
+        let googleMapsURL = URL(string: "comgooglemaps://?q=" + locationAddress)!
+        
+        //Lista de possiveis apps de mapa suportados
+        let supportedAppMaps = [("Safari",safariGoogleMapsURL),("Apple Maps",appleMapsURL)]
+        
+        
+        //Criando um UIAlert para que o usuario consiga escolher qual aplicativo usar
+        let alert = UIAlertController(title: "Aplicativos", message: "Selecione um aplicativo de sua preferência", preferredStyle: .actionSheet)
+        
+        for app in supportedAppMaps{
+            if(UIApplication.shared.canOpenURL(app.1)){ //verificando apps suportados que estao instalados no device do ususario
+                let button = UIAlertAction(title: app.0, style: .default, handler: { _ in
+                    UIApplication.shared.open(app.1, options: [:], completionHandler: nil)
+                    print(self.TAG + "Abrindo: \(app.0) -- com url: \(app.1)")
+                })
+                alert.addAction(button)
+            }
+        }
+        //adicionando o botao de cancelar
+        let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true)
+        
+    }
      
 }
