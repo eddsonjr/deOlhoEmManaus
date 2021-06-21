@@ -9,6 +9,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="rvo-mT-qWR">
+            <objects>
+                <viewController id="dQs-Mn-kkH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5SF-0r-z3g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Lea-Lx-X6e"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Smh-Fp-KAh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W3v-gp-MLy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2033" y="-577"/>
+        </scene>
         <!--Eventos-->
         <scene sceneID="1P8-ci-YA3">
             <objects>
@@ -137,7 +153,13 @@
                             <constraint firstItem="cTD-eh-mjO" firstAttribute="leading" secondItem="OqN-pU-EzC" secondAttribute="leading" id="xI7-dB-CFS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Eventos" id="ygA-iw-F5Y"/>
+                    <navigationItem key="navigationItem" title="Eventos" id="ygA-iw-F5Y">
+                        <barButtonItem key="rightBarButtonItem" title="Pesquisar" image="magnifyingglass" catalog="system" id="JUG-i5-i3w">
+                            <connections>
+                                <segue destination="dQs-Mn-kkH" kind="show" id="E62-Xz-Vh9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="noWebView" destination="dJI-Vs-u9p" id="Jyz-Jo-plQ"/>
                         <outlet property="searchBar" destination="cTD-eh-mjO" id="bfR-r2-T2z"/>
@@ -146,7 +168,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKK-YY-Zag" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="132.68365817091455"/>
+            <point key="canvasLocation" x="567" y="-178"/>
         </scene>
         <!--Show HouseUI View Controller-->
         <scene sceneID="pis-QW-oGq">
@@ -269,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKB-B9-lAS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-665" y="133"/>
+            <point key="canvasLocation" x="-977" y="-176"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YVj-VT-vkk">
@@ -289,10 +311,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rzE-Ep-xFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+            <point key="canvasLocation" x="-209" y="-177"/>
         </scene>
     </scenes>
     <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="new_logo" width="1500" height="1500"/>
         <image name="noImage" width="1872" height="1872"/>
         <image name="noImage_pequena" width="294" height="410"/>

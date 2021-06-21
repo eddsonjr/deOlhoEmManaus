@@ -30,6 +30,7 @@
 		AD21771123DBC92B00BE2AD0 /* deOlhoEmManausUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21771023DBC92B00BE2AD0 /* deOlhoEmManausUITests.swift */; };
 		AD68794724521BBE000D4D53 /* CustomTableViewHeaderEventListScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AD68794624521BBE000D4D53 /* CustomTableViewHeaderEventListScreen.xib */; };
 		AD68794B245236F2000D4D53 /* CustomTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD68794A245236F2000D4D53 /* CustomTableViewHeader.swift */; };
+		AD83D688267287F600ECC769 /* Trechos de codigo in Resources */ = {isa = PBXBuildFile; fileRef = AD83D687267287F600ECC769 /* Trechos de codigo */; };
 		ADC59C86241070C5007D4772 /* ReachabilityNetworkObserverDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC59C85241070C5007D4772 /* ReachabilityNetworkObserverDelegate.swift */; };
 		ADC7A38223E8E40500BF38D0 /* InternetUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC7A38123E8E40500BF38D0 /* InternetUtils.swift */; };
 		ADC7A38423E8E80800BF38D0 /* AlertUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC7A38323E8E80800BF38D0 /* AlertUtils.swift */; };
@@ -87,6 +88,7 @@
 		AD21771223DBC92B00BE2AD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AD68794624521BBE000D4D53 /* CustomTableViewHeaderEventListScreen.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewHeaderEventListScreen.xib; sourceTree = "<group>"; };
 		AD68794A245236F2000D4D53 /* CustomTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewHeader.swift; sourceTree = "<group>"; };
+		AD83D687267287F600ECC769 /* Trechos de codigo */ = {isa = PBXFileReference; lastKnownFileType = text; path = "Trechos de codigo"; sourceTree = "<group>"; };
 		ADC59C85241070C5007D4772 /* ReachabilityNetworkObserverDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReachabilityNetworkObserverDelegate.swift; sourceTree = "<group>"; };
 		ADC7A38123E8E40500BF38D0 /* InternetUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetUtils.swift; sourceTree = "<group>"; };
 		ADC7A38323E8E80800BF38D0 /* AlertUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertUtils.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 		AD2176EC23DBC92900BE2AD0 /* deOlhoEmManaus */ = {
 			isa = PBXGroup;
 			children = (
+				AD83D686267287B200ECC769 /* Codes */,
 				ADDC1A5023FCC8F1003814C7 /* De Olho em Manaus.entitlements */,
 				ADC7A37E23E8E29B00BF38D0 /* Utils */,
 				AD0077C123DBCC880069E28B /* Extensions */,
@@ -267,6 +270,14 @@
 				AD21771223DBC92B00BE2AD0 /* Info.plist */,
 			);
 			path = deOlhoEmManausUITests;
+			sourceTree = "<group>";
+		};
+		AD83D686267287B200ECC769 /* Codes */ = {
+			isa = PBXGroup;
+			children = (
+				AD83D687267287F600ECC769 /* Trechos de codigo */,
+			);
+			path = Codes;
 			sourceTree = "<group>";
 		};
 		ADC7A37E23E8E29B00BF38D0 /* Utils */ = {
@@ -392,6 +403,7 @@
 				AD2176FB23DBC92B00BE2AD0 /* LaunchScreen.storyboard in Resources */,
 				AD68794724521BBE000D4D53 /* CustomTableViewHeaderEventListScreen.xib in Resources */,
 				AD2176F823DBC92B00BE2AD0 /* Assets.xcassets in Resources */,
+				AD83D688267287F600ECC769 /* Trechos de codigo in Resources */,
 				AD2176F323DBC92900BE2AD0 /* Main.storyboard in Resources */,
 				ADFBE5322402E23E00998122 /* GoogleService-Info.plist in Resources */,
 			);
