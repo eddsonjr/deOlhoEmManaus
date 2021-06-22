@@ -35,7 +35,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="84C-Aq-qfz">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="84C-Aq-qfz" customClass="CategoriesSearchCollectionViewCell" customModule="OlhoEmManaus" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="162" height="70"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="mL4-Om-1dI">
@@ -118,6 +118,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Smh-Fp-KAh"/>
+                    <connections>
+                        <outlet property="categoryNamesCollectionView" destination="dON-Xs-MTg" id="apU-5o-kDI"/>
+                        <outlet property="resultsCollectionView" destination="d3r-WR-L0o" id="uJJ-6Z-Drw"/>
+                        <outlet property="searchBar" destination="AaT-G3-XMd" id="RbJ-9p-ovc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W3v-gp-MLy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,6 +11,8 @@ import UIKit
 class CategoriesSearchCollectionViewCell: UICollectionViewCell {
     
     
+    @IBOutlet weak var categoryName: UILabel!
+    
     
     
 }
