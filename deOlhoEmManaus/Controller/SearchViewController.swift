@@ -31,6 +31,14 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
         self.searchBar.delegate = self
         self.searchBar.showsCancelButton = true
         self.searchBar.isUserInteractionEnabled = false
+        
+        //somente para testes
+        print(TAG + "Categorias do modelSingleton: \(ModelSingleton.shared.categories.count)")
+        
+        print(TAG + "Shows do modelSingleton: \(ModelSingleton.shared.shows.count)")
+        
+        
+        
     }
     
     

@@ -52,6 +52,9 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="162" height="70"/>
+                                        <connections>
+                                            <outlet property="categoryName" destination="wQC-QJ-zk6" id="AiG-PC-njI"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
