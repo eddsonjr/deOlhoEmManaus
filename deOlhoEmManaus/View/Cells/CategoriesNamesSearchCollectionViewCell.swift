@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CategoriesSearchCollectionViewCell: UICollectionViewCell {
+class CategoriesNamesSearchCollectionViewCell: UICollectionViewCell {
     
     
     @IBOutlet weak var categoryName: UILabel!
