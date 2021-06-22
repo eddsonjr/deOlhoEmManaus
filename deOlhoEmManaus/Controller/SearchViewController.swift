@@ -60,21 +60,32 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        var cell: UICollectionViewCell? = nil
         
         if collectionView == categoryNamesCollectionView {
-            cell = categoryNamesCollectionView.dequeueReusableCell(withReuseIdentifier: "categoryNamesCollectionCell", for: indexPath) as! CategoriesNamesSearchCollectionViewCell
             
-            //TODO - TERMINAR A IMPLEMENTACAO AQUI
+            let cell = categoryNamesCollectionView.dequeueReusableCell(withReuseIdentifier: "categoryNamesCollectionCell", for: indexPath) as! CategoriesNamesSearchCollectionViewCell
+        
+            cell.categoryName.text = ModelSingleton.shared.categories[indexPath.row].name
+            
+            return cell
             
         }else {
-            cell = resultsCollectionView.dequeueReusableCell(withReuseIdentifier: "resultsCollectionViewCell", for: indexPath)
+            let cell = resultsCollectionView.dequeueReusableCell(withReuseIdentifier: "resultsCollectionViewCell", for: indexPath) as! CollectionViewCell
             
             
-            //TODO - TERMINAR A IMPLEMENTACAO AQUI
+            var imgUrl = ""
+            var address = ""
+            
+            imgUrl = ModelSingleton.shared.categories[collectionView.tag].shows[indexPath.row].imageUrl!
+            address = ModelSingleton.shared.categories[collectionView.tag].shows[indexPath.row].showHouse!.name!
+ 
+            cell.textView.text = address
+            cell.imageView.loadImageUsingCache(withUrl: imgUrl)
+            
+            
+            return cell
         }
         
-        return cell!
         
     }
     
