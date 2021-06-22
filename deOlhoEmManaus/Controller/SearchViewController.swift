@@ -20,6 +20,17 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //conformando o delegate e o datasource de ambas as collections
+        self.categoryNamesCollectionView.dataSource = self
+        self.categoryNamesCollectionView.delegate = self
+        self.resultsCollectionView.dataSource = self
+        self.resultsCollectionView.delegate = self
+        
+        //conformando a searchbar
+        self.searchBar.delegate = self
+        self.searchBar.showsCancelButton = true
+        self.searchBar.isUserInteractionEnabled = false
     }
     
     
