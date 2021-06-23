@@ -76,8 +76,8 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
             var imgUrl = ""
             var address = ""
             
-            imgUrl = ModelSingleton.shared.categories[collectionView.tag].shows[indexPath.row].imageUrl!
-            address = ModelSingleton.shared.categories[collectionView.tag].shows[indexPath.row].showHouse!.name!
+            imgUrl = ModelSingleton.shared.shows[indexPath.row].imageUrl!
+            address = (ModelSingleton.shared.shows[indexPath.row].showHouse?.name!)!
  
             cell.textView.text = address
             cell.imageView.loadImageUsingCache(withUrl: imgUrl)
