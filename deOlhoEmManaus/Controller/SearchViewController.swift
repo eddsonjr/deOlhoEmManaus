@@ -15,6 +15,8 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
     //Elementos visuais na viewController
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var resultsCollectionView: UICollectionView!
+    var searchActive : Bool = false
+    var listaFiltrada : Array<Show>? = []
     
     
     override func viewDidLoad() {
@@ -28,7 +30,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
         //conformando a searchbar
         self.searchBar.delegate = self
         self.searchBar.showsCancelButton = true
-        self.searchBar.isUserInteractionEnabled = false
+        self.searchBar.isUserInteractionEnabled = true
                
         print(TAG + "Shows filtrados do modelSingleton: \(ModelSingleton.shared.showsFiltered.count)")
         
@@ -44,10 +46,12 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       
-        return ModelSingleton.shared.showsFiltered.count
-    
         
+        if(self.searchActive){
+            return listaFiltrada!.count
+        }else{
+            return ModelSingleton.shared.showsFiltered.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -58,10 +62,14 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
         var imgUrl = ""
         var address = ""
         
-        imgUrl = ModelSingleton.shared.showsFiltered [indexPath.row].imageUrl!
-        address = (ModelSingleton.shared.showsFiltered[indexPath.row].showHouse?.name!)!
-        print(TAG + "\(indexPath.row)")
-
+        if(searchActive){
+            imgUrl = listaFiltrada![indexPath.row].imageUrl!
+            address = (listaFiltrada![indexPath.row].showHouse?.name)!
+        }else{
+            imgUrl = ModelSingleton.shared.showsFiltered [indexPath.row].imageUrl!
+            address = (ModelSingleton.shared.showsFiltered[indexPath.row].showHouse?.name!)!
+        }
+    
         cell.textView.text = address
         cell.imageView.loadImageUsingCache(withUrl: imgUrl)
         
@@ -69,6 +77,47 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
         return cell
         
         
+    }
+    
+    //-------------------------------------------------------------------
+    //Mark: Funcoes de searchbar
+    //------------------------------------------------------------------
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true;
+        self.listaFiltrada = ModelSingleton.shared.showsFiltered
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+        self.searchBar.endEditing(true)
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchActive = false;
+    }
+    
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        //caso a barra de busca nao tenha nenhum dado e esteja vazia, desabilitar a buscar e recarregar toda a tableview
+        if(self.searchBar.text?.isEmpty)!{
+            self.searchActive = false
+            view.endEditing(true)
+            self.resultsCollectionView.reloadData()
+        }else{ //caso o usuario esteja realizando uma busca
+            self.searchActive = true
+            self.listaFiltrada = ModelSingleton.shared.showsFiltered.filter{
+                guard let textSearch = self.searchBar.text?.lowercased() else {return false}
+                return ($0.showHouse?.name!.lowercased().contains(textSearch))!
+            }
+            
+        }
+            self.resultsCollectionView.reloadData()
+            
     }
     
     
