@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate, UISearchBarDelegate, ReachabilityObserverDelegate {
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate,UISearchBarDelegate, ReachabilityObserverDelegate {
     
     
     
@@ -130,7 +130,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        //Passando os dados de show para o singleton
+        //Passando os dados de show selecionado pelo usuario para o singleton
         var show: Show = Show()
         show = self.listaDeCategorias![collectionView.tag].shows[indexPath.row]
         ModelSingleton.shared.showSelected = show

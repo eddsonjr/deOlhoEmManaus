@@ -34,18 +34,13 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
         self.searchBar.setImage(UIImage(), for: .clear, state: .normal)
                
         print(TAG + "Shows filtrados do modelSingleton: \(ModelSingleton.shared.showsFiltered.count)")
-        
-        
-        
+   
     }
     
     
     //-----------------------------------------------------
     //CollectionView functions
     //-----------------------------------------------------
-    
-    
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if(self.searchActive){
@@ -73,12 +68,21 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
     
         cell.textView.text = address
         cell.imageView.loadImageUsingCache(withUrl: imgUrl)
-        
-        
         return cell
-        
-        
     }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        //Passando os dados de show selecionado pelo usuario para o singleton
+        var show: Show = Show()
+        show = ModelSingleton.shared.showsFiltered[indexPath.row]
+        print(TAG + "Show selecionado: \(show.showHouse?.name)")
+        ModelSingleton.shared.showSelected = show
+    }
+    
+    
     
     //-------------------------------------------------------------------
     //Mark: Funcoes de searchbar
