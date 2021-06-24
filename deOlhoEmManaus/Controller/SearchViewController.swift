@@ -14,7 +14,6 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
     
     //Elementos visuais na viewController
     @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var categoryNamesCollectionView: UICollectionView!
     @IBOutlet weak var resultsCollectionView: UICollectionView!
     
     
@@ -22,8 +21,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
         super.viewDidLoad()
         
         //conformando o delegate e o datasource de ambas as collections
-        self.categoryNamesCollectionView.dataSource = self
-        self.categoryNamesCollectionView.delegate = self
+    
         self.resultsCollectionView.dataSource = self
         self.resultsCollectionView.delegate = self
         
@@ -31,11 +29,8 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
         self.searchBar.delegate = self
         self.searchBar.showsCancelButton = true
         self.searchBar.isUserInteractionEnabled = false
-        
-        //somente para testes
-        print(TAG + "Categorias do modelSingleton: \(ModelSingleton.shared.categories.count)")
-        
-        print(TAG + "Shows do modelSingleton: \(ModelSingleton.shared.shows.count)")
+               
+        print(TAG + "Shows filtrados do modelSingleton: \(ModelSingleton.shared.showsFiltered.count)")
         
         
         
@@ -49,42 +44,29 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if collectionView == categoryNamesCollectionView {
-            return ModelSingleton.shared.categories.count
-        }else {
-            return ModelSingleton.shared.shows.count
-        }
+       
+        return ModelSingleton.shared.showsFiltered.count
+    
         
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        let cell = resultsCollectionView.dequeueReusableCell(withReuseIdentifier: "resultsCollectionViewCell", for: indexPath) as! CollectionViewCell
         
-        if collectionView == categoryNamesCollectionView {
-            
-            let cell = categoryNamesCollectionView.dequeueReusableCell(withReuseIdentifier: "categoryNamesCollectionCell", for: indexPath) as! CategoriesNamesSearchCollectionViewCell
         
-            cell.categoryName.text = ModelSingleton.shared.categories[indexPath.row].name
-            
-            return cell
-            
-        }else {
-            let cell = resultsCollectionView.dequeueReusableCell(withReuseIdentifier: "resultsCollectionViewCell", for: indexPath) as! CollectionViewCell
-            
-            
-            var imgUrl = ""
-            var address = ""
-            
-            imgUrl = ModelSingleton.shared.shows[indexPath.row].imageUrl!
-            address = (ModelSingleton.shared.shows[indexPath.row].showHouse?.name!)!
- 
-            cell.textView.text = address
-            cell.imageView.loadImageUsingCache(withUrl: imgUrl)
-            
-            
-            return cell
-        }
+        var imgUrl = ""
+        var address = ""
+        
+        imgUrl = ModelSingleton.shared.showsFiltered [indexPath.row].imageUrl!
+        address = (ModelSingleton.shared.showsFiltered[indexPath.row].showHouse?.name!)!
+        print(TAG + "\(indexPath.row)")
+
+        cell.textView.text = address
+        cell.imageView.loadImageUsingCache(withUrl: imgUrl)
+        
+        
+        return cell
         
         
     }

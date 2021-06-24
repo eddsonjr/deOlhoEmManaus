@@ -122,7 +122,7 @@ class FirebaseService {
     
     
     
-    //Esta funcao serve para organizar os dados de acordo com
+    //Esta funcao serve para organizar os dados
     func organizeAllCategoriesAndShowData() {
         self.organizingDataDispatchGroup.enter()
         for categorie in ModelSingleton.shared.categories {
@@ -134,6 +134,7 @@ class FirebaseService {
                     if(!DateUtils.checkDateToRemoveBanner(dateFromServer: show.endDate)){
                         print(self.TAG + "Putting show \(show.id) in category \(categorie.name)")
                         categorie.shows.append(show)
+                        ModelSingleton.shared.showsFiltered.append(show)
                     }
                 }
             }

@@ -48,8 +48,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         self.tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "tableViewHeader")
         
-
-        
         
     }
     
@@ -254,6 +252,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.listaDeCategorias = ModelSingleton.shared.categories
         self.tableView.reloadData()
         self.searchBar.isUserInteractionEnabled = true
+        
+        
+        print(TAG + "Categorias: \(self.listaDeCategorias?.count)")
     }
     
     
