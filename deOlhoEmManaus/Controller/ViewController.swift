@@ -14,14 +14,11 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var searchBar: UISearchBar!
     @IBOutlet var noWebView: UIView!
     
     private let TAG = "[ViewController]: "
     var service: FirebaseService = FirebaseService()
     var listaDeCategorias: Array<Categorie>? = []
-    var searchActive : Bool = false
-    var listaFiltrada: Array<Categorie>? = []
     
     
     
@@ -30,12 +27,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.searchBar.delegate = self
-        self.searchBar.showsCancelButton = true
-        self.searchBar.isUserInteractionEnabled = false
-        
-        //TODO - VERIFICAR MUDANCAS NA VERSAO SWIFT 5
-        self.searchBar.setImage(UIImage(), for: .clear, state: .normal)
         
         
         // Register to receive notification
@@ -96,24 +87,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if(self.searchActive){
-            return (self.listaFiltrada?.count)!
-        }else{
-            return self.listaDeCategorias!.count
-        }
+        return self.listaDeCategorias!.count
     }
     
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "tableViewHeader") as! CustomTableViewHeader
-    
-        if(self.searchActive){
-            headerView.label.text = self.listaFiltrada![section].name!.capitalized
-        }else{
-            headerView.label.text = self.listaDeCategorias![section].name!.capitalized
-        }
-        
+        headerView.label.text = self.listaDeCategorias![section].name!.capitalized
         return headerView
     }
     
@@ -125,44 +105,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     
     
     
-//    
-//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        
-//        var sectionName: String = ""
-//        if(self.searchActive){
-//            sectionName = self.listaFiltrada![section].name!.capitalized
-//        }else{
-//            sectionName = self.listaDeCategorias![section].name!.capitalized
-//        }
-//        
-//        return sectionName
-//    }
-    
-    
-    
-    //Muda as cores da header da tableview
-//    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
-//
-//        view.tintColor = .clear
-//        let header = view as! UITableViewHeaderFooterView
-//
-//        //Verificando se esta ou nao em dark mode
-//        if traitCollection.userInterfaceStyle == .light {
-//            header.textLabel?.textColor = .black
-//        } else {
-//            header.textLabel?.textColor = .white
-//        }
-//    }
-//
-    
-    
     //MARK: collectionView datasource and delegate
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        if(!self.searchActive){
-            return self.listaDeCategorias![collectionView.tag].shows.count
-        }else{
-            return self.listaFiltrada![collectionView.tag].shows.count
-        }
+        return self.listaDeCategorias![collectionView.tag].shows.count
     }
     
     
@@ -172,14 +117,9 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         var imgUrl = ""
         var address = ""
-        if(self.searchActive){
-            imgUrl = self.listaFiltrada![collectionView.tag].shows[indexPath.row].imageUrl!
-            address = self.listaFiltrada![collectionView.tag].shows[indexPath.row].showHouse!.name!
-        }else{
-            imgUrl = self.listaDeCategorias![collectionView.tag].shows[indexPath.row].imageUrl!
-            address = self.listaDeCategorias![collectionView.tag].shows[indexPath.row].showHouse!.name!
-            
-        }
+    
+        imgUrl = self.listaDeCategorias![collectionView.tag].shows[indexPath.row].imageUrl!
+        address = self.listaDeCategorias![collectionView.tag].shows[indexPath.row].showHouse!.name!
     
         cell.textView.text = address
         cell.imageView.loadImageUsingCache(withUrl: imgUrl)
@@ -192,58 +132,13 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         
         //Passando os dados de show para o singleton
         var show: Show = Show()
-        if(self.searchActive){
-            show = self.listaFiltrada![collectionView.tag].shows[indexPath.row]
-            ModelSingleton.shared.showSelected = show
-        }else{
-            show = self.listaDeCategorias![collectionView.tag].shows[indexPath.row]
-            ModelSingleton.shared.showSelected = show
-        }
-        
-        
+        show = self.listaDeCategorias![collectionView.tag].shows[indexPath.row]
+        ModelSingleton.shared.showSelected = show
     }
     
     
     
-    //Mark: Funcoes de searchbar
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true;
-        //scrollToFirstRow()
-        self.listaFiltrada = self.listaDeCategorias
-    }
     
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
-        self.searchBar.endEditing(true)
-        
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
-    }
-    
-
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        //caso a barra de busca nao tenha nenhum dado e esteja vazia, desabilitar a buscar e recarregar toda a tableview
-        if(self.searchBar.text?.isEmpty)!{
-            self.searchActive = false
-            view.endEditing(true)
-            self.tableView.reloadData()
-        }else{ //caso o usuario esteja realizando uma busca
-            self.searchActive = true
-            self.listaFiltrada = self.listaDeCategorias?.filter{
-                guard let textSearch = self.searchBar.text?.lowercased() else {return false}
-                return ($0.name?.lowercased().contains(textSearch))!
-            }
-            
-        }
-            self.tableView.reloadData()
-            
-    }
     
     
     //Mark: Metodo do observador do FirebaseService - usado para reload da tableview assim que os dados forem baixados da web
@@ -251,7 +146,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         print("Recebida a notificacao")
         self.listaDeCategorias = ModelSingleton.shared.categories
         self.tableView.reloadData()
-        self.searchBar.isUserInteractionEnabled = true
         
         
         print(TAG + "Categorias: \(self.listaDeCategorias?.count)")

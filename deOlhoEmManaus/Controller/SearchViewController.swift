@@ -31,6 +31,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
         self.searchBar.delegate = self
         self.searchBar.showsCancelButton = true
         self.searchBar.isUserInteractionEnabled = true
+        self.searchBar.setImage(UIImage(), for: .clear, state: .normal)
                
         print(TAG + "Shows filtrados do modelSingleton: \(ModelSingleton.shared.showsFiltered.count)")
         

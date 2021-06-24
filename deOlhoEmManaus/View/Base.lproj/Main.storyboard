@@ -108,7 +108,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="spB-h3-bET">
-                                <rect key="frame" x="0.0" y="100" width="375" height="567"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -191,10 +191,6 @@
                                     <outlet property="delegate" destination="5tk-li-OZg" id="R3Z-P0-38f"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="cTD-eh-mjO">
-                                <rect key="frame" x="0.0" y="44" width="375" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJI-Vs-u9p">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
                                 <subviews>
@@ -213,18 +209,14 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="OqN-pU-EzC"/>
                         <constraints>
-                            <constraint firstItem="spB-h3-bET" firstAttribute="top" secondItem="cTD-eh-mjO" secondAttribute="bottom" id="8N7-a0-zoC"/>
-                            <constraint firstItem="OqN-pU-EzC" firstAttribute="trailing" secondItem="cTD-eh-mjO" secondAttribute="trailing" id="CPj-FF-ELw"/>
                             <constraint firstItem="OqN-pU-EzC" firstAttribute="trailing" secondItem="spB-h3-bET" secondAttribute="trailing" id="FXN-WI-TgD"/>
                             <constraint firstItem="OqN-pU-EzC" firstAttribute="bottom" secondItem="spB-h3-bET" secondAttribute="bottom" id="Hp5-QR-ACu"/>
-                            <constraint firstItem="spB-h3-bET" firstAttribute="top" secondItem="OqN-pU-EzC" secondAttribute="top" constant="56" id="O7z-ev-TrZ"/>
+                            <constraint firstItem="spB-h3-bET" firstAttribute="top" secondItem="OqN-pU-EzC" secondAttribute="top" id="O7z-ev-TrZ"/>
                             <constraint firstItem="dJI-Vs-u9p" firstAttribute="bottom" secondItem="OqN-pU-EzC" secondAttribute="bottom" id="Pny-oz-w6m"/>
-                            <constraint firstItem="cTD-eh-mjO" firstAttribute="top" secondItem="OqN-pU-EzC" secondAttribute="top" id="Xmt-uC-wnY"/>
                             <constraint firstItem="dJI-Vs-u9p" firstAttribute="leading" secondItem="OqN-pU-EzC" secondAttribute="leading" id="bby-jA-qF0"/>
                             <constraint firstItem="dJI-Vs-u9p" firstAttribute="top" secondItem="OqN-pU-EzC" secondAttribute="top" id="cXh-Na-DO0"/>
                             <constraint firstItem="dJI-Vs-u9p" firstAttribute="trailing" secondItem="OqN-pU-EzC" secondAttribute="trailing" id="dqT-fy-o0W"/>
                             <constraint firstItem="spB-h3-bET" firstAttribute="leading" secondItem="OqN-pU-EzC" secondAttribute="leading" id="fVO-G8-Q1E"/>
-                            <constraint firstItem="cTD-eh-mjO" firstAttribute="leading" secondItem="OqN-pU-EzC" secondAttribute="leading" id="xI7-dB-CFS"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
@@ -241,13 +233,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="noWebView" destination="dJI-Vs-u9p" id="Jyz-Jo-plQ"/>
-                        <outlet property="searchBar" destination="cTD-eh-mjO" id="bfR-r2-T2z"/>
                         <outlet property="tableView" destination="spB-h3-bET" id="141-Pu-es4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TKK-YY-Zag" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="567" y="-178"/>
+            <point key="canvasLocation" x="565.60000000000002" y="-178.56071964017991"/>
         </scene>
         <!--Show HouseUI View Controller-->
         <scene sceneID="pis-QW-oGq">
