@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Buscar Shows-->
+        <!--Buscar-->
         <scene sceneID="rvo-mT-qWR">
             <objects>
                 <viewController id="dQs-Mn-kkH" customClass="SearchViewController" customModule="OlhoEmManaus" customModuleProvider="target" sceneMemberID="viewController">
@@ -90,7 +90,7 @@
                             <constraint firstItem="d3r-WR-L0o" firstAttribute="leading" secondItem="Lea-Lx-X6e" secondAttribute="leading" id="wjM-vb-sYx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Buscar Shows" id="Smh-Fp-KAh"/>
+                    <navigationItem key="navigationItem" title="Buscar" id="Smh-Fp-KAh"/>
                     <connections>
                         <outlet property="resultsCollectionView" destination="d3r-WR-L0o" id="uJJ-6Z-Drw"/>
                         <outlet property="searchBar" destination="AaT-G3-XMd" id="RbJ-9p-ovc"/>

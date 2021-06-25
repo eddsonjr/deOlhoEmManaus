@@ -27,14 +27,24 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
         self.resultsCollectionView.dataSource = self
         self.resultsCollectionView.delegate = self
         
+        
         //conformando a searchbar
         self.searchBar.delegate = self
         self.searchBar.showsCancelButton = true
         self.searchBar.isUserInteractionEnabled = true
         self.searchBar.setImage(UIImage(), for: .clear, state: .normal)
+        ModelSingleton.shared.searching = true
                
-        print(TAG + "Shows filtrados do modelSingleton: \(ModelSingleton.shared.showsFiltered.count)")
+        
+        
+        
    
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.resultsCollectionView.reloadData()
+        print(TAG + "Shows filtrados do modelSingleton: \(ModelSingleton.shared.showsFiltered.count)")
+        print(TAG + "Searching: \(self.searchActive)")
     }
     
     
@@ -76,10 +86,25 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         //Passando os dados de show selecionado pelo usuario para o singleton
-        var show: Show = Show()
-        show = ModelSingleton.shared.showsFiltered[indexPath.row]
-        print(TAG + "Show selecionado: \(show.showHouse?.name)")
-        ModelSingleton.shared.showSelected = show
+        ModelSingleton.shared.showSelected = nil
+        if(searchActive){
+            var show = Show()
+            show = listaFiltrada![indexPath.row]
+            print(TAG + "Show Selecionado - Busca: \(show.showHouse?.name)")
+            print(TAG + "ID: \(show.id)")
+            print(TAG + "IMG: \(show.imageUrl)")
+            ModelSingleton.shared.showSelected = show
+        }else{
+            var show = Show()
+            show = ModelSingleton.shared.showsFiltered[indexPath.row]
+            print(TAG + "Show selecionado: \(show.showHouse?.name)")
+            print(TAG + "ID: \(show.id)")
+            ModelSingleton.shared.showSelected = show
+        }
+        
+        
+        
+        
     }
     
     
@@ -121,9 +146,15 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
             }
             
         }
+            print(TAG + "Qt filtrada: \(listaFiltrada?.count)")
             self.resultsCollectionView.reloadData()
             
     }
+    
+    
+    
+    
+    
     
     
 

@@ -34,6 +34,7 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         print(self.TAG + "Singleton show: \(ModelSingleton.shared.showSelected?.id)")
+        print(self.TAG + "Singleton show img: \(ModelSingleton.shared.showSelected?.imageUrl)")
         self.popOverView.layer.cornerRadius = 10 //Ajustando o popover - contornos
     }
 

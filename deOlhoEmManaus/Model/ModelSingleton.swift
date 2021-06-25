@@ -20,7 +20,7 @@ class ModelSingleton {
     var shows: [Show] = [] //armazena a lista de shows baixadas da internet (via firebase)
     var categories: [Categorie] = [] //armazena a lista de categorias baixadas da internet (via firebase)
     var showsFiltered: [Show] = [] //armazena a lista de shows que e filtrada de acordo com a data
-    
+    var searching: Bool = false
     
     
     
