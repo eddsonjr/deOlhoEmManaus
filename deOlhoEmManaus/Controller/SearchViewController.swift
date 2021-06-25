@@ -15,7 +15,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
     //Elementos visuais na viewController
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var resultsCollectionView: UICollectionView!
-    var searchActive : Bool = false
+    var searchActivated: Bool = false
     var listaFiltrada : Array<Show>? = []
     
     
@@ -33,7 +33,10 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
         self.searchBar.showsCancelButton = true
         self.searchBar.isUserInteractionEnabled = true
         self.searchBar.setImage(UIImage(), for: .clear, state: .normal)
-        ModelSingleton.shared.searching = true
+        
+        
+        
+        //searchActivated = true
                
         
         
@@ -44,7 +47,8 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
     override func viewWillAppear(_ animated: Bool) {
         self.resultsCollectionView.reloadData()
         print(TAG + "Shows filtrados do modelSingleton: \(ModelSingleton.shared.showsFiltered.count)")
-        print(TAG + "Searching: \(self.searchActive)")
+        print(TAG + "Searching: \(searchActivated)")
+        self.searchBar.text = ""
     }
     
     
@@ -53,7 +57,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
     //-----------------------------------------------------
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        if(self.searchActive){
+        if(searchActivated){
             return listaFiltrada!.count
         }else{
             return ModelSingleton.shared.showsFiltered.count
@@ -68,7 +72,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
         var imgUrl = ""
         var address = ""
         
-        if(searchActive){
+        if(searchActivated){
             imgUrl = listaFiltrada![indexPath.row].imageUrl!
             address = (listaFiltrada![indexPath.row].showHouse?.name)!
         }else{
@@ -87,7 +91,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
         
         //Passando os dados de show selecionado pelo usuario para o singleton
         ModelSingleton.shared.showSelected = nil
-        if(searchActive){
+        if(searchActivated){
             var show = Show()
             show = listaFiltrada![indexPath.row]
             print(TAG + "Show Selecionado - Busca: \(show.showHouse?.name)")
@@ -113,33 +117,33 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
     //Mark: Funcoes de searchbar
     //------------------------------------------------------------------
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true;
+        searchActivated = true;
         self.listaFiltrada = ModelSingleton.shared.showsFiltered
     }
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchActive = false;
+        searchActivated = false;
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
+        searchActivated = false;
         self.searchBar.endEditing(true)
         
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchActive = false;
+        searchActivated = false;
     }
     
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         //caso a barra de busca nao tenha nenhum dado e esteja vazia, desabilitar a buscar e recarregar toda a tableview
         if(self.searchBar.text?.isEmpty)!{
-            self.searchActive = false
+            searchActivated = false
             view.endEditing(true)
             self.resultsCollectionView.reloadData()
         }else{ //caso o usuario esteja realizando uma busca
-            self.searchActive = true
+            searchActivated = true
             self.listaFiltrada = ModelSingleton.shared.showsFiltered.filter{
                 guard let textSearch = self.searchBar.text?.lowercased() else {return false}
                 return ($0.showHouse?.name!.lowercased().contains(textSearch))!
