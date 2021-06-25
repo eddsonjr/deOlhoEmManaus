@@ -37,7 +37,6 @@ class SplashScreenViewController: UIViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let mainView = storyboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
 
-        //Below's navigationController is useful if u want NavigationController in the destination View
         let navigationController = UINavigationController(rootViewController: mainView)
         appDelegate.window!.rootViewController = navigationController
 

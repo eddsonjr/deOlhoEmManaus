@@ -371,10 +371,15 @@
                             <constraint firstItem="qMG-Le-ndk" firstAttribute="bottom" secondItem="sZm-Mz-iej" secondAttribute="bottom" constant="20" id="nLg-Rm-7e9"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Yeu-vP-gUo"/>
+                    <connections>
+                        <outlet property="enderecoTextView" destination="C6g-Ze-UMg" id="gnp-8y-xSt"/>
+                        <outlet property="mapKitView" destination="sZm-Mz-iej" id="GGE-pT-70k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W1z-IH-LiM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4040.8000000000002" y="-160.56971514242881"/>
+            <point key="canvasLocation" x="4214" y="-161"/>
         </scene>
         <!--Splash Screen View Controller-->
         <scene sceneID="eqn-7q-pUj">
