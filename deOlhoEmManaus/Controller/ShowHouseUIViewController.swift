@@ -62,14 +62,13 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
     
     @objc func locationButton(_ sender: Any) {
         print(self.TAG + "Location....")
-        openMap()
         
-//        let  location = "http://maps.google.com/maps?q=" + (ModelSingleton.shared.showSelected?.showHouse?.completAddress)!
-//        let safariURL = location.addingPercentEncoding(withAllowedCharacters:  CharacterSet.urlQueryAllowed)
-//              print("\(safariURL)")
-//        guard let url = URL(string: safariURL!) else { return }
-//        let svc = SFSafariViewController(url: url)
-//        present(svc, animated: true, completion: nil)
+        let  location = "http://maps.google.com/maps?q=" + (ModelSingleton.shared.showSelected?.showHouse?.completAddress)!
+        let safariURL = location.addingPercentEncoding(withAllowedCharacters:  CharacterSet.urlQueryAllowed)
+              print("\(safariURL)")
+        guard let url = URL(string: safariURL!) else { return }
+        let svc = SFSafariViewController(url: url)
+        present(svc, animated: true, completion: nil)
         
     }
     
@@ -237,47 +236,4 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
         print("Exiting class")
      }
     
-    
-    
-    //Metodo para o usuario escolher o aplicativo de navegacao quando consultar pela localizacao
-    private func openMap(){
-        
-        
-        let safariGoogleMapsURL: URL = URL(string: ("http://maps.google.com/maps?q=Sidia"))!
-        print(TAG + "url: \(safariGoogleMapsURL)")
-        
-        
-        let appleMapsURL: URL = URL(string: ("http://maps.apple.com/maps?saddr=Sidia"))!
-        
-        
-        //Lista de possiveis apps de mapa suportados
-        let supportedAppMaps = [("Safari",safariGoogleMapsURL),("Apple Maps",appleMapsURL)]
-        
-        
-        if(UIApplication.shared.canOpenURL(appleMapsURL)){
-            UIApplication.shared.open(appleMapsURL, options: [:], completionHandler: nil)
-            
-        }
-        
-        
-        
-//        //Criando um UIAlert para que o usuario consiga escolher qual aplicativo usar
-//        let alert = UIAlertController(title: "Aplicativos", message: "Selecione um aplicativo de sua preferência", preferredStyle: .actionSheet)
-//
-//        for app in supportedAppMaps{
-//            if(UIApplication.shared.canOpenURL(app.1)){ //verificando apps suportados que estao instalados no device do ususario
-//                let button = UIAlertAction(title: app.0, style: .default, handler: { _ in
-//                    UIApplication.shared.open(app.1, options: [:], completionHandler: nil)
-//                    print(self.TAG + "Abrindo: \(app.0) -- com url: \(app.1)")
-//                })
-//                alert.addAction(button)
-//            }
-//        }
-//        //adicionando o botao de cancelar
-//        let cancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-//        alert.addAction(cancel)
-//
-//        present(alert, animated: true)
-        
-    }
 }
