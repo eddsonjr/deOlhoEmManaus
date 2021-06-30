@@ -25,17 +25,13 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
     var downloaded: Bool = false
     
     
-    override func viewWillAppear(_ animated: Bool) {
-        try? addReachabilityObserver() //habilitando sistema para verificar se ha ou nao conexao com web
-        
-    }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print(self.TAG + "Singleton show: \(ModelSingleton.shared.showSelected?.id)")
         print(self.TAG + "Singleton show img: \(ModelSingleton.shared.showSelected?.imageUrl)")
-        self.popOverView.layer.cornerRadius = 10 //Ajustando o popover - contornos
+        
+        try? addReachabilityObserver()
     }
 
     override func didReceiveMemoryWarning() {
@@ -62,6 +58,8 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
     
     @objc func locationButton(_ sender: Any) {
         print(self.TAG + "Location....")
+        
+        //callMapsScreen()
         
         let  location = "http://maps.google.com/maps?q=" + (ModelSingleton.shared.showSelected?.showHouse?.completAddress)!
         let safariURL = location.addingPercentEncoding(withAllowedCharacters:  CharacterSet.urlQueryAllowed)
@@ -208,6 +206,20 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
        
     
     
+    //--------------------------------------------------------------
+    //Metodo para chamar a tela com o mapa da apple
+    //--------------------------------------------------------------
+    private func callMapsScreen() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let mainView = storyboard.instantiateViewController(withIdentifier: "mapViewController") as! MapViewController
+
+        let navigationController = UINavigationController(rootViewController: mainView)
+        appDelegate.window!.rootViewController = navigationController
+
+    }
+    
+    
     
     
     //Mark: Reachability protocol
@@ -232,7 +244,7 @@ class ShowHouseUIViewController: UIViewController, ReachabilityObserverDelegate{
      
      
      deinit {
-        removeReachabilityObserver()
+        //removeReachabilityObserver()
         print("Exiting class")
      }
     

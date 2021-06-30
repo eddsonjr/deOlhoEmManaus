@@ -340,7 +340,7 @@
         <!--Map View Controller-->
         <scene sceneID="cJn-Pu-gBg">
             <objects>
-                <viewController id="6LZ-2W-Ii0" customClass="MapViewController" customModule="OlhoEmManaus" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapViewController" id="6LZ-2W-Ii0" customClass="MapViewController" customModule="OlhoEmManaus" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jun-Gw-4dM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -374,7 +374,7 @@
                     <navigationItem key="navigationItem" id="Yeu-vP-gUo"/>
                     <connections>
                         <outlet property="enderecoTextView" destination="C6g-Ze-UMg" id="gnp-8y-xSt"/>
-                        <outlet property="mapKitView" destination="sZm-Mz-iej" id="GGE-pT-70k"/>
+                        <outlet property="mapKitView" destination="sZm-Mz-iej" id="fbZ-A1-z9Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W1z-IH-LiM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

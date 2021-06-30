@@ -30,6 +30,7 @@ class MapViewController: UIViewController {
     private func setupMap() {
         
         let location = convertAddressToGeolocation()
+        
         if(location != nil){
             let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
             let region = MKCoordinateRegion(center: location!, span: span)
@@ -39,6 +40,8 @@ class MapViewController: UIViewController {
             annotation.coordinate = location!
             annotation.title = ModelSingleton.shared.showSelected?.showHouse?.name
             self.mapKitView.addAnnotation(annotation)
+        }else{
+            print(TAG + "Erro ao iniciar sistema de mapas")
         }
         
     }
@@ -49,20 +52,22 @@ class MapViewController: UIViewController {
         let geocoder =  CLGeocoder()
         var coordinate: CLLocationCoordinate2D?
         
-        let address = (ModelSingleton.shared.showSelected?.showHouse?.completAddress)!
-        geocoder.geocodeAddressString(address, completionHandler: { [self](placemarks, error) -> Void in
-                if((error) != nil){
-                print(TAG + "Nao foi possivel converter o endereco selecionado")
-                print(TAG + "\(error)")
-                coordinate = nil
+        let address = "Amazonas Shopping"
+        
+        geocoder.geocodeAddressString(address, completionHandler: {(placemarks, error) -> Void in
+                    if((error) != nil){
+                        print("Error", error ?? "")
+                    }
+                    if let placemark = placemarks?.first {
+                        let coordinates:CLLocationCoordinate2D = placemark.location!.coordinate
+                        print("Lat: \(coordinates.latitude) -- Long: \(coordinates.longitude)")
                         
-                }
-                if let placemark = placemarks?.first {
-                    coordinate = placemark.location!.coordinate
-                    print("Lat: \(coordinate?.latitude) -- Long: \(coordinate?.longitude)")
-                    
-                }
-        })
+                        coordinate = coordinates
+                    }
+            
+                })
+    
+       
         return coordinate
     }
 
