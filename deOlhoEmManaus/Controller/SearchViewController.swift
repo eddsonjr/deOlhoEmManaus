@@ -33,15 +33,6 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
         self.searchBar.showsCancelButton = true
         self.searchBar.isUserInteractionEnabled = true
         self.searchBar.setImage(UIImage(), for: .clear, state: .normal)
-        
-        
-        
-        //searchActivated = true
-               
-        
-        
-        
-   
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +40,8 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
         print(TAG + "Shows filtrados do modelSingleton: \(ModelSingleton.shared.showsFiltered.count)")
         print(TAG + "Searching: \(searchActivated)")
         self.searchBar.text = ""
+        self.searchBar.becomeFirstResponder()
+        
     }
     
     
