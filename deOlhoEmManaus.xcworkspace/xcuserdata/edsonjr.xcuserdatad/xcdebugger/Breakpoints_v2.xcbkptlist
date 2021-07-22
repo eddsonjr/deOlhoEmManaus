@@ -7,33 +7,33 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C62D045A-56EF-4244-A6A0-1A02F29C2A0A"
-            shouldBeEnabled = "Yes"
+            uuid = "5E75DF00-46A7-43BA-9E8D-0876C12FB279"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "deOlhoEmManaus/Controller/ShowHouseUIViewController.swift"
+            filePath = "deOlhoEmManaus/Service/FirebaseService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "retrieveListOfShowsData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D665667D-0B4B-4E0E-B7C4-045706A16ABA"
-            shouldBeEnabled = "Yes"
+            uuid = "A3E7882D-9DE6-43F5-98ED-23A251DEB0B6"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "deOlhoEmManaus/Controller/ShowHouseUIViewController.swift"
+            filePath = "deOlhoEmManaus/Service/FirebaseService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "FirebaseService"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

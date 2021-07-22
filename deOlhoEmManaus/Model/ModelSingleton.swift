@@ -24,8 +24,6 @@ class ModelSingleton {
     
     
     
-    
-    
     //Este metodo serve para organizar os dados que foram baixados da internet (via firebase)
     func organizeCategoryAndShowData() {
         for categorie in self.categories {
@@ -33,6 +31,9 @@ class ModelSingleton {
             for show in self.shows {
                 if(show.category == categorie.name){
                     print(self.TAG + "Putting show \(show.id) in category \(categorie.name)")
+                    
+                    //TODO - Verificar data do show
+                    
                     categorie.shows.append(show)
                 }
             }
