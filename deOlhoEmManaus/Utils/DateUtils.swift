@@ -11,10 +11,10 @@ import Foundation
 
 class DateUtils {
     
-    class func getStringDateAndConvertToDate(dateString: String) -> Date {
+    class func getStringDateAndConvertToDate(dateString: String?) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
-        let date = dateFormatter.date(from: dateString)
+        let date = dateFormatter.date(from: dateString!)
         return date!
     }
     
@@ -28,9 +28,30 @@ class DateUtils {
     }
     
     
+    
+    class func getTimeStamp(dateString: String) -> Int{
+        var dfmatter = DateFormatter()
+        dfmatter.dateFormat="dd/MM/yyyy"
+        var date = dfmatter.date(from: dateString)
+        var dateStamp:TimeInterval = date!.timeIntervalSince1970
+        var dateSt:Int = Int(dateStamp)
+        return dateSt
+    }
+    
+    
+    
+    
     class func checkDateToRemoveShow(showEndDate: String?) -> Bool{
         let TAG = "[DateUtils]:"
-        var result = false
+        let result = false
+        
+        if(showEndDate == nil){return result} //se a data do show for nula, retorna false para indicar que aquele show nao sera removido
+        
+        let showEndDateTS = getTimeStamp(dateString: showEndDate!)
+        let currentDate = getCurrentSysDate()
+        print(TAG + "Show end date: \(showEndDate) TS: \(showEndDateTS) | Now: \(currentDate) TS: \(getTimeStamp(dateString: currentDate))")
+    
+       
         
         
         

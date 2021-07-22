@@ -108,7 +108,7 @@ class FirebaseService {
                 showModel.showHouse = showHouseModel
                 
                 ModelSingleton.shared.shows.append(showModel)
-                ModelSingleton.shared.showsFiltered.append(showModel)
+            
             }
             self.retrieveAllShowsDispatchGroup.leave()
         })
@@ -126,11 +126,31 @@ class FirebaseService {
     //Esta funcao serve para organizar os dados
     func organizeAllCategoriesAndShowData() {
         self.organizingDataDispatchGroup.enter()
+        for categorie in ModelSingleton.shared.categories {
+            print(self.TAG + "Organizing shows of category \(categorie.name)")
+            for show in ModelSingleton.shared.shows {
+                if(show.subCategory == categorie.name){
+                    
+                    categorie.shows.append(show)
+                    ModelSingleton.shared.showsFiltered.append(show)
+                    
+                    DateUtils.checkDateToRemoveShow(showEndDate: show.endDate)
+                    
+                    
+                    //verificando tambem agora a data
+                    //TODO - Se houver imagem
+                    if(!DateUtils.checkDateToRemoveBanner(dateFromServer: show.endDate)){
+                        print(self.TAG + "Putting show \(show.showHouse?.name) in category \(categorie.name)")
+                        print(self.TAG + "\(show.showHouse?.name) - Real end date: \(show.endDate)")
+                        print(self.TAG + "\(show.showHouse?.name) - IMG: \(show.imageUrl)")
+//                        categorie.shows.append(show)
+//                        ModelSingleton.shared.showsFiltered.append(show)
+                    }
+                }
+            }
+        }
         
-        //Neste ponto, ja foi feito o download tanto de categorias quanto de shows
-        //agora organizando os shows
-        ModelSingleton.shared.postDataOrganize()
-       
+        ModelSingleton.shared.removeCategoriesWithNoShows()
         
         self.organizingDataDispatchGroup.leave()
         self.organizingDataDispatchGroup.notify(queue: .main) {
