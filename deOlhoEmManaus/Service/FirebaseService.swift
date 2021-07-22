@@ -108,6 +108,7 @@ class FirebaseService {
                 showModel.showHouse = showHouseModel
                 
                 ModelSingleton.shared.shows.append(showModel)
+                ModelSingleton.shared.showsFiltered.append(showModel)
             }
             self.retrieveAllShowsDispatchGroup.leave()
         })
@@ -129,6 +130,7 @@ class FirebaseService {
         //Neste ponto, ja foi feito o download tanto de categorias quanto de shows
         //agora organizando os shows
         ModelSingleton.shared.postDataOrganize()
+       
         
         self.organizingDataDispatchGroup.leave()
         self.organizingDataDispatchGroup.notify(queue: .main) {
