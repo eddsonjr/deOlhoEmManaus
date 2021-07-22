@@ -41,6 +41,16 @@ class ModelSingleton {
     
     
     
+    //esta funcao serve para organizar os shows
+    func postDataOrganize() {
+        organizeCategoryAndShowData() //organizar os shows dentro das categorias
+        removeCategoriesWithNoShows() //remove as categorias sem shows
+        
+        
+    }
+    
+    
+    
     //Esta funcao serve para remover categorias que nao apresentam shows associados.
     func removeCategoriesWithNoShows() {
         var tempArray: [Categorie] = []

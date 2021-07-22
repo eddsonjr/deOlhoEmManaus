@@ -28,11 +28,22 @@ class DateUtils {
     }
     
     
+    class func checkDateToRemoveShow(showEndDate: String?) -> Bool{
+        let TAG = "[DateUtils]:"
+        var result = false
+        
+        
+        
+        
+        return result
+    }
+    
+    
     
     
     class func checkDateToRemoveBanner(dateFromServer: String?) -> Bool  {
         
-        let TAG = "[DateUtils]: "
+        let TAG = "[DateUtils]:"
         
         var currentDateIsSuperior = false
         if(dateFromServer == nil){

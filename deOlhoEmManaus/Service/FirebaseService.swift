@@ -125,25 +125,37 @@ class FirebaseService {
     //Esta funcao serve para organizar os dados
     func organizeAllCategoriesAndShowData() {
         self.organizingDataDispatchGroup.enter()
-        for categorie in ModelSingleton.shared.categories {
-            print(self.TAG + "Organizing shows of category \(categorie.name)")
-            for show in ModelSingleton.shared.shows {
-                if(show.subCategory == categorie.name){
-                    
-                    //verificando tambem agora a data
-                    //TODO - Se houver imagem
-                    if(!DateUtils.checkDateToRemoveBanner(dateFromServer: show.endDate)){
-                        print(self.TAG + "Putting show \(show.showHouse?.name) in category \(categorie.name)")
-                        print(self.TAG + "\(show.showHouse?.name) - Real end date: \(show.endDate)")
-                        print(self.TAG + "\(show.showHouse?.name) - IMG: \(show.imageUrl)")
-                        categorie.shows.append(show)
-                        ModelSingleton.shared.showsFiltered.append(show)
-                    }
-                }
-            }
-        }
         
-        ModelSingleton.shared.removeCategoriesWithNoShows()
+        //Neste ponto, ja foi feito o download tanto de categorias quanto de shows
+        
+        
+//        for categorie in ModelSingleton.shared.categories {
+//            print(self.TAG + "Organizing shows of category \(categorie.name)")
+//            for show in ModelSingleton.shared.shows {
+//                if(show.subCategory == categorie.name){
+//
+//                    //Pegar shows que tenham somente imagem e que consiga baixar imagem (response != 404)
+//                    if(show.imageUrl != nil) {
+//
+//                        categorie.shows.append(show)
+//                        ModelSingleton.shared.showsFiltered.append(show)
+//
+//
+//                        if(!DateUtils.checkDateToRemoveBanner(dateFromServer: show.endDate)){
+//                            print(self.TAG + "Putting show \(show.showHouse?.name) in category \(categorie.name)")
+//                            print(self.TAG + "\(show.showHouse?.name) - Real end date: \(show.endDate)")
+//                            print(self.TAG + "\(show.showHouse?.name) - img: \(show.imageUrl)")
+//                            categorie.shows.append(show)
+//                            ModelSingleton.shared.showsFiltered.append(show)
+//                        }
+//                    }
+//                }
+//            }
+//        }
+        
+        
+//        ModelSingleton.shared.removeCategoriesWithNoShows()
+        ModelSingleton.shared.postDataOrganize()
         
         self.organizingDataDispatchGroup.leave()
         self.organizingDataDispatchGroup.notify(queue: .main) {
