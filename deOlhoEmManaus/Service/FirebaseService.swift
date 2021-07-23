@@ -14,7 +14,7 @@ import UIKit
 class FirebaseService {
     
     
-    private let TAG = "[FirebaseDAO]: "
+    private let TAG = "[FirebaseService]: "
     private let retrieveAllCategoriesDispatchGroup = DispatchGroup()
     private let retrieveAllShowsDispatchGroup = DispatchGroup()
     private let organizingDataDispatchGroup = DispatchGroup()
@@ -22,8 +22,10 @@ class FirebaseService {
     private let notificationIdentifier: String = "NotificationIdentifier"
     
     
+    
     //Funcao para baixar todos os dados de categoria
     func retrieveDataFromWeb() {
+        print(TAG + "Downloading all categories...")
         ModelSingleton.shared.categories.removeAll()
         let ref = appDelegateReference.databaseRef
         self.retrieveAllCategoriesDispatchGroup.enter()
@@ -37,12 +39,14 @@ class FirebaseService {
                 var categoriaModel: Categorie = Categorie()
                 categoriaModel.name = categoria.value as? String
                 ModelSingleton.shared.categories.append(categoriaModel)
+                print(self.TAG + "category \(categoriaModel.name)")
             }
             self.retrieveAllCategoriesDispatchGroup.leave()
         })
         
         self.retrieveAllCategoriesDispatchGroup.notify(queue: .main) {
             print(self.TAG + "Number of categories downloaded: \(ModelSingleton.shared.categories.count)")
+            print(self.TAG + "Calling function to download all shows")
             self.retrieveListOfShowsData()
             
             
@@ -56,10 +60,11 @@ class FirebaseService {
     
     //funcao para baixar todos os dados de shows
     func retrieveListOfShowsData() {
+        print(TAG + "Downloading and filtering shows...")
         ModelSingleton.shared.shows.removeAll()
         let ref = appDelegateReference.databaseRef
         self.retrieveAllShowsDispatchGroup.enter()
-        ref?.child("show").observeSingleEvent(of: .value, with: { snapshot in
+        ref?.child("show").observeSingleEvent(of: .value, with: { [self] snapshot in
             
             
             for show in snapshot.children.allObjects as! [DataSnapshot] {
@@ -100,6 +105,7 @@ class FirebaseService {
                 
                 // Fazendo verificacao de data do evento e imagem para ver se o show sera colocado ou nao
                 if((DateUtils.checkDateToRemoveShow(showEndDate: showModel.endDate) == false) && showModel.imageUrl != nil){
+                    print(self.TAG + "show id \(showModel.id) added | end date \(showModel.endDate)")
                     ModelSingleton.shared.shows.append(showModel)
                     ModelSingleton.shared.showsFiltered.append(showModel)
                 }
@@ -109,7 +115,8 @@ class FirebaseService {
         })
         
         self.retrieveAllShowsDispatchGroup.notify(queue: .main) {
-            print(self.TAG + "Number of shows downloaded: \(ModelSingleton.shared.shows.count) ")
+            print(self.TAG + "Number of shows: \(ModelSingleton.shared.shows.count) ")
+            print(self.TAG + "Calling function to organize categories and shows...")
             self.organizeAllCategoriesAndShowData()
         }
     }
@@ -126,22 +133,8 @@ class FirebaseService {
             for show in ModelSingleton.shared.shows {
                 if(show.subCategory == categorie.name){
                     
-                    
                     categorie.shows.append(show)
-                    ModelSingleton.shared.showsFiltered.append(show)
                     
-                    DateUtils.checkDateToRemoveShow(showEndDate: show.endDate)
-                    
-                    
-                    //verificando tambem agora a data
-                    //TODO - Se houver imagem
-//                    if(!DateUtils.checkDateToRemoveBanner(dateFromServer: show.endDate)){
-//                        print(self.TAG + "Putting show \(show.showHouse?.name) in category \(categorie.name)")
-//                        print(self.TAG + "\(show.showHouse?.name) - Real end date: \(show.endDate)")
-//                        print(self.TAG + "\(show.showHouse?.name) - IMG: \(show.imageUrl)")
-//                        categorie.shows.append(show)
-//                        ModelSingleton.shared.showsFiltered.append(show)
-//                    }
                 }
             }
         }

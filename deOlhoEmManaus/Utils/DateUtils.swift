@@ -12,7 +12,7 @@ import Foundation
 class DateUtils {
     
     //recebe como parametro uma string contendo data e hora e converte ela para o tipo Date
-    class func getStringDateAndConvertToDate(dateString: String?) -> Date {
+    private class func getStringDateAndConvertToDate(dateString: String?) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
         dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
@@ -22,10 +22,9 @@ class DateUtils {
     
     
     //Pega a data atual do sistema e converte para string seguindo o formato de data e horario
-    class func getCurrentSysDate() -> String {
+    private class func getCurrentSysDate() -> String {
         let current = Date()
         let formatter = DateFormatter()
-        formatter.timeZone = TimeZone(abbreviation: "GMT")
         formatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
         let result = formatter.string(from: current)
         return result
