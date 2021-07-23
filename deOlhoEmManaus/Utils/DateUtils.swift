@@ -11,6 +11,7 @@ import Foundation
 
 class DateUtils {
     
+    //recebe como parametro uma string contendo data e hora e converte ela para o tipo Date
     class func getStringDateAndConvertToDate(dateString: String?) -> Date {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
@@ -20,9 +21,11 @@ class DateUtils {
     }
     
     
+    //Pega a data atual do sistema e converte para string seguindo o formato de data e horario
     class func getCurrentSysDate() -> String {
         let current = Date()
         let formatter = DateFormatter()
+        formatter.timeZone = TimeZone(abbreviation: "GMT")
         formatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
         let result = formatter.string(from: current)
         return result
@@ -30,11 +33,7 @@ class DateUtils {
     
     
     
-
-    
-    
-    
-    
+    //Verifica se um show deve ser mostrado ou nao com base na data final do evento
     class func checkDateToRemoveShow(showEndDate: String?) -> Bool{
         let TAG = "[DateUtils]:"
         var result = false
@@ -51,31 +50,6 @@ class DateUtils {
         print(TAG + "Now: \(now) | Show end date: \(dateFromServer) | Show end date + 5: \(dateServerMore5) | remove: \(result)")
     
         return result
-    }
-    
-    
-    
-    
-    class func checkDateToRemoveBanner(dateFromServer: String?) -> Bool  {
-        
-        let TAG = "[DateUtils]:"
-        
-        var currentDateIsSuperior = false
-        if(dateFromServer == nil){
-            return currentDateIsSuperior
-        }
-        
-        let dateServer = getStringDateAndConvertToDate(dateString: dateFromServer!)
-        let currentSysDate = getStringDateAndConvertToDate(dateString: getCurrentSysDate())
-        var dateServerMore5 = Calendar.current.date(byAdding: .hour, value: 5, to: dateServer)
-        
-        if (currentSysDate >= dateServer) {
-            currentDateIsSuperior = true
-        }
-        
-        print(TAG + "D Server: \(dateServer) | sysD: \(currentSysDate) | dS+5: \(dateServerMore5) | rem: \(currentDateIsSuperior)")
-        
-        return currentDateIsSuperior
     }
 
     

@@ -31,10 +31,7 @@ class FirebaseService {
             if !snapshot.exists() {
                 print(self.TAG  + "ERROR: Data not found or cannot download")
                 return }
-            
-//            let jsonFromFirebase = snapshot.value!
-//            print(self.TAG)
-//            print(jsonFromFirebase)
+
             
             for categoria in snapshot.children.allObjects as! [DataSnapshot] {
                 var categoriaModel: Categorie = Categorie()
@@ -64,13 +61,6 @@ class FirebaseService {
         self.retrieveAllShowsDispatchGroup.enter()
         ref?.child("show").observeSingleEvent(of: .value, with: { snapshot in
             
-//            if !snapshot.exists() {
-//                print(self.TAG  + "ERROR: Data not found or cannot download")
-//                return }
-            
-//            let jsonFromFirebase = snapshot.value!
-//            print(self.TAG)
-//            print(jsonFromFirebase)
             
             for show in snapshot.children.allObjects as! [DataSnapshot] {
                 let dict = show.value as? [String:Any]
@@ -107,7 +97,12 @@ class FirebaseService {
                 //Colocando showHouse dentro de Show
                 showModel.showHouse = showHouseModel
                 
-                ModelSingleton.shared.shows.append(showModel)
+                
+                // Fazendo verificacao de data do evento e imagem para ver se o show sera colocado ou nao
+                if((DateUtils.checkDateToRemoveShow(showEndDate: showModel.endDate) == false) && showModel.imageUrl != nil){
+                    ModelSingleton.shared.shows.append(showModel)
+                    ModelSingleton.shared.showsFiltered.append(showModel)
+                }
             
             }
             self.retrieveAllShowsDispatchGroup.leave()
@@ -140,13 +135,13 @@ class FirebaseService {
                     
                     //verificando tambem agora a data
                     //TODO - Se houver imagem
-                    if(!DateUtils.checkDateToRemoveBanner(dateFromServer: show.endDate)){
-                        print(self.TAG + "Putting show \(show.showHouse?.name) in category \(categorie.name)")
-                        print(self.TAG + "\(show.showHouse?.name) - Real end date: \(show.endDate)")
-                        print(self.TAG + "\(show.showHouse?.name) - IMG: \(show.imageUrl)")
-                        categorie.shows.append(show)
-                        ModelSingleton.shared.showsFiltered.append(show)
-                    }
+//                    if(!DateUtils.checkDateToRemoveBanner(dateFromServer: show.endDate)){
+//                        print(self.TAG + "Putting show \(show.showHouse?.name) in category \(categorie.name)")
+//                        print(self.TAG + "\(show.showHouse?.name) - Real end date: \(show.endDate)")
+//                        print(self.TAG + "\(show.showHouse?.name) - IMG: \(show.imageUrl)")
+//                        categorie.shows.append(show)
+//                        ModelSingleton.shared.showsFiltered.append(show)
+//                    }
                 }
             }
         }
