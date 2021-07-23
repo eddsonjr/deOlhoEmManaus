@@ -131,6 +131,7 @@ class FirebaseService {
             for show in ModelSingleton.shared.shows {
                 if(show.subCategory == categorie.name){
                     
+                    
                     categorie.shows.append(show)
                     ModelSingleton.shared.showsFiltered.append(show)
                     
@@ -143,8 +144,8 @@ class FirebaseService {
                         print(self.TAG + "Putting show \(show.showHouse?.name) in category \(categorie.name)")
                         print(self.TAG + "\(show.showHouse?.name) - Real end date: \(show.endDate)")
                         print(self.TAG + "\(show.showHouse?.name) - IMG: \(show.imageUrl)")
-//                        categorie.shows.append(show)
-//                        ModelSingleton.shared.showsFiltered.append(show)
+                        categorie.shows.append(show)
+                        ModelSingleton.shared.showsFiltered.append(show)
                     }
                 }
             }

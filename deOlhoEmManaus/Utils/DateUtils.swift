@@ -13,7 +13,8 @@ class DateUtils {
     
     class func getStringDateAndConvertToDate(dateString: String?) -> Date {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
         let date = dateFormatter.date(from: dateString!)
         return date!
     }
@@ -22,40 +23,33 @@ class DateUtils {
     class func getCurrentSysDate() -> String {
         let current = Date()
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
         let result = formatter.string(from: current)
         return result
     }
     
     
     
-    class func getTimeStamp(dateString: String) -> Int{
-        var dfmatter = DateFormatter()
-        dfmatter.dateFormat="dd/MM/yyyy"
-        var date = dfmatter.date(from: dateString)
-        var dateStamp:TimeInterval = date!.timeIntervalSince1970
-        var dateSt:Int = Int(dateStamp)
-        return dateSt
-    }
+
     
     
     
     
     class func checkDateToRemoveShow(showEndDate: String?) -> Bool{
         let TAG = "[DateUtils]:"
-        let result = false
+        var result = false
         
-        if(showEndDate == nil){return result} //se a data do show for nula, retorna false para indicar que aquele show nao sera removido
-        
-        let showEndDateTS = getTimeStamp(dateString: showEndDate!)
-        let currentDate = getCurrentSysDate()
-        print(TAG + "Show end date: \(showEndDate) TS: \(showEndDateTS) | Now: \(currentDate) TS: \(getTimeStamp(dateString: currentDate))")
+        if(showEndDate == nil){return result} //se for nil, retorna false indicando que nao deve remover aquele show
     
-       
+        let endShowDateForm = showEndDate! + " 23:59:59" //o show ira ficar disponivel ate a data e este horario
         
+        let dateFromServer = getStringDateAndConvertToDate(dateString: endShowDateForm)
+        let now = getStringDateAndConvertToDate(dateString: getCurrentSysDate())
+        var dateServerMore5 = Calendar.current.date(byAdding: .hour, value: 5, to: dateFromServer)
         
-        
-        
+        if(now >= dateServerMore5!){result = true} //verifica se e para remover ou nao
+        print(TAG + "Now: \(now) | Show end date: \(dateFromServer) | Show end date + 5: \(dateServerMore5) | remove: \(result)")
+    
         return result
     }
     
