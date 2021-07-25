@@ -39,7 +39,7 @@ class DateUtils {
         
         if(showEndDate == nil){return result} //se for nil, retorna false indicando que nao deve remover aquele show
     
-        let endShowDateForm = showEndDate! + " 23:59:59" //o show ira ficar disponivel ate a data e este horario
+        let endShowDateForm = showEndDate! + " 00:00:00" //o show ira ficar disponivel ate a data e este horario
         
         let dateFromServer = getStringDateAndConvertToDate(dateString: endShowDateForm)
         let now = getStringDateAndConvertToDate(dateString: getCurrentSysDate())

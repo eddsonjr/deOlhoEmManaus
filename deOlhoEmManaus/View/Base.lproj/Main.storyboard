@@ -219,11 +219,6 @@
                             <constraint firstItem="dJI-Vs-u9p" firstAttribute="trailing" secondItem="OqN-pU-EzC" secondAttribute="trailing" id="dqT-fy-o0W"/>
                             <constraint firstItem="spB-h3-bET" firstAttribute="leading" secondItem="OqN-pU-EzC" secondAttribute="leading" id="fVO-G8-Q1E"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="dJI-Vs-u9p"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Eventos" id="ygA-iw-F5Y">
                         <barButtonItem key="rightBarButtonItem" title="Pesquisar" image="magnifyingglass" catalog="system" id="JUG-i5-i3w">
