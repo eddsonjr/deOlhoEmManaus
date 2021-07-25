@@ -76,6 +76,11 @@
                                     <outlet property="delegate" destination="dQs-Mn-kkH" id="LMM-M1-GZ2"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D3N-Ml-6AM">
+                                <rect key="frame" x="67" y="269" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Lea-Lx-X6e"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
