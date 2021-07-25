@@ -48,6 +48,8 @@ class ModelSingleton {
         }
         self.categories = tempArray
         print(self.TAG + "Number of categories: \(self.categories.count) - [after remove no shows]")
+        organizeShowsByDate()
+        
     }
     
     
@@ -55,14 +57,13 @@ class ModelSingleton {
     
     
     func organizeShowsByDate(){
-        
+        print(TAG + "Organizando por data")
         var dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"
         for category in self.categories {
-            category.shows.sorted(by: {
-                dateFormatter.date(from: $0.endDate!)?.compare(dateFormatter.date(from: $1.endDate!)!) == .orderedDescending
-                
-            })
+            
+            category.shows.sort{($0.endDate ?? "") > ($1.endDate ?? "")}
+        
         }
     }
     
