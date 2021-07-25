@@ -24,28 +24,13 @@ class ModelSingleton {
     
     
     
-    //Este metodo serve para organizar os dados que foram baixados da internet (via firebase)
-    func organizeCategoryAndShowData() {
-        for categorie in self.categories {
-            print(self.TAG + "Organizing shows of category \(categorie.name)")
-            for show in self.shows {
-                if(show.category == categorie.name){
-                    print(self.TAG + "Putting show \(show.id) in category \(categorie.name)")
-                    
-                    //TODO - Verificar data do show
-                    
-                    categorie.shows.append(show)
-                }
-            }
-        }
-    }
+   
     
     
     
     //esta funcao serve para organizar os shows
     func postDataOrganize() {
-        organizeCategoryAndShowData() //organizar os shows dentro das categorias
-        removeCategoriesWithNoShows() //remove as categorias sem shows
+    
         
         
     }
@@ -63,6 +48,22 @@ class ModelSingleton {
         }
         self.categories = tempArray
         print(self.TAG + "Number of categories: \(self.categories.count) - [after remove no shows]")
+    }
+    
+    
+    
+    
+    
+    func organizeShowsByDate(){
+        
+        var dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        for category in self.categories {
+            category.shows.sorted(by: {
+                dateFormatter.date(from: $0.endDate!)?.compare(dateFormatter.date(from: $1.endDate!)!) == .orderedDescending
+                
+            })
+        }
     }
     
     
