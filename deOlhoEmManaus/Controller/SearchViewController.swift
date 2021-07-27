@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate, UISearchBarDelegate{
+class SearchViewController: UIViewController, UICollectionViewDataSource,UICollectionViewDelegate, UISearchBarDelegate,ReachabilityObserverDelegate{
     
     private let TAG = "[SearchViewController]:"
     
@@ -18,6 +18,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
     var searchActivated: Bool = false
     var listaFiltrada : Array<Show>? = []
     
+    @IBOutlet weak var noWebView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,10 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
         self.searchBar.showsCancelButton = true
         self.searchBar.isUserInteractionEnabled = true
         self.searchBar.setImage(UIImage(), for: .clear, state: .normal)
+        
+        
+        try? addReachabilityObserver() //habilitando sistema para verificar se ha ou nao conexao com web
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -146,6 +151,31 @@ class SearchViewController: UIViewController, UICollectionViewDataSource,UIColle
             print(TAG + "Qt filtrada: \(listaFiltrada?.count)")
             self.resultsCollectionView.reloadData()
             
+    }
+    
+    
+    
+    //Mark: Reachability protocol
+    func reachabilityChanged(_ isReachable: Bool) {
+        if isReachable {
+            //conectado
+            self.noWebView.isHidden = true
+        
+            
+            
+        }else{
+            //desconectado
+            print(TAG + "web not available. Prevent download....")
+            self.noWebView.isHidden = false
+            AlertUtils.shared.webNotAvailableAlert(view: self)
+            
+        }
+    }
+    
+    
+    deinit {
+       removeReachabilityObserver()
+       
     }
     
     
